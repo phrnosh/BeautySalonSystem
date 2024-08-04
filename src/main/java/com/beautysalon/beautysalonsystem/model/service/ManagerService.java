@@ -13,7 +13,7 @@ import java.util.List;
 @ApplicationScoped
 @Singleton
 public class ManagerService implements Serializable {
-    @PersistenceContext(unitName = "beautySalon")
+    @PersistenceContext(unitName = "beautysalon")
     private EntityManager entityManager;
 
 

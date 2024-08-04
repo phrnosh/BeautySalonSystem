@@ -13,7 +13,7 @@ import java.util.List;
 @Singleton
 public class RoleService implements Serializable {
 
-    @PersistenceContext(unitName = "beautySalon")
+    @PersistenceContext(unitName = "beautysalon")
     private EntityManager entityManager;
 
     public Role save(Role role) throws Exception {
