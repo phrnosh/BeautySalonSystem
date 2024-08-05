@@ -47,7 +47,6 @@ public class AdminService implements Serializable {
     public Admin findById(Long id) throws Exception {
         return entityManager.find(Admin.class, id);
     }
-//    hh
 
     public List<Admin> findByUsername(String username) throws Exception {
         return entityManager
