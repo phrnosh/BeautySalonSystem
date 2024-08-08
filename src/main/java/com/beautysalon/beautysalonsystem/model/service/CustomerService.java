@@ -2,26 +2,26 @@ package com.beautysalon.beautysalonsystem.model.service;
 
 
 import com.beautysalon.beautysalonsystem.model.entity.Customer;
-import jakarta.ejb.Singleton;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
 
 @ApplicationScoped
-@Singleton
 public class CustomerService implements Serializable {
     @PersistenceContext(unitName = "beautysalon")
     private EntityManager entityManager;
 
-
+    @Transactional
     public Customer save(Customer customer) throws Exception {
         entityManager.persist(customer);
         return customer;
     }
 
+    @Transactional
     public Customer edit(Customer customer) throws Exception {
         Customer foundCustomer = entityManager.find(Customer.class, customer.getId());
         if (foundCustomer != null) {
@@ -30,6 +30,7 @@ public class CustomerService implements Serializable {
         return customer;
     }
 
+    @Transactional
     public Customer remove(Long id) throws Exception {
         Customer customer = entityManager.find(Customer.class,id );
         if (customer != null) {
@@ -39,15 +40,19 @@ public class CustomerService implements Serializable {
         return customer;
     }
 
+    @Transactional
     public List<Customer> findAll() throws Exception {
         return entityManager
                 .createQuery("select oo from customerEntity oo where oo.deleted=false", Customer.class)
                 .getResultList();
     }
+
+    @Transactional
     public Customer findById(Long id) throws Exception {
         return entityManager.find(Customer.class, id);
     }
 
+    @Transactional
     public List<Customer> findByUsername(String username) throws Exception {
         return entityManager
                 .createQuery("select c from customerEntity c where c.user.username=:username", Customer.class)
@@ -55,6 +60,7 @@ public class CustomerService implements Serializable {
                 .getResultList();
     }
 
+    @Transactional
     public List<Customer> findByNameAndFamily(String name, String family) throws Exception {
         return entityManager
                 .createQuery("select c from customerEntity c where c.name like :name and c.family like :family", Customer.class)
@@ -63,6 +69,7 @@ public class CustomerService implements Serializable {
                 .getResultList();
     }
 
+    @Transactional
     public List<Customer> findByUsernameAndPassword(String username, String password) throws Exception {
         return entityManager
                 .createQuery("select c from customerEntity c where c.user.username=:username and c.user.password=:password", Customer.class)
@@ -71,6 +78,7 @@ public class CustomerService implements Serializable {
                 .getResultList();
     }
 
+    @Transactional
     public List<Customer> findByEmail(String email) throws Exception {
         return entityManager
                 .createQuery("select c from customerEntity c where c.email like :email", Customer.class)
@@ -78,12 +86,15 @@ public class CustomerService implements Serializable {
                 .getResultList();
     }
 
+    @Transactional
     public Customer findByPhoneNumber(String phoneNumber) throws Exception {
         return entityManager
                 .createQuery("select c from customerEntity c where c.phoneNumber =:phoneNumber", Customer.class)
                 .setParameter("phoneNumber", phoneNumber)
                 .getSingleResult();
     }
+
+    @Transactional
     public Customer findByNationalCode(String nationalCode) throws Exception {
         return entityManager
                 .createQuery("select c from customerEntity c where c.nationalCode=:nationalCode", Customer.class)

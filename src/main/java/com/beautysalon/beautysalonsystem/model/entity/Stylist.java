@@ -22,7 +22,7 @@ public class Stylist extends Profile {
     @Column(name = "id")
     private Long id;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Address address;
+    @Column(name = "career", length = 30)
+    private String career;
 
 }

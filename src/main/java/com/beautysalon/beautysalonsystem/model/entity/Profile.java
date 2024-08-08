@@ -39,6 +39,10 @@ public abstract class Profile extends Base {
     private UserState status;
 
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name="profile_address_tbl")
+    private Address address;
+
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name="profile_user_tbl")
     private User user ;
 }
