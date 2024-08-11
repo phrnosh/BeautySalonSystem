@@ -25,4 +25,6 @@ public class Stylist extends Profile {
     @Column(name = "career", length = 30)
     private String career;
 
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Address address;
 }
