@@ -26,7 +26,7 @@ public class CardPayment extends Payment {
     private  String bankName;
 
     @Column(name = "cardNumber" ,length = 20, unique = true)
-    private Long cardNumber;
+    private int cardNumber;
 
 //    @Column(name="dateTime")
 //    private LocalDateTime dateTime;
