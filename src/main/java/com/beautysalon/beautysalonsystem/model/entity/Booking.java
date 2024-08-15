@@ -34,7 +34,7 @@ public class Booking extends Base{
     @Column(name = "date_time")
     private LocalDateTime localDateTime;
 
-    @OneToMany(mappedBy = "services", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name= "services_id")
     private List<Services> servicesList;
 
