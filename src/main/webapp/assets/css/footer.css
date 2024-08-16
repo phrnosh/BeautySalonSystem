@@ -1,0 +1,20 @@
+#footer{
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    background-color: #d2e5ff;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+#footer a{
+    padding: 10px;
+    margin-inline-end: 50px;
+}
+
+#footer a:hover{
+    background-color: black;
+    color:white;
+}

@@ -1,0 +1,43 @@
+a{
+    text-decoration: none;
+}
+
+.nav{
+    background-color: lightcyan;
+    height: 8%;
+}
+
+.side-bar{
+    background-color: lightsteelblue;
+}
+.content{
+    background-color: lightgray;
+}
+
+.footer{
+    background-color: darkslateblue;
+    height: 8%;
+}
+
+.items a{
+    color:gray;
+    height: 8%;
+}
+
+.items a:hover{
+    background-color: lightblue;
+    color:black;
+    font-weight: bold;
+    .item-icon{
+        color:purple;
+    }
+}
+
+#person-frame{
+    padding-left: 300px;
+}
+
+#product-frame{
+    padding-left: 300px;
+}
+
