@@ -6,12 +6,7 @@
     <jsp:include page="css-include.jsp"/>
 </head>
 <body style="background:-webkit-linear-gradient(left,#ae7a59,#507c6c,#213d26)">
-<%--<h1>Welcome</h1>--%>
 
-<%--<a href="./admin/panel.jsp">Admin Panel</a><br><br>--%>
-<%--<a href="./managers/panel.jsp">Manager Panel</a><br><br>--%>
-<%--<a href="./customers/panel.jsp">Customer Panel</a><br><br>--%>
-<%--<a href="/logout">Logout</a>--%>
 
 <br><br><br>
 
@@ -28,12 +23,10 @@
             <map name="area"><area shape="default" href="./admin/panel.jsp"></map>
             </div><br><br>
 
-
-
+        <%--<a href="/logout">Logout</a>--%>
 
         </div>
     </div>
-</div>
 
 </body>
 <jsp:include page="js-include.jsp"/>
