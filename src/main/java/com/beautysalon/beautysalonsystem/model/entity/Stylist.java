@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -27,4 +29,8 @@ public class Stylist extends Profile {
 
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Address address;
+
+    @OneToMany
+    @JoinTable(name = "Services_Stylist_tbl")
+    private List<Services> services;
 }
