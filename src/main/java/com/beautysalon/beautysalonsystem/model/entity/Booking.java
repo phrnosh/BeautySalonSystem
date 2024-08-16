@@ -1,5 +1,6 @@
 package com.beautysalon.beautysalonsystem.model.entity;
 
+import com.beautysalon.beautysalonsystem.model.entity.enums.BookingState;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,11 +27,13 @@ public class Booking extends Base{
     @Column(name = "id")
     private Long id;
 
+    @Enumerated
+    private BookingState status;
+
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    // todo تاریخ رزور
     @Column(name = "date_time")
     private LocalDateTime localDateTime;
 

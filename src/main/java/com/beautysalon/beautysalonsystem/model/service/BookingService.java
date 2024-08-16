@@ -85,4 +85,12 @@ public class BookingService implements Serializable {
                 .setParameter("servicesList", servicesList)
                 .getResultList();
     }
+    @Transactional
+    public List<Booking> findByCancelBooked(String servicesList) throws Exception {
+        return entityManager
+                .createQuery("select b from bookingEntity b where b.servicesList =: servicesList", Booking.class)
+                .setParameter("servicesList", servicesList)
+                .getResultList();
+    }
+
 }
