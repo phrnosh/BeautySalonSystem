@@ -22,4 +22,7 @@ public class Manager extends Profile {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "name_Beauty_Salon")
+    private String nameSalon;
+
 }
