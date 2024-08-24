@@ -22,8 +22,8 @@ public class CheckPayment extends Payment {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "checkNumber", length = 20, unique = true)
-    private Long checkNumber;
+    @Column(name = "check_Number", length = 20, unique = true)
+    private Long check;
 
 
 }
