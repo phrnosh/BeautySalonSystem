@@ -15,6 +15,8 @@
 </head>
 <body style="background-color:#f3f3f3">
 
+<%--<jsp:include page="navbar.jsp"/>--%>
+
 <br><br><br>
 <div class="container">
     <div class="row">

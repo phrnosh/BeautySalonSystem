@@ -61,5 +61,3 @@ public class  CardPaymentServlet extends HttpServlet {
     }
 }
 
-    }
-
