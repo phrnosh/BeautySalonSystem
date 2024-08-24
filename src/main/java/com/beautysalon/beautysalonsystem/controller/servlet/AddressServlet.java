@@ -1,6 +1,5 @@
 package com.beautysalon.beautysalonsystem.controller.servlet;
 
-
 import com.beautysalon.beautysalonsystem.controller.validation.BeanValidator;
 import com.beautysalon.beautysalonsystem.model.entity.Address;
 import com.beautysalon.beautysalonsystem.model.service.AddressService;
@@ -13,7 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import javax.inject.Inject;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 @WebServlet("/address.do")
 public class AddressServlet extends HttpServlet {
