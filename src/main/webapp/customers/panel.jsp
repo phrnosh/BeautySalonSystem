@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="/assets/css/boot.css">
     <link rel="stylesheet" href="/assets/css/UI.css">
 </head>
-<body style="background-color:rgba(200, 161, 132, 0.64)">
+<body style="background-color:rgba(200, 161, 132, 0.64);">
 
 <jsp:include page="/./short-user-info.jsp"/>
 <jsp:include page="/./navbar.jsp"/>
 <br>
 <!-- image countent -->
-<div id="image-count" >
+<div id="image-count" style="height: 68em;">
     <img src="/assets/images/mainpic.jpg" style="width:100%" alt="">
     <div class="container">
         <div class="caption-site" >
@@ -40,7 +40,46 @@
     </div>
 </div>
 
-<br>
+<jsp:include page="/./footer.jsp"/>
+
+<script>
+    // Function to call the API and display the result in a table
+    function findSalonByName() {
+        var name = document.getElementById("salonName").value;
+
+        // AJAX call to fetch data from the API
+        $.ajax({
+            // url: "http://localhost:8080/yourapp/manager/findByName/" + name,
+            method: "GET",
+            dataType: "json", // Expect JSON response
+            success: function(response) {
+                // Clear previous results
+                $("#resultTable tbody").empty();
+
+                // Check if there is any data in the response
+                if (response && response.length > 0) {
+                    // Loop through the response and create table rows
+                    response.forEach(function(salon) {
+                        var row = "<tr>" +
+                            "<td>" + salon.id + "</td>" +
+                            "<td>" + salon.name + "</td>" +
+                            "</tr>";
+                        $("#resultTable tbody").append(row); // Add row to the table
+                    });
+                } else {
+                    // If no data, show "No records found" message
+                    var noDataRow = "<tr><td colspan='3'>No records found</td></tr>";
+                    $("#resultTable tbody").append(noDataRow);
+                }
+            },
+            error: function(xhr, status, error) {
+                // Handle error case
+                alert("Error fetching data: " + error);
+            }
+        });
+    }
+</script>
 </body>
 <jsp:include page="/js-include.jsp"/>
+
 </html>

@@ -3,10 +3,12 @@ package com.beautysalon.beautysalonsystem.controller.servlet;
 import com.beautysalon.beautysalonsystem.controller.validation.BeanValidator;
 import com.beautysalon.beautysalonsystem.model.entity.Admin;
 import com.beautysalon.beautysalonsystem.model.entity.Customer;
+import com.beautysalon.beautysalonsystem.model.entity.User;
 import com.beautysalon.beautysalonsystem.model.entity.enums.UserState;
 import com.beautysalon.beautysalonsystem.model.service.CustomerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.inject.Inject;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,6 +30,7 @@ public class CustomerServlet extends HttpServlet {
     @Inject
     private CustomerService customerService;
 
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
@@ -36,8 +39,9 @@ public class CustomerServlet extends HttpServlet {
                             .builder()
                             .name(StringEscapeUtils.escapeHtml4(req.getParameter("name")))
                             .family(req.getParameter("family"))
-                            .phoneNumber(req.getParameter("phone number"))
+                            .phoneNumber(req.getParameter("phoneNumber"))
                             .build();
+            String username = req.getUserPrincipal().getName();
 
             BeanValidator<Customer> CustomerValidator = new BeanValidator<>();
             if(CustomerValidator.validate(customer).isEmpty()) {

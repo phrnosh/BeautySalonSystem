@@ -2,7 +2,9 @@ package com.beautysalon.beautysalonsystem.controller.servlet;
 
 import com.beautysalon.beautysalonsystem.controller.validation.BeanValidator;
 import com.beautysalon.beautysalonsystem.model.entity.Customer;
+import com.beautysalon.beautysalonsystem.model.entity.Role;
 import com.beautysalon.beautysalonsystem.model.entity.User;
+import com.beautysalon.beautysalonsystem.model.service.RoleService;
 import com.beautysalon.beautysalonsystem.model.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.inject.Inject;
@@ -26,44 +28,67 @@ public class UserServlet extends HttpServlet {
 
     @Inject
     private UserService userService;
+    @Inject
+    private RoleService roleService;
+    @Inject
+    private User user;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        try{
-            User user =
-                    User
-                            .builder()
-                            .username(StringEscapeUtils.escapeHtml4(req.getParameter("aaa")))
-                            .password(req.getParameter("123"))
-                            .build();
-
-            BeanValidator<User> personValidator = new BeanValidator<>();
-
-            if(personValidator.validate(user).isEmpty()) {
-                userService.save(user);
-                resp.sendRedirect("/user.do");
-                log.info("user saved successfully : " + user.toString());
-            }else{
-                throw new Exception("Invalid User Data !!!");  //error
-            }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.info("UserServlet - Get");
+        try {
+            req.getSession().setAttribute("userList", roleService.findAll());
+            req.getRequestDispatcher("/jsp/form/save/user-form.jsp").forward(req, resp);
+        } catch (Exception e) {
+            log.error("User - Get : " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.info("UserServlet - Post");
         try {
-            System.out.println("USER PUT : ");
-//           Gson gson = new Gson();
-//        gson.fromJson(req.getReader(), Customer.class);
-            ObjectMapper objectMapper = new ObjectMapper();
-            User user = objectMapper.readValue(req.getReader(), User.class);
-            user.setEditing(false);
-            userService.edit(user);
-            resp.getWriter().write("javab");
-        }catch (Exception e) {
+            String username = req.getParameter("username");
+            String password = req.getParameter("password");
+
+            user = User.builder()
+                    .username(username)
+                    .password(password)
+                    .deleted(false)
+                    .build();
+
+            BeanValidator<User> validator = new BeanValidator<>();
+            String validationResult = validator.validate(user).toString();
+            if (validationResult != null) {
+                resp.setStatus(400);
+                resp.getWriter().write(validationResult);
+                return;
+            }
+
+            if (userService.findByUsername(username).isEmpty()) {
+                userService.save(user);
+
+                Role userRole = Role.builder()
+                        .role("user")
+                        .deleted(false)
+                        .build();
+//                if (roleService.findByUsernameAndRoleName(user.getUsername(), "user").isEmpty()) {
+//                    rolesService.save(userRole);
+//                    log.info("New user role saved");
+//                }
+
+                req.getSession().removeAttribute("duplicateUsername");
+                resp.sendRedirect("/user.do");
+
+            } else {
+                String errorMessage = "نام کاربری تکراری است!";
+                req.getSession().setAttribute("duplicateUsername", errorMessage);
+                resp.sendRedirect("/user.do");
+            }
+        } catch (Exception e) {
+            log.error("User - POST : " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 }
