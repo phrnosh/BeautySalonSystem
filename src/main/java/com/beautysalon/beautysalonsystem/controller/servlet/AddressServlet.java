@@ -44,8 +44,7 @@ public class AddressServlet extends HttpServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             System.out.println("Address PUT : ");
-//           Gson gson = new Gson();
-//        gson.fromJson(req.getReader(), CardPayment.class);
+
             ObjectMapper objectMapper = new ObjectMapper();
             Address address = objectMapper.readValue(req.getReader(), Address.class);
             address.setEditing(false);
