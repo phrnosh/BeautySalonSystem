@@ -32,7 +32,7 @@ public class Manager extends Profile {
     )
     private Salon salon;
 
-    @OneToMany(mappedBy = "manager", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private List<Attachment> attachments;
 
     public void addAttachment(Attachment attachment) {
