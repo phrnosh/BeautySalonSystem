@@ -33,7 +33,7 @@ public class Salon extends Base{
     @Column(name = "description", length = 50)
     private String description;
 
-    @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "salon", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private List<Attachment> attachments;
 
     public void addAttachment(Attachment attachment) {
