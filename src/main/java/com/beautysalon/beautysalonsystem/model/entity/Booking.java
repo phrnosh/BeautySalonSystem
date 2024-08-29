@@ -33,19 +33,27 @@ public class Booking extends Base{
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-
+//
     @Column(name = "date_time")
     private LocalDateTime localDateTime;
 
+    //todo
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name= "services_id")
     private List<Services> servicesList;
+//
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "reserve_id",
+            foreignKey = @ForeignKey(name = "fk_booking_reserve")
+    )
+    private List<Reserve> reserveList;
 
-    public void addItem(Services services){
-        if(servicesList == null){
-            servicesList = new ArrayList<>();
+    public void addItem(Reserve reserve){
+        if(reserveList == null){
+            reserveList = new ArrayList<>();
         }
-        servicesList.add(services);
+        reserveList.add(reserve);
     }
 
 }

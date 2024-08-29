@@ -5,7 +5,7 @@
   *{
       font-family:inherit;
       text-align: right;
-      direction: rtl;
+      /*direction: rtl !important;*/
   }
   a{
       color: #333;
@@ -49,6 +49,7 @@
   #image-count{
       /* background: linear-gradient(135deg,#1abc9c 20%,#2980b9 80%); */
       background: black;
+      /*height: 68em;*/
       margin-top: -12px;
   }
   #image-count h2 , h3{
@@ -60,8 +61,8 @@
       padding-bottom: 5px;
   }
   .input-group{
-      width: 70%;
-      margin-right: 15%;
+      width: 70% !important;
+      margin-right: 15% !important;
       margin-top: -40px;
   }
   .caption-site{
