@@ -49,7 +49,7 @@ public class ManagerService implements Serializable {
 
     @Transactional
     public Manager findById(Long id) throws Exception {
-        return entityManager.find(Manager.class,id);
+        return entityManager.find(Manager.class, id);
     }
 
     @Transactional

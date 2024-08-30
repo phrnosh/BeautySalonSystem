@@ -42,18 +42,18 @@ public class Booking extends Base{
     @JoinColumn(name= "services_id")
     private List<Services> servicesList;
 //
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
-            name = "reserve_id",
+            name = "time_id",
             foreignKey = @ForeignKey(name = "fk_booking_reserve")
     )
-    private List<Reserve> reserveList;
+    private Timing timing;
 
-    public void addItem(Reserve reserve){
-        if(reserveList == null){
-            reserveList = new ArrayList<>();
-        }
-        reserveList.add(reserve);
-    }
+//    public void addItem(Timing timing){
+//        if(timingList == null){
+//            timingList = new ArrayList<>();
+//        }
+//        timingList.add(timing);
+//    }
 
 }

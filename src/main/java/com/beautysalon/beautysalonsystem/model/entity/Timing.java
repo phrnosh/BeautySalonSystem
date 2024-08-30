@@ -1,6 +1,5 @@
 package com.beautysalon.beautysalonsystem.model.entity;
 
-import com.beautysalon.beautysalonsystem.model.entity.enums.BookingState;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -10,8 +9,6 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -21,7 +18,7 @@ import java.util.List;
 @Entity(name = "reserveEntity")
 @Table(name="reserve_tbl")
 
-public class Reserve extends Base{
+public class Timing extends Base{
 
     @Id
     @SequenceGenerator(name = "reserveSeq", sequenceName = "reserve_seq", allocationSize = 1)

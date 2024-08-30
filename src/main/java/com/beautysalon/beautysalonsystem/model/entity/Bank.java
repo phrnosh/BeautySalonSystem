@@ -22,12 +22,12 @@ import java.io.Serializable;
 public class Bank extends Base implements Serializable {
 
     @Id
-    @SequenceGenerator(name = "bankSeq", sequenceName = "bank_seq")
+    @SequenceGenerator(name = "bankSeq", sequenceName = "bank_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bankSeq")
-    @Column(name = "bank_id", length = 20)
+    @Column(name = "bank_id")
     private Long id;
 
-    @Column(name = "bank_name",columnDefinition = "NVARCHAR2(20)")
+    @Column(name = "bank_name", length = 20)
     @Pattern(regexp = "^[a-zA-Zآ-ی\\s]{3,20}$", message = "Invalid Name")
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 characters")
     @NotBlank(message = "Should Not Be Null")
@@ -44,7 +44,7 @@ public class Bank extends Base implements Serializable {
     @Max(value = 999, message = "Branch code must be at most 999")
     private Long branchCode;// کد شعبه
 
-    @Column(name = "bank_branchName",columnDefinition = "NVARCHAR2(20)")
+    @Column(name = "bank_branchName", length = 20)
     @Pattern(regexp = "^[a-zA-Zآ-ی\\s]{3,20}$", message = "Invalid Branch Name")
     @Size(min = 3, max = 20, message = "Branch Name must be between 3 and 20 characters")
     @NotBlank(message = "Should Not Be Null")

@@ -1,7 +1,6 @@
 package com.beautysalon.beautysalonsystem.controller.servlet;
 
 import com.beautysalon.beautysalonsystem.controller.validation.BeanValidator;
-import com.beautysalon.beautysalonsystem.model.entity.Admin;
 import com.beautysalon.beautysalonsystem.model.entity.CardPayment;
 import com.beautysalon.beautysalonsystem.model.service.CardPaymentService;
 import com.fasterxml.jackson.databind.ObjectMapper;

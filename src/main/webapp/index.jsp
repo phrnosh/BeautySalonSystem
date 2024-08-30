@@ -13,14 +13,18 @@
 <div class="container">
     <div class="row">
         <div >
-            <img class="col-12 col-md-9 col-lg-3" style=" border-radius: 15%; margin:3%;" src="./assets/images/admin-btn1.jpg" usemap="#area">
-            <map name="area"><area shape="default" href="./customers/panel.jsp"></map>
+            <a href="./admin/panel.jsp">
+                <img class="col-12 col-md-9 col-lg-3" style=" border-radius: 15%; margin:3%;" src="./assets/images/admin-btn1.jpg" usemap="#area">
+            </a>
 
+
+            <a href="./managers/panel.jsp">
             <img class="col-12 col-md-9 col-lg-3" style=" border-radius: 15%; margin:3%;" src="./assets/images/manager-btn1.jpg" usemap="#area">
-            <map name="area"><area shape="default" href="salon-info.jsp"></map>
+            </a>
 
+            <a href="./customers/panel.jsp">
             <img class="col-12 col-md-9 col-lg-3" style=" border-radius: 15%; margin:3%;" src="./assets/images/customer-btn1.jpg" usemap="#area">
-            <map name="area"><area shape="default" href="./customers/panel.jsp"></map>
+            </a>
             </div><br><br>
 
         <%--<a href="/logout">Logout</a>--%>

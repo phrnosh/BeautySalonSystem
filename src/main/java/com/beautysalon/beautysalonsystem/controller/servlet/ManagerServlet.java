@@ -36,7 +36,7 @@ public class ManagerServlet extends HttpServlet {
                 Manager editingManager = managerService.findById(Long.parseLong(req.getParameter("cancel")));
                 editingManager.setEditing(false);
                 managerService.edit(editingManager);
-                resp.sendRedirect("/manager.do");
+                resp.sendRedirect("manager.do");
                 return;
             }
 
@@ -53,7 +53,7 @@ public class ManagerServlet extends HttpServlet {
                 }
             } else {
                 req.getSession().setAttribute("manager", managerService.findById(1L));
-                req.getRequestDispatcher("/managers/manager-main-panel.jsp").forward(req, resp);
+                req.getRequestDispatcher("/managers/manager-register.jsp").forward(req, resp);
             }
 
         } catch (Exception e) {

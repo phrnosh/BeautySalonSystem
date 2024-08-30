@@ -1,7 +1,6 @@
 package com.beautysalon.beautysalonsystem.model.service;
 
-import com.beautysalon.beautysalonsystem.model.entity.Manager;
-import com.beautysalon.beautysalonsystem.model.entity.Reserve;
+import com.beautysalon.beautysalonsystem.model.entity.Timing;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -20,54 +19,54 @@ public class ReserveService implements Serializable {
     private EntityManager entityManager;
 
     @Transactional
-    public Reserve save(Reserve reserve) throws Exception {
-        entityManager.persist(reserve);
-        return reserve;
+    public Timing save(Timing timing) throws Exception {
+        entityManager.persist(timing);
+        return timing;
     }
 
     @Transactional
-    public Reserve edit(Reserve reserve) throws Exception {
-        Reserve foundReserve = entityManager.find(Reserve.class, reserve.getId());
-        if (foundReserve != null) {
-            entityManager.merge(reserve);
+    public Timing edit(Timing timing) throws Exception {
+        Timing foundTiming = entityManager.find(Timing.class, timing.getId());
+        if (foundTiming != null) {
+            entityManager.merge(timing);
         }
-        return reserve;
+        return timing;
     }
 
     @Transactional
-    public Reserve remove(Long id) throws Exception {
-        Reserve reserve=entityManager.find(Reserve.class, id);
-        if(reserve!=null){
-            reserve.setDeleted(true);
-            entityManager.merge(reserve);
+    public Timing remove(Long id) throws Exception {
+        Timing timing =entityManager.find(Timing.class, id);
+        if(timing !=null){
+            timing.setDeleted(true);
+            entityManager.merge(timing);
         }
-        return reserve;
+        return timing;
     }
 
     @Transactional
-    public List<Reserve> findAll() throws Exception {
+    public List<Timing> findAll() throws Exception {
         return entityManager
-                .createQuery("select r from reserveEntity r where r.deleted=false", Reserve.class)
+                .createQuery("select r from reserveEntity r where r.deleted=false", Timing.class)
                 .getResultList();
     }
 
     @Transactional
-    public Reserve findById(Long id) throws Exception {
-        return entityManager.find(Reserve.class,id);
+    public Timing findById(Long id) throws Exception {
+        return entityManager.find(Timing.class,id);
     }
 
     @Transactional
-    public List<Reserve> findBySalonName(String name) throws Exception {
+    public List<Timing> findBySalonName(String name) throws Exception {
         return entityManager
-                .createQuery("select r from reserveEntity r where r.salon.name =:name and r.deleted=false", Reserve.class)
+                .createQuery("select r from reserveEntity r where r.salon.name =:name and r.deleted=false", Timing.class)
                 .setParameter("name", name)
                 .getResultList();
     }
 
     @Transactional
-    public List<Reserve> findByServicesId(Long servicesId) throws Exception {
+    public List<Timing> findByServicesId(Long servicesId) throws Exception {
         return entityManager
-                .createQuery("select r from reserveEntity r where r.startTime between :startTime and :endTime and r.services.id =:servicesId and r.deleted = false ", Reserve.class)
+                .createQuery("select r from reserveEntity r where r.startTime between :startTime and :endTime and r.services.id =:servicesId and r.deleted = false ", Timing.class)
                 .setParameter("startTime", LocalDateTime.now())
                 .setParameter("endTime", LocalDateTime.now())
                 .setParameter("servicesId", servicesId)
@@ -94,9 +93,9 @@ public class ReserveService implements Serializable {
     }
 
     @Transactional
-    public List<Reserve> findByServicesIdAndDate(Long servicesId, LocalDate date) throws Exception {
+    public List<Timing> findByServicesIdAndDate(Long servicesId, LocalDate date) throws Exception {
         return entityManager
-                .createQuery("select r from reserveEntity r where r.startTime between :startTime and :endTime and r.services.id =:servicesId and r.deleted = false ", Reserve.class)
+                .createQuery("select r from reserveEntity r where r.startTime between :startTime and :endTime and r.services.id =:servicesId and r.deleted = false ", Timing.class)
                 .setParameter("startTime", date.atTime(1, 0, 0))
                 .setParameter("endTime", date.atTime(23, 59, 59))
                 .setParameter("servicesId", servicesId)
@@ -104,9 +103,9 @@ public class ReserveService implements Serializable {
     }
 
     @Transactional
-    public List<Reserve> findByServicesIdAndDateAndSalonId(Long servicesId, LocalDate date, Long salonId) throws Exception {
+    public List<Timing> findByServicesIdAndDateAndSalonId(Long servicesId, LocalDate date, Long salonId) throws Exception {
         return entityManager
-                .createQuery("select r from reserveEntity r where r.startTime between :startTime and :endTime and r.services.id =:servicesId and r.salon.id =:salonId and r.deleted = false ", Reserve.class)
+                .createQuery("select r from reserveEntity r where r.startTime between :startTime and :endTime and r.services.id =:servicesId and r.salon.id =:salonId and r.deleted = false ", Timing.class)
                 .setParameter("startTime", date.atTime(1, 0, 0))
                 .setParameter("endTime", date.atTime(23, 59, 59))
                 .setParameter("servicesId", servicesId)

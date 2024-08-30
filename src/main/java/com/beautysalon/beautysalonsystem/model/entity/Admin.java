@@ -15,7 +15,6 @@ import lombok.experimental.SuperBuilder;
 @Table(name="admin_tbl")
 
 public class Admin extends Profile {
-
     @Id
     @SequenceGenerator(name = "adminSeq", sequenceName = "admin_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adminSeq")

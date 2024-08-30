@@ -28,8 +28,6 @@ public class CardPayment extends Payment {
     @Column(name = "cardNumber" ,length = 20, unique = true)
     private int cardNumber;
 
-//    @Column(name="dateTime")
-//    private LocalDateTime dateTime;
 
 
 }

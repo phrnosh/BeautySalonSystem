@@ -22,5 +22,4 @@ public class CashPayment extends Payment {
     @Column(name = "id")
     private Long id;
 
-
 }
