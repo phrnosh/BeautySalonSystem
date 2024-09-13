@@ -41,4 +41,8 @@ public class Manager extends Profile {
         }
         attachments.add(attachment);
     }
+
+    @OneToOne
+    private Role role ;
 }
+

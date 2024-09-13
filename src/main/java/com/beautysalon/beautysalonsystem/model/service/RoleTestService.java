@@ -4,11 +4,12 @@ import com.beautysalon.beautysalonsystem.model.entity.Role;
 import com.beautysalon.beautysalonsystem.model.repository.CrudRepository;
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RoleTestService {
+public class RoleTestService implements Serializable {
     @Getter
     private static RoleTestService service = new RoleTestService();
 

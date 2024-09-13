@@ -2,8 +2,6 @@ package com.beautysalon.beautysalonsystem.model.service;
 
 import com.beautysalon.beautysalonsystem.model.entity.Manager;
 import com.beautysalon.beautysalonsystem.model.repository.CrudRepository;
-import com.beautysalon.beautysalonsystem.model.service.RoleService;
-import com.beautysalon.beautysalonsystem.model.service.RoleTestService;
 import lombok.Getter;
 
 import java.util.HashMap;
@@ -19,7 +17,7 @@ public class ManagerTestService {
 
     public Manager save(Manager manager) throws Exception {
         try (CrudRepository<Manager, Long> repository = new CrudRepository<>()) {
-//            manager.setRole(RoleTestService.getService().FindByRole("manager"));
+            manager.setRole(RoleTestService.getService().FindByRole("manager"));
             return repository.save(manager);
         }
     }

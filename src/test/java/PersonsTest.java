@@ -1,15 +1,42 @@
 import com.beautysalon.beautysalonsystem.model.entity.Admin;
 import com.beautysalon.beautysalonsystem.model.entity.Customer;
+import com.beautysalon.beautysalonsystem.model.entity.Manager;
+import com.beautysalon.beautysalonsystem.model.entity.Role;
 import com.beautysalon.beautysalonsystem.model.entity.enums.UserState;
+import com.beautysalon.beautysalonsystem.model.service.ManagerTestService;
+import com.beautysalon.beautysalonsystem.model.service.RoleTestService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
+import javax.xml.registry.infomodel.User;
 import java.util.List;
 
 import static com.beautysalon.beautysalonsystem.model.entity.Customer.builder;
 public class PersonsTest {
+    public static void main(String[] args) throws Exception {
+
+        Role managerRole = Role.builder().role("manager").build();
+        System.out.println(RoleTestService.getService().save(managerRole));
+
+
+        Manager manager =
+                Manager
+                        .builder()
+                        .name("aaaa")
+                        .family("bbbb")
+//                    .user().username("cccc")
+//                    .password("123456789")
+                        .email("aaa@gmail.com")
+                        .phoneNumber("09121234567")
+                        .status(UserState.Active)
+//                        .address(address)
+                        .build();
+
+        System.out.println(ManagerTestService.getService().save(manager));
+    }
+
 //    EntityManagerFactory factory = Persistence.createEntityManagerFactory("beautysalon");
 //    EntityManager em = factory.createEntityManager();
 //    EntityTransaction et = em.getTransaction();
@@ -46,4 +73,6 @@ public class PersonsTest {
 //        test.save();
 //
 //    }
+
+
 }
