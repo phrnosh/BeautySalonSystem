@@ -1,4 +1,4 @@
-package com.store.onlinestore.model.service;
+package com.beautysalon.beautysalonsystem.model.service;
 
 import com.beautysalon.beautysalonsystem.model.entity.Manager;
 import com.beautysalon.beautysalonsystem.model.repository.CrudRepository;
