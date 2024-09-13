@@ -1,4 +1,4 @@
-package com.mftplus.jee02.model.tools;
+package com.beautysalon.beautysalonsystem.model.tools;
 
 import lombok.Getter;
 

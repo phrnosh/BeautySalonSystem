@@ -61,7 +61,7 @@
                 <td>${salon.address}</td>
                 <td>${salon.descripton}</td>
                 <td>
-                    <button onclick="editManager(${salon.id})">Edit</button>
+                    <button onclick="salon(${salon.id})">Edit</button>
                         <%--                    <button onclick="Remove(${person.id})">Remove</button>--%>
                 </td>
             </tr>

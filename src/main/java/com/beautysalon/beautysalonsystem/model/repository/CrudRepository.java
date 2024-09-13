@@ -1,6 +1,5 @@
-package com.store.onlinestore.model.repository;
 
-import com.store.onlinestore.model.utils.JpaProvider;
+package com.beautysalon.beautysalonsystem.model.repository;
 import jakarta.persistence.*;
 
 import java.util.List;
