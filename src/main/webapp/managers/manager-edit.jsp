@@ -71,7 +71,7 @@
                     <div class="d-flex w-100 mb-5 justify-content-center">
                         <img class="bg-secondary" src="" alt="No Picture" style="width: 150px; height: 150px">
                     </div>
-                    <button onclick="editingManager()" class="btn btn-primary w-50">Edit</button>
+                    <button onclick="editManager()" class="btn btn-primary w-50">Edit</button>
                     <button onclick="cancelEditingManager(${sessionScope.editingManager.id})" class="btn btn-secondary w-25">Back</button>
                 </div>
 

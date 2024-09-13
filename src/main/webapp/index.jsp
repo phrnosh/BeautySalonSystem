@@ -18,7 +18,7 @@
             </a>
 
 
-            <a href="./managers/panel.jsp">
+            <a href="./managers/manager-register.jsp">
             <img class="col-12 col-md-9 col-lg-3" style=" border-radius: 15%; margin:3%;" src="./assets/images/manager-btn1.jpg" usemap="#area">
             </a>
 

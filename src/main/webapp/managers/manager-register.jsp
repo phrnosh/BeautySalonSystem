@@ -99,6 +99,21 @@
     <h1>No Content</h1>
 </c:if>
 
+<script>
+    function editManager(id) {
+        window.location.replace("/manager.do?edit=" + id);
+    }
+
+    function removeManager(id) {
+        fetch("/rest/manager/" + id, {
+            method: "DELETE"
+        }).then(() => {
+            window.location = "/manager.do"
+        })
+    }
+
+</script>
+
 </body>
 <jsp:include page="/js-include.jsp"/>
 </html>

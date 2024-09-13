@@ -1,5 +1,8 @@
 package com.beautysalon.beautysalonsystem.model.tools;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import lombok.Getter;
 
 import java.sql.Connection;
@@ -8,16 +11,14 @@ import java.sql.SQLException;
 
 public class JdbcProvider {
     @Getter
-    private static JdbcProvider jdbcProvider = new JdbcProvider();
+    private static JdbcProvider jpa = new JdbcProvider();
+    private EntityManagerFactory factory = Persistence.createEntityManagerFactory("beautysalon");
 
     private JdbcProvider() {
     }
 
-    public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:xe",
-                "javaee",
-                "java123"
-        );
+    public EntityManager getEntityManager(){
+        return factory.createEntityManager();
     }
+
 }

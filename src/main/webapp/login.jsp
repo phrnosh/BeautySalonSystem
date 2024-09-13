@@ -39,8 +39,7 @@
 
             <div class="footer-register">
 
-                <a href="signUp.jsp" class="btn-reg">ساخت اکانت </a>
-
+                <a href="" class="btn-reg">ساخت اکانت </a>
 
                 <a href="" class="btn-reg">فراموشی رمز عبور</a>
 
