@@ -60,7 +60,6 @@ public class CrudRepository<T, I> implements AutoCloseable {
             return query.getResultList();
         }
 
-
         @Override
         public void close() throws Exception {
             entityManager.close();
