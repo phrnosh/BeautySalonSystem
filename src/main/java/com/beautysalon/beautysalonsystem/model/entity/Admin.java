@@ -21,4 +21,8 @@ public class Admin extends Profile {
     @Column(name = "id")
     private Long id;
 
+
+    @OneToOne
+    private Role role ;
+
 }
