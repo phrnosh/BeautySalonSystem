@@ -4,80 +4,80 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
 
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>ADMIN</web-resource-name>
-            <url-pattern>/admin/*</url-pattern>
-            <!--            <url-pattern>/*.jsp</url-pattern>-->
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-            <http-method>PUT</http-method>
-            <http-method>DELETE</http-method>
-        </web-resource-collection>
+<!--    <security-constraint>-->
+<!--        <web-resource-collection>-->
+<!--            <web-resource-name>ADMIN</web-resource-name>-->
+<!--            <url-pattern>/admin/*</url-pattern>-->
+<!--            &lt;!&ndash;            <url-pattern>/*.jsp</url-pattern>&ndash;&gt;-->
+<!--            <http-method>GET</http-method>-->
+<!--            <http-method>POST</http-method>-->
+<!--            <http-method>PUT</http-method>-->
+<!--            <http-method>DELETE</http-method>-->
+<!--        </web-resource-collection>-->
 
-        <auth-constraint>
-            <role-name>admin</role-name>
-        </auth-constraint>
-    </security-constraint>
+<!--        <auth-constraint>-->
+<!--            <role-name>admin</role-name>-->
+<!--        </auth-constraint>-->
+<!--    </security-constraint>-->
 
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Manager</web-resource-name>
-            <url-pattern>/managers/*</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-            <http-method>PUT</http-method>
-            <http-method>DELETE</http-method>
-        </web-resource-collection>
-
-        <auth-constraint>
-            <role-name>manager</role-name>
-        </auth-constraint>
-    </security-constraint>
-
-
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Customer</web-resource-name>
-            <url-pattern>/customers/*</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-            <http-method>PUT</http-method>
-            <http-method>DELETE</http-method>
-        </web-resource-collection>
-
-        <auth-constraint>
-            <role-name>customer</role-name>
-        </auth-constraint>
-    </security-constraint>
-
-
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Stylist</web-resource-name>
+<!--    <security-constraint>-->
+<!--        <web-resource-collection>-->
+<!--            <web-resource-name>Manager</web-resource-name>-->
 <!--            <url-pattern>/managers/*</url-pattern>-->
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-            <http-method>PUT</http-method>
-            <http-method>DELETE</http-method>
-        </web-resource-collection>
+<!--            <http-method>GET</http-method>-->
+<!--            <http-method>POST</http-method>-->
+<!--            <http-method>PUT</http-method>-->
+<!--            <http-method>DELETE</http-method>-->
+<!--        </web-resource-collection>-->
 
-        <auth-constraint>
-            <role-name>stylist</role-name>
-        </auth-constraint>
-    </security-constraint>
+<!--        <auth-constraint>-->
+<!--            <role-name>manager</role-name>-->
+<!--        </auth-constraint>-->
+<!--    </security-constraint>-->
+
+
+<!--    <security-constraint>-->
+<!--        <web-resource-collection>-->
+<!--            <web-resource-name>Customer</web-resource-name>-->
+<!--            <url-pattern>/customers/*</url-pattern>-->
+<!--            <http-method>GET</http-method>-->
+<!--            <http-method>POST</http-method>-->
+<!--            <http-method>PUT</http-method>-->
+<!--            <http-method>DELETE</http-method>-->
+<!--        </web-resource-collection>-->
+
+<!--        <auth-constraint>-->
+<!--            <role-name>customer</role-name>-->
+<!--        </auth-constraint>-->
+<!--    </security-constraint>-->
+
+
+<!--    <security-constraint>-->
+<!--        <web-resource-collection>-->
+<!--            <web-resource-name>Stylist</web-resource-name>-->
+<!--&lt;!&ndash;            <url-pattern>/managers/*</url-pattern>&ndash;&gt;-->
+<!--            <http-method>GET</http-method>-->
+<!--            <http-method>POST</http-method>-->
+<!--            <http-method>PUT</http-method>-->
+<!--            <http-method>DELETE</http-method>-->
+<!--        </web-resource-collection>-->
+
+<!--        <auth-constraint>-->
+<!--            <role-name>stylist</role-name>-->
+<!--        </auth-constraint>-->
+<!--    </security-constraint>-->
 
 
 
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/login.jsp</form-login-page>
-        </form-login-config>
-    </login-config>
+<!--    <login-config>-->
+<!--        <auth-method>FORM</auth-method>-->
+<!--        <form-login-config>-->
+<!--            <form-login-page>/login.jsp</form-login-page>-->
+<!--        </form-login-config>-->
+<!--    </login-config>-->
 
-    <error-page>
-        <location>/error-403.jsp</location>
-        <error-code>403</error-code>
-    </error-page>
+<!--    <error-page>-->
+<!--        <location>/error-403.jsp</location>-->
+<!--        <error-code>403</error-code>-->
+<!--    </error-page>-->
 </web-app>

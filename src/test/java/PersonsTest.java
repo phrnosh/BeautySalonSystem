@@ -1,7 +1,4 @@
-import com.beautysalon.beautysalonsystem.model.entity.Admin;
-import com.beautysalon.beautysalonsystem.model.entity.Customer;
-import com.beautysalon.beautysalonsystem.model.entity.Manager;
-import com.beautysalon.beautysalonsystem.model.entity.Role;
+import com.beautysalon.beautysalonsystem.model.entity.*;
 import com.beautysalon.beautysalonsystem.model.entity.enums.UserState;
 import com.beautysalon.beautysalonsystem.model.service.ManagerTestService;
 import com.beautysalon.beautysalonsystem.model.service.RoleTestService;
@@ -39,7 +36,7 @@ public class PersonsTest {
 
 //    EntityManagerFactory factory = Persistence.createEntityManagerFactory("beautysalon");
 //    EntityManager em = factory.createEntityManager();
-//    EntityTransaction et = em.getTransaction();
+//    EntityTransaction et = em.getTransaction()                         ;
 //
 //    public void save() {
 //        et.begin();

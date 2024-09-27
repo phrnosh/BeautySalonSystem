@@ -69,4 +69,12 @@ public class UserService implements Serializable {
                 .getResultList();
     }
 
+    @Transactional
+    public List<User> findByRole(String role) throws Exception {
+        return entityManager
+                .createQuery("select u from userEntity u where u.role.role=:role", User.class)
+                .setParameter("role", role)
+                .getResultList();
+
+    }
 }

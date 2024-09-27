@@ -21,6 +21,7 @@ public class BankService implements Serializable {
         return bank;
     }
 
+
     @Transactional
     public Bank edit(Bank bank) throws Exception {
         Bank foundBank = entityManager.find(Bank.class, bank.getId());
@@ -44,8 +45,7 @@ public class BankService implements Serializable {
 
     @Transactional
     public List<Bank> findAll() throws Exception {
-        return entityManager
-                .createQuery("select oo from bankEntity oo where oo.deleted=false", Bank.class)
+        return entityManager.createQuery("select b from bankEntity b where b.deleted=false order by id", Bank.class)
                 .getResultList();
     }
 
@@ -56,41 +56,54 @@ public class BankService implements Serializable {
 
     @Transactional
     public Bank findByName(String name) throws Exception {
-        List<Bank> bankList = entityManager.createQuery("select be from bankEntity be where be.name=:name and be.deleted=false", Bank.class)
+        List<Bank> bankList = entityManager
+                .createQuery("select b from bankEntity b where b.name=:name and b.deleted=false", Bank.class)
+                .setParameter("name", name)
                 .getResultList();
         if (!bankList.isEmpty()) {
             return bankList.get(0);
+        } else {
+            return null;
         }
-        throw new Exception();
     }
 
     @Transactional
-    public Bank findAccountNumber(String accountNumber) throws Exception {
-        List<Bank> bankList = entityManager.createQuery("select be from bankEntity be where be.accountNumber=:accountNumber and be.deleted=false", Bank.class)
+    public Bank findByAccountNumber(String accountNumber) throws Exception {
+        List<Bank> bankList = entityManager
+                .createQuery("select b from bankEntity b where b.accountNumber=:accountNumber and b.deleted=false", Bank.class)
+                .setParameter("accountNumber", accountNumber)
                 .getResultList();
         if (!bankList.isEmpty()) {
             return bankList.get(0);
+        } else {
+            return null;
         }
-        throw new Exception();
     }
 
     @Transactional
     public Bank findByBranchName(String branchName) throws Exception {
-        List<Bank> bankList = entityManager.createQuery("select be from bankEntity be where be.branchName=:branchName and be.deleted=false", Bank.class)
+        List<Bank> bankList = entityManager
+                .createQuery("select b from bankEntity b where b.branchName=:branchName and b.deleted=false", Bank.class)
+                .setParameter("branchName", branchName)
                 .getResultList();
         if (!bankList.isEmpty()) {
             return bankList.get(0);
+        } else {
+            return null;
         }
-        throw new Exception();
+
     }
 
     @Transactional
     public Bank findByBranchCode(Long branchCode) throws Exception {
-        List<Bank> bankList = entityManager.createQuery("select be from bankEntity be where be.branchCode=:branchCode and be.deleted=false", Bank.class)
+        List<Bank> bankList = entityManager
+                .createQuery("select b from bankEntity b where b.branchCode=:branchCode and b.deleted=false", Bank.class)
+                .setParameter("branchCode", branchCode)
                 .getResultList();
         if (!bankList.isEmpty()) {
             return bankList.get(0);
+        } else {
+            return null;
         }
-        throw new Exception();
     }
 }

@@ -101,4 +101,12 @@ public class CustomerService implements Serializable {
                 .setParameter("nationalCode", nationalCode)
                 .getSingleResult();
     }
+
+    @Transactional
+    public List<Customer> findByFamily(String family) throws Exception {
+        return entityManager
+                .createQuery("select c from customerEntity c where c.family like :family and c.deleted=false ", Customer.class)
+                .setParameter("family", family.toUpperCase() + "%")
+                .getResultList();
+    }
 }
