@@ -103,7 +103,7 @@ public class CustomerApi {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/findByPhone/{phoneNumber}")
+    @Path("/findByPhoneNumber/{phoneNumber}")
     public Response findByPhoneNumber(@PathParam(value = "phoneNumber") String phone) {
         try {
             Customer customer = customerService.findByPhoneNumber(phone);

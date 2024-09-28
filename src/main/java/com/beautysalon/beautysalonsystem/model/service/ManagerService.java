@@ -101,4 +101,12 @@ public class ManagerService implements Serializable {
                 .setParameter("nationalCode", nationalCode)
                 .getSingleResult();
     }
+
+    @Transactional
+    public List<Manager> findByFamily(String family) throws Exception {
+        return entityManager
+                .createQuery("select m from managerEntity m where m.family like :family and m.deleted=false ", Manager.class)
+                .setParameter("family", family.toUpperCase() + "%")
+                .getResultList();
+    }
 }

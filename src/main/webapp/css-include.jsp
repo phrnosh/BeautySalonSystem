@@ -7,3 +7,4 @@
 <link rel="stylesheet" href="assets/css/navbar.css">
 <link rel="stylesheet" href="assets/css/boot.css">
 <link rel="stylesheet" href="assets/css/UI.css">
+<link rel="stylesheet" href="assets/css/index.css">

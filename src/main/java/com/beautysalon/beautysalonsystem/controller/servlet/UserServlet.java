@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-@WebServlet(urlPatterns = "/users.do")
+@WebServlet(urlPatterns = "/user.do")
 public class UserServlet extends HttpServlet {
 
     @Inject

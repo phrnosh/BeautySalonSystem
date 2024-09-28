@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <div >
-            <a href="./admin/panel.jsp">
+            <a href="./admin/admin-panel.jsp">
                 <img class="col-12 col-md-9 col-lg-3" style=" border-radius: 15%; margin:3%;" src="./assets/images/admin-btn1.jpg" usemap="#area">
             </a>
 
@@ -22,7 +22,7 @@
             <img class="col-12 col-md-9 col-lg-3" style=" border-radius: 15%; margin:3%;" src="./assets/images/manager-btn1.jpg" usemap="#area">
             </a>
 
-            <a href="./customers/panel.jsp">
+            <a href="./customers/customer-panel.jsp">
             <img class="col-12 col-md-9 col-lg-3" style=" border-radius: 15%; margin:3%;" src="./assets/images/customer-btn1.jpg" usemap="#area">
             </a>
             </div><br><br>

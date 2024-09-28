@@ -2,6 +2,7 @@ package com.beautysalon.beautysalonsystem.model.entity;
 
 import com.beautysalon.beautysalonsystem.model.entity.enums.UserState;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,6 +32,10 @@ public abstract class Profile extends Base {
 //    @Pattern(regexp = "^(09|\\+989)\\d{9}$" ,message = "Invalid PhoneNumber")
     private String phoneNumber;
 
+    @Column(name = "address", length = 100)
+    @Pattern(regexp = "^[\\w\\s]{2,100}$", message = "invalid Address")
+    private String address;
+
     @Column(name = "national_code", length = 10)
 //    @Pattern(regexp = "^//d{10}$")
     private String nationalCode;
@@ -38,9 +43,9 @@ public abstract class Profile extends Base {
     @Enumerated(EnumType.ORDINAL)
     private UserState status;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name="profile_address_tbl")
-    private Address address;
+//    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+//    @JoinTable(name="profile_address_tbl")
+//    private Address address;
 
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name="profile_user_tbl")

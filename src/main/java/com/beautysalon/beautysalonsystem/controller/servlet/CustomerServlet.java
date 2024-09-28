@@ -71,7 +71,7 @@ public class CustomerServlet extends HttpServlet {
                 req.getSession().setAttribute("customer", customerVO);
                 redirectPath = "/customers/customer-panel.jsp";
 
-            } else if (user.getRole().getRole().equals("moderator") || user.getRole().getRole().equals("admin")) {
+            } else if (user.getRole().getRole().equals("admin")) {
                 List<Customer> customerList = customerService.findAll();
                 List<CustomerVO> customerVOList = new ArrayList<>();
                 for (Customer customer : customerList) {
@@ -139,7 +139,7 @@ public class CustomerServlet extends HttpServlet {
                     String errorMessage = "Invalid User Data!";
                     req.getSession().setAttribute("errorMessage", errorMessage);
                     log.error(errorMessage);
-                    resp.sendRedirect("/sign-up.jsp");
+                    resp.sendRedirect("/customers/customer-register.jsp");
                     return;
                 }
 
@@ -148,7 +148,7 @@ public class CustomerServlet extends HttpServlet {
                     String errorMessage = "Duplicate username(phoneNumber) !!!";
                     req.getSession().setAttribute("errorMessage", errorMessage);
                     log.error(errorMessage);
-                    resp.sendRedirect("/sign-up.jsp");
+                    resp.sendRedirect("/customers/customer-register.jsp");
                     return;
                 }
 
@@ -174,14 +174,14 @@ public class CustomerServlet extends HttpServlet {
                     String errorMessage = "Invalid Customer Data !!!";
                     req.getSession().setAttribute("errorMessage", errorMessage);
                     log.error(errorMessage);
-                    resp.sendRedirect("/sign-up.jsp");
+                    resp.sendRedirect("/customers/customer-register.jsp");
                 }
 
         } catch (Exception e) {
             String errorMessage = e.getMessage();
             req.getSession().setAttribute("errorMessage", errorMessage);
             log.error(ExceptionWrapper.getMessage(e).toString());
-            resp.sendRedirect("/sign-up.jsp");
+            resp.sendRedirect("/customers/customer-register.jsp");
         }
 
     }
