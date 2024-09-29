@@ -9,38 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb614c9e-29fa-4700-819c-0d3cb2557d12" name="Changes" comment="JSP admin, manager">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/BookingVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/ManagerVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/PaymentVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/SalonVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/TimingVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="cb614c9e-29fa-4700-819c-0d3cb2557d12" name="Changes" comment="Entities &amp; Services">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/rest/BookingApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/rest/SalonApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/rest/ServicesApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/rest/TimingApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/rest/BankApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/rest/BankApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/BankServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/BankServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Attachment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Attachment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/CustomerVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/CustomerVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Salon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Salon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/rest/ManagerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/rest/ManagerApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Services.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Services.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Stylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Stylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Timing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Timing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/AdminTestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/AdminTestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/BankService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/CheckPaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/CheckPaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/ReserveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/TimingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/SalonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/SalonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/ServicesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/ServicesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/ManagerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,31 +59,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/java.new/BeautySalonSystem/todo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.3505747&quot;,
-    &quot;service.view.auto.scroll.to.source&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/java.new/BeautySalonSystem/todo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.3505747",
+    "service.view.auto.scroll.to.source": "true",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;oracle&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\java.new\BeautySalonSystem\todo" />
@@ -250,7 +228,7 @@
       <workItem from="1725025438995" duration="4190000" />
       <workItem from="1727465391856" duration="7345000" />
       <workItem from="1727512703822" duration="6081000" />
-      <workItem from="1727596421432" duration="13695000" />
+      <workItem from="1727596421432" duration="17263000" />
     </task>
     <task id="LOCAL-00001" summary="Package">
       <option name="closed" value="true" />
@@ -380,7 +358,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727518144688</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Entities &amp; Services">
+      <option name="closed" value="true" />
+      <created>1727619456124</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1727619456124</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Entities &amp; Services">
+      <option name="closed" value="true" />
+      <created>1727619537615</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1727619537615</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,6 +404,7 @@
     <MESSAGE value="Debuged" />
     <MESSAGE value="Servlets" />
     <MESSAGE value="JSP admin, manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="JSP admin, manager" />
+    <MESSAGE value="Entities &amp; Services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Entities &amp; Services" />
   </component>
 </project>

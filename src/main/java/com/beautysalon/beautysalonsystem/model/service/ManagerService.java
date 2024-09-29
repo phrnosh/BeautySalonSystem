@@ -2,6 +2,8 @@ package com.beautysalon.beautysalonsystem.model.service;
 
 
 import com.beautysalon.beautysalonsystem.model.entity.Manager;
+import com.beautysalon.beautysalonsystem.model.entity.Salon;
+import com.beautysalon.beautysalonsystem.model.entity.Services;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -53,11 +55,17 @@ public class ManagerService implements Serializable {
     }
 
     @Transactional
-    public List<Manager> findByUsername(String username) throws Exception {
-        return entityManager
-                .createQuery("select m from managerEntity m where m.user.username=:username", Manager.class)
-                .setParameter("username", username )
-                .getResultList();
+    public Manager findByUsername(String username) throws Exception {
+        List<Manager> managerList =
+                entityManager
+                        .createQuery("select m from managerEntity m where m.user.username =:username and m.deleted=false ", Manager.class)
+                        .setParameter("username", username)
+                        .getResultList();
+        if (!managerList.isEmpty()) {
+            return managerList.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Transactional
@@ -95,11 +103,17 @@ public class ManagerService implements Serializable {
     }
 
     @Transactional
-    public Manager fideByNationalCode(String nationalCode) throws Exception {
-        return entityManager
-                .createQuery("select m from managerEntity m where m.nationalCode=:nationalCode", Manager.class)
-                .setParameter("nationalCode", nationalCode)
-                .getSingleResult();
+    public Manager findByNationalCode(String nationalCode) throws Exception {
+        List<Manager> managerList =
+                entityManager
+                        .createQuery("select m from managerEntity m where m.nationalCode =:nationalCode and m.deleted=false ", Manager.class)
+                        .setParameter("nationalCode", nationalCode)
+                        .getResultList();
+        if (!managerList.isEmpty()) {
+            return managerList.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Transactional
@@ -107,6 +121,49 @@ public class ManagerService implements Serializable {
         return entityManager
                 .createQuery("select m from managerEntity m where m.family like :family and m.deleted=false ", Manager.class)
                 .setParameter("family", family.toUpperCase() + "%")
+                .getResultList();
+    }
+
+    @Transactional
+    public Salon findSalonByManagerId(Long managerId) throws Exception {
+        List<Salon> salonList =
+                entityManager
+                        .createQuery("select m.salon from managerEntity m where m.id =:managerId and m.deleted=false ", Salon.class)
+                        .setParameter("managerId", managerId)
+                        .getResultList();
+        if (!salonList.isEmpty()) {
+            return salonList.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Transactional
+    public Manager findManagerBySalonId(Long salonId) throws Exception {
+        List<Manager> managerList =
+                entityManager
+                        .createQuery("select m from managerEntity m where m.salon.id =:salonId and m.deleted=false ", Manager.class)
+                        .setParameter("salonId", salonId)
+                        .getResultList();
+        if (!managerList.isEmpty()) {
+            return managerList.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Transactional
+    public List<Services> findServicesByManagerId(Long managerId) throws Exception {
+        return entityManager
+                .createQuery("select m.salon.servicesList from managerEntity m where m.id =:managerId and m.deleted=false ", Services.class)
+                .setParameter("managerId", managerId)
+                .getResultList();
+    }
+
+    @Transactional
+    public List<Manager> findManagersWantingSalon() throws Exception {
+        return entityManager
+                .createQuery("select m from managerEntity m where m.salon =null and m.deleted=false ", Manager.class)
                 .getResultList();
     }
 }

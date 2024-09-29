@@ -41,6 +41,9 @@ public class Services extends Base{
     @Column(name = "is_active")
     private boolean status;
 
+    @Column(name = "available")
+    private boolean available = false;
+
     @Column(name = "date_of_modified")
     private LocalDateTime dateOfModified;
 
