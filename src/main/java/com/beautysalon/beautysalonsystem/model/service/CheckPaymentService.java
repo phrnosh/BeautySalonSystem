@@ -53,13 +53,13 @@ public class CheckPaymentService implements Serializable  {
         return entityManager.find(CheckPayment.class, id);
     }
 
-    @Transactional
-    public List<CheckPayment> FindByCheckNumber(long checkNumber) throws Exception {
-        return entityManager
-                .createQuery("select oo from checkPayment oo where oo.checkNumber=:checkNumber", CheckPayment.class)
-                .setParameter("checkNumber", checkNumber)
-                .getResultList();
-    }
+//    @Transactional
+//    public List<CheckPayment> FindByCheckNumber(long checkNumber) throws Exception {
+//        return entityManager
+//                .createQuery("select oo from checkPayment oo where oo.checkNumber=:checkNumber", CheckPayment.class)
+//                .setParameter("checkNumber", checkNumber)
+//                .getResultList();
+//    }
     @Transactional
     public List<CheckPayment> FindByDateTime(LocalDateTime dateTime) throws Exception {
         return entityManager

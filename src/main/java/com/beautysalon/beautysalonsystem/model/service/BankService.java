@@ -1,6 +1,7 @@
 package com.beautysalon.beautysalonsystem.model.service;
 
 import com.beautysalon.beautysalonsystem.model.entity.Bank;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -9,10 +10,9 @@ import jakarta.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
-@RequestScoped
+@ApplicationScoped
 public class BankService implements Serializable {
-
-    @PersistenceContext(unitName = "beautysalon")
+    @PersistenceContext(unitName = "cinema")
     private EntityManager entityManager;
 
     @Transactional
@@ -20,7 +20,6 @@ public class BankService implements Serializable {
         entityManager.persist(bank);
         return bank;
     }
-
 
     @Transactional
     public Bank edit(Bank bank) throws Exception {
@@ -106,4 +105,14 @@ public class BankService implements Serializable {
             return null;
         }
     }
+
+    @Transactional
+    public List<Bank> findByStatus(boolean status) throws Exception {
+        return entityManager
+                .createQuery("select b from bankEntity b where b.status=:status and b.deleted=false", Bank.class)
+                .setParameter("status", status)
+                .getResultList();
+
+    }
+
 }

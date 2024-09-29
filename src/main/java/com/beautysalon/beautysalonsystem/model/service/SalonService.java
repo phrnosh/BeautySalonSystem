@@ -1,6 +1,8 @@
 package com.beautysalon.beautysalonsystem.model.service;
 
 import com.beautysalon.beautysalonsystem.model.entity.Salon;
+import com.beautysalon.beautysalonsystem.model.entity.Services;
+import com.beautysalon.beautysalonsystem.model.entity.Timing;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -35,6 +37,15 @@ public class SalonService implements Serializable {
     public Salon remove(Long id) throws Exception {
         Salon salon = entityManager.find(Salon.class, id);
         if (salon != null) {
+            for (Timing timing : salon.getTimingList()) {
+                timing.setDeleted(true);
+                entityManager.merge(timing);
+            }
+
+            for (Services services : salon.getSaloonList()) {
+                services.setDeleted(true);
+                entityManager.merge(services);
+            }
             salon.setDeleted(true);
             entityManager.merge(salon);
         }
@@ -57,7 +68,7 @@ public class SalonService implements Serializable {
     public Salon findByName(String name) throws Exception {
         List<Salon> salonList = entityManager
                 .createQuery("select sa from salonEntity sa where sa.name like :name and deleted=false ", Salon.class)
-                .setParameter("name", name)
+                .setParameter("name", name.toUpperCase())
                 .getResultList();
         if (!salonList.isEmpty()) {
             return salonList.get(0);
@@ -77,5 +88,27 @@ public class SalonService implements Serializable {
         } else {
             return null;
         }
+    }
+
+    @Transactional
+    public Salon findSalonByServicesId(Long servicesId) {
+        List<Salon> salonList = entityManager
+                .createQuery("select sa from salonEntity sa join sa.servicesList s where s.id = :servicesId", Salon.class)
+                .setParameter("servicesId", servicesId)
+                .getResultList();
+        if (!salonList.isEmpty()) {
+            return salonList.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Transactional
+    public List<Services> findSalonActiveServices(Long salonId) {
+        return entityManager
+                .createQuery("select s from salonEntity sa join sa.servicesList s where sa.id = :salonId and s.status = true", Services.class)
+                .setParameter("salonId", salonId)
+                .getResultList();
+
     }
 }

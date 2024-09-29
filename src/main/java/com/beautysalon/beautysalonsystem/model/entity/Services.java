@@ -1,5 +1,6 @@
 package com.beautysalon.beautysalonsystem.model.entity;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,8 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -38,17 +41,26 @@ public class Services extends Base{
     @Column(name = "is_active")
     private boolean status;
 
-// todo موجودی رزور ها / اسم ارایشگر /
-
     @Column(name = "date_of_modified")
     private LocalDateTime dateOfModified;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "service_stylist",
-            joinColumns = @JoinColumn(name = "stylist_name"),
-            inverseJoinColumns = @JoinColumn(name = "family"))
-    private Stylist stylist;
+    @JsonbTransient
+    @OneToMany(mappedBy = "services", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<Attachment> attachments;
+
+    public void addAttachment(Attachment attachment) {
+        if (attachments == null) {
+            attachments = new ArrayList<>();
+        }
+        attachments.add(attachment);
+        attachment.setServices(this);
+    }
+//    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "service_stylist",
+//            joinColumns = @JoinColumn(name = "stylist_name"),
+//            inverseJoinColumns = @JoinColumn(name = "family"))
+//    private Stylist stylist;
 
     @PrePersist
     public void beforeDateModified(){

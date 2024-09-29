@@ -1,7 +1,7 @@
 package com.beautysalon.beautysalonsystem.model.service;
 
-import com.beautysalon.beautysalonsystem.model.Repository.CrudRepository;
 import com.beautysalon.beautysalonsystem.model.entity.Admin;
+import com.beautysalon.beautysalonsystem.model.repository.CrudRepository;
 import lombok.Getter;
 
 import java.util.HashMap;

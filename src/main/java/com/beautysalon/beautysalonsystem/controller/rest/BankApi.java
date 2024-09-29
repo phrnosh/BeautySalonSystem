@@ -126,4 +126,27 @@ public class BankApi {
                     .build();
         }
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/findByStatus/{status}")
+    public Response findByBranchName(@PathParam(value = "status") boolean status) {
+        try {
+            List<Bank> bankList = bankService.findByStatus(status);
+            if (!bankList.isEmpty()) {
+                log.info("Bank found-status : " + status);
+                return Response.ok(bankList).build();
+            } else {
+                log.error("Bank not found-status : " + status);
+                return Response.status(Response.Status.NOT_FOUND)
+                        .entity("There Is No Bank With This status : " + status)
+                        .build();
+            }
+        } catch (Exception e) {
+            log.error(ExceptionWrapper.getMessage(e).toString());
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Error : " + e.getMessage())
+                    .build();
+        }
+    }
 }

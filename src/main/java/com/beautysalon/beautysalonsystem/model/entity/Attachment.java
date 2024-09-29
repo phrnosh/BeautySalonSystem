@@ -38,4 +38,36 @@ public class Attachment {
 
     @Column(name="description", length = 100)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "manager_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_manager"))
+    private Manager manager;
+
+    @ManyToOne
+    @JoinColumn(name = "admin_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_admin"))
+    private Admin admin;
+
+//    @ManyToOne
+//    @JoinColumn(name = "message_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_message"))
+//    private Message message;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_customer"))
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "salon_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_salon"))
+    private Salon salon;
+
+    @ManyToOne
+    @JoinColumn(name = "services_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_services"))
+    private Services services;
+
+    @ManyToOne
+    @JoinColumn(name = "booking_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_booking"))
+    private Booking booking;
+
+    @ManyToOne
+    @JoinColumn(name = "payment_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_payment"))
+    private Payment payment;
 }

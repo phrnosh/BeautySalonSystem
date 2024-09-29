@@ -1,6 +1,8 @@
 package com.beautysalon.beautysalonsystem.model.entity;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,16 +26,44 @@ public class Salon extends Base{
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name", length =30 , nullable = false )
+    @Column(name = "name", length =30 , nullable = false)
+    @Pattern(regexp = "^[a-zA-z\\d\\s]{2,30}$", message = "invalid Name")
     private String name;
 
     @Column(name = "address", length = 100)
+    @Pattern(regexp = "^[\\w\\s]{2,100}$", message = "invalid Address")
     private String address;
+
+    @Column(name = "status")
+    private boolean status;
 
     @Column(name = "description", length = 50)
     private String description;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JsonbTransient
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "salon_services_tbl",
+            joinColumns = @JoinColumn(name = "salon_id"),
+            inverseJoinColumns = @JoinColumn(name = "services_id"),
+            foreignKey = @ForeignKey(name = "fk_salon_services"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_salon_services")
+    )
+    private List<Services> servicesList;
+
+    @JsonbTransient
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "salon_timing_tbl",
+            joinColumns = @JoinColumn(name = "salon_id"),
+            inverseJoinColumns = @JoinColumn(name = "timing_id"),
+            foreignKey = @ForeignKey(name = "fk_salon_timing"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_salon_timing")
+    )
+    private List<Timing> timingList;
+
+    @JsonbTransient
+    @OneToMany(mappedBy = "salon", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Attachment> attachments;
 
     public void addAttachment(Attachment attachment) {
@@ -41,5 +71,20 @@ public class Salon extends Base{
             attachments = new ArrayList<>();
         }
         attachments.add(attachment);
+        attachment.setSalon(this);
+    }
+
+    public void addServices(Services services) {
+        if (servicesList == null) {
+            servicesList = new ArrayList<>();
+        }
+        servicesList.add(services);
+    }
+
+    public void addTiming(Timing timing){
+        if (timingList == null){
+            timingList = new ArrayList<>();
+        }
+        timingList.add(timing);
     }
 }

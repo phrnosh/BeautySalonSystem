@@ -27,27 +27,51 @@ public class Booking extends Base{
     @Column(name = "id")
     private Long id;
 
-    @Enumerated
-    private BookingState status;
+//    @Enumerated
+//    private BookingState status;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(
+            name = "customer_id",
+            foreignKey = @ForeignKey(name = "fk_booking_customer")
+    )
     private Customer customer;
-//
-    @Column(name = "date_time")
-    private LocalDateTime localDateTime;
 
-    //todo
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name= "services_id")
-    private List<Services> servicesList;
-//
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
-            name = "time_id",
-            foreignKey = @ForeignKey(name = "fk_booking_reserve")
+            name = "timing_id",
+            foreignKey = @ForeignKey(name = "fk_booking_timing")
     )
     private Timing timing;
+
+    @Column(name = "issue_time")
+    private LocalDateTime issueTime;
+
+    @Column(name = "reserved")
+    private boolean reserved;
+
+//    @ManyToOne
+//    @JoinColumn(name = "payment_id",
+//        foreignKey = @ForeignKey(name = "fk_booking_payment")
+//    )
+//    private Payment payment;
+
+    @OneToMany(mappedBy = "booking", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<Attachment> attachments;
+
+    public void addAttachment(Attachment attachment) {
+        if (attachments == null) {
+            attachments = new ArrayList<>();
+        }
+        attachments.add(attachment);
+        attachment.setBooking(this);
+    }
+
+
+//    //todo
+//    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+//    @JoinColumn(name= "services_id")
+//    private List<Services> servicesList;
 
 //    public void addItem(Timing timing){
 //        if(timingList == null){
@@ -55,5 +79,6 @@ public class Booking extends Base{
 //        }
 //        timingList.add(timing);
 //    }
+
 
 }

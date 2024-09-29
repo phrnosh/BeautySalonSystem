@@ -28,8 +28,10 @@ public class User extends Base {
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "username"),
-            inverseJoinColumns = @JoinColumn(name = "role_name"))
+            inverseJoinColumns = @JoinColumn(name = "role_name"),
+            foreignKey = @ForeignKey(name = "fk_user_role"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_user_role"))
     private Role role;
 
-    private boolean locked;
-}
+    @Column(name = "locked")
+    private boolean locked;}

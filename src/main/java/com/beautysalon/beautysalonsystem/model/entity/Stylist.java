@@ -30,6 +30,10 @@ public class Stylist extends Profile {
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Address address;
 
+    @Column(name = "national_code", length = 10)
+//    @Pattern(regexp = "^//d{10}$")
+    private String nationalCode;
+
     @OneToMany
     @JoinTable(name = "Services_Stylist_tbl")
     private List<Services> services;

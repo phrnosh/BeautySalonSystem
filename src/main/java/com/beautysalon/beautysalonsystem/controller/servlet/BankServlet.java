@@ -73,13 +73,16 @@ public class BankServlet extends HttpServlet {
             String branchCode = req.getParameter("branchCode");
             String branchName = req.getParameter("branchName").toUpperCase();
             String accountBalance = req.getParameter("accountBalance");
+            boolean status = Boolean.parseBoolean(req.getParameter("status"));
+
 
             Bank bank = Bank.builder()
                     .name(name)
                     .branchName(branchName)
                     .branchCode(Long.parseLong(branchCode))
-                    .accountBalance(Long.parseLong(accountBalance))
+                    .accountBalance(Double.parseDouble(accountBalance))
                     .accountNumber(accountNumber)
+                    .status(status)
                     .build();
 
             BeanValidator<Bank> validator = new BeanValidator<>();
@@ -101,6 +104,8 @@ public class BankServlet extends HttpServlet {
         }
     }
 
+
+
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -119,6 +124,7 @@ public class BankServlet extends HttpServlet {
 
             editingBank.setBranchName(bankAb.getBranchName());
             editingBank.setBranchCode(bankAb.getBranchCode());
+            editingBank.setStatus(bankAb.isStatus());
 
             BeanValidator<Bank> bankValidator = new BeanValidator<>();
             if (bankValidator.validate(bankAb).isEmpty()) {

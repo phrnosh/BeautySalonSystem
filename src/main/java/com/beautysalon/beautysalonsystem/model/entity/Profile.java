@@ -32,14 +32,6 @@ public abstract class Profile extends Base {
 //    @Pattern(regexp = "^(09|\\+989)\\d{9}$" ,message = "Invalid PhoneNumber")
     private String phoneNumber;
 
-    @Column(name = "address", length = 100)
-    @Pattern(regexp = "^[\\w\\s]{2,100}$", message = "invalid Address")
-    private String address;
-
-    @Column(name = "national_code", length = 10)
-//    @Pattern(regexp = "^//d{10}$")
-    private String nationalCode;
-
     @Enumerated(EnumType.ORDINAL)
     private UserState status;
 

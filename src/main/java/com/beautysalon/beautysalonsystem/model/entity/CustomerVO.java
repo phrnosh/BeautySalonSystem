@@ -17,7 +17,6 @@ import java.util.List;
 
 
 public class CustomerVO {
-
     private Long id;
 
     private String name;
@@ -32,7 +31,7 @@ public class CustomerVO {
 
     private String email;
 
-    private Long timingId;
+    private List<Long> bookingIds = new ArrayList<>();
 
 
     public CustomerVO(Customer customer) {
@@ -43,8 +42,10 @@ public class CustomerVO {
         this.password = customer.getUser().getPassword();
         this.phoneNumber = customer.getPhoneNumber();
         this.email = customer.getEmail();
-        this.timingId = customer.getTicket().getId();
 
+        for (Booking booking : customer.getBookingList()){
+            this.bookingIds.add(booking.getId());
+        }
     }
 
 }

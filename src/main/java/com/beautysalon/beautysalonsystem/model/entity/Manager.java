@@ -1,6 +1,7 @@
 package com.beautysalon.beautysalonsystem.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,14 @@ public class Manager extends Profile {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "address", length = 100)
+    @Pattern(regexp = "^[\\w\\s]{2,100}$", message = "invalid Address")
+    private String address;
+
+    @Column(name = "national_code", length = 10)
+//    @Pattern(regexp = "^//d{10}$")
+    private String nationalCode;
+
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
             name = "salon_id",
@@ -32,7 +41,7 @@ public class Manager extends Profile {
     )
     private Salon salon;
 
-    @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "manager", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Attachment> attachments;
 
     public void addAttachment(Attachment attachment) {
@@ -40,6 +49,7 @@ public class Manager extends Profile {
             attachments = new ArrayList<>();
         }
         attachments.add(attachment);
+        attachment.setManager(this);
     }
 
     @OneToOne

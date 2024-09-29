@@ -43,7 +43,7 @@ public class ServicesService implements Serializable {
     @Transactional
     public List<Services> findAll() throws Exception {
         return entityManager
-                .createQuery("select n from servicesEntity n where n .deleted=false", Services.class)
+                .createQuery("select s from servicesEntity s where s .deleted=false", Services.class)
                 .getResultList();
     }
 
@@ -53,19 +53,43 @@ public class ServicesService implements Serializable {
     }
 
     @Transactional
-    public List<Services> findByStylist(String name, String family) throws Exception {
+    public List<Services> findByStylist(String stylistName) throws Exception {
         return entityManager
-                .createQuery("select m from servicesEntity m where m.stylist.name like :name and m.stylist.family like :family", Services.class)
-                .setParameter("name", name + "%")
-                .setParameter("family", family + "%")
+                .createQuery("select s from servicesEntity s where s.stylistName like :stylist_name", Services.class)
+                .setParameter("stylist_name", stylistName + "%")
                 .getResultList();
     }
 
+//    @Transactional
+//    public List<Services> findByStylist(String name, String family) throws Exception {
+//        return entityManager
+//                .createQuery("select m from servicesEntity m where m.stylist.name like :name and m.stylist.family like :family", Services.class)
+//                .setParameter("name", name + "%")
+//                .setParameter("family", family + "%")
+//                .getResultList();
+//    }
+
+    @Transactional
+    public List<Services> findUsableServices() throws Exception {
+        return entityManager
+            .createQuery("select s from servicesEntity s where s.status=true and s.deleted=false ", Services.class)
+            .getResultList();
+}
+
+    @Transactional
+    public List<Services> findByText(String text) throws Exception {
+        return entityManager
+                .createQuery("select s from servicesEntity s where " +
+                        "(s.name like :text or s.stylistName like :text ) " +
+                        "and s.status=true and s.deleted=false", Services.class)
+                .setParameter("text", text.toUpperCase() + "%")
+                .getResultList();
+    }
 
     @Transactional
     public List<Services> findByServiceName(String serviceName) throws Exception {
         return entityManager
-                .createQuery("select m from servicesEntity m where m.name like :name",Services.class)
+                .createQuery("select s from servicesEntity s where s.name like :name",Services.class)
                 .setParameter("name",serviceName)
                 .getResultList();
 

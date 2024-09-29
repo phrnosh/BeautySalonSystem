@@ -1,6 +1,7 @@
 package com.beautysalon.beautysalonsystem.model.service;
 
 import com.beautysalon.beautysalonsystem.model.entity.Booking;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -10,7 +11,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@RequestScoped
+@ApplicationScoped
 public class BookingService implements Serializable {
 
     @PersistenceContext(unitName = "beautysalon")
@@ -53,22 +54,64 @@ public class BookingService implements Serializable {
         return entityManager.find(Booking.class, id);
     }
 
+
     @Transactional
-    public List<Booking> findByRangeDate(LocalDateTime startDate, LocalDateTime endDate) throws Exception {
+    public List<Booking> findByCustomerNameAndFamily(String name, String family) throws Exception {
         return entityManager
-                .createQuery("select b from bookingEntity b where b.localDateTime between :startTime and :endTime", Booking.class)
-                .setParameter("startTime", startDate)
-                .setParameter("endTime", endDate)
+                .createQuery("select b from bookingEntity b where b.customer.name like :name and b.customer.family like :family and b.deleted=false ", Booking.class)
+                .setParameter("name", name + "%")
+                .setParameter("family", family + "%")
                 .getResultList();
     }
 
     @Transactional
-    public List<Booking> findByDate(LocalDateTime localDateTime) throws Exception {
+    public List<Booking> findByCustomerPhoneNumber(String phoneNumber) throws Exception {
         return entityManager
-                .createQuery("select b from bookingEntity b where b.localDateTime =:localDateTime", Booking.class)
-                .setParameter("localDateTime", localDateTime )
+                .createQuery("select b from bookingEntity b where b.customer.phoneNumber =:phoneNumber and b.deleted=false order by b.issueTime desc ", Booking.class)
+                .setParameter("phoneNumber", phoneNumber)
                 .getResultList();
     }
+
+    @Transactional
+    public List<Long> findReservedTimingByServicesId(Long timingId) throws Exception {
+        return entityManager
+                .createQuery("select b.timing from bookingEntity b where b.timing.id =:timingId and b.reserved=true and b.deleted=false ", Long.class)
+                .setParameter("timingId", timingId)
+                .getResultList();
+    }
+
+    @Transactional
+    public List<Booking> findFailedReserved() throws Exception {
+        return entityManager
+                .createQuery("select b from bookingEntity b where b.reserved=true and b.issueTime <: allowedTime and b.deleted=false ", Booking.class)
+                .setParameter("allowedTime", LocalDateTime.now().minusMinutes(15))
+                .getResultList();
+    }
+
+    @Transactional
+    public List<Booking> findByTimingId(Long timingId) throws Exception {
+        return entityManager
+                .createQuery("select b from bookingEntity b where b.timing.id=:timingId and b.deleted=false order by b.issueTime desc ", Booking.class)
+                .setParameter("timingId", timingId)
+                .getResultList();
+    }
+
+//    @Transactional
+//    public List<Booking> findByRangeDate(LocalDateTime startDate, LocalDateTime endDate) throws Exception {
+//        return entityManager
+//                .createQuery("select b from bookingEntity b where b.localDateTime between :startTime and :endTime", Booking.class)
+//                .setParameter("startTime", startDate)
+//                .setParameter("endTime", endDate)
+//                .getResultList();
+//    }
+
+//    @Transactional
+//    public List<Booking> findByDate(LocalDateTime localDateTime) throws Exception {
+//        return entityManager
+//                .createQuery("select b from bookingEntity b where b.localDateTime =:localDateTime", Booking.class)
+//                .setParameter("localDateTime", localDateTime )
+//                .getResultList();
+//    }
 
     @Transactional
     public Booking findByCustomer(String customerId) throws Exception {
@@ -78,19 +121,19 @@ public class BookingService implements Serializable {
                 .getSingleResult();
     }
 
-    @Transactional
-    public List<Booking> findByServiceName(String servicesList) throws Exception {
-        return entityManager
-                .createQuery("select b from bookingEntity b where b.servicesList =: servicesList", Booking.class)
-                .setParameter("servicesList", servicesList)
-                .getResultList();
-    }
-    @Transactional
-    public List<Booking> findByCancelBooked(String servicesList) throws Exception {
-        return entityManager
-                .createQuery("select b from bookingEntity b where b.servicesList =: servicesList", Booking.class)
-                .setParameter("servicesList", servicesList)
-                .getResultList();
-    }
+//    @Transactional
+//    public List<Booking> findByServiceName(String servicesList) throws Exception {
+//        return entityManager
+//                .createQuery("select b from bookingEntity b where b.servicesList =: servicesList", Booking.class)
+//                .setParameter("servicesList", servicesList)
+//                .getResultList();
+//    }
+//    @Transactional
+//    public List<Booking> findByCancelBooked(String servicesList) throws Exception {
+//        return entityManager
+//                .createQuery("select b from bookingEntity b where b.servicesList =: servicesList", Booking.class)
+//                .setParameter("servicesList", servicesList)
+//                .getResultList();
+//    }
 
 }

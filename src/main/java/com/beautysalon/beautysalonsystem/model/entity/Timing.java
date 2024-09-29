@@ -15,33 +15,36 @@ import java.time.LocalDateTime;
 @Setter
 @SuperBuilder
 
-@Entity(name = "reserveEntity")
-@Table(name="reserve_tbl")
+@Entity(name = "timingEntity")
+@Table(name="timing_tbl")
 
 public class Timing extends Base{
 
     @Id
-    @SequenceGenerator(name = "reserveSeq", sequenceName = "reserve_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reserveSeq")
+    @SequenceGenerator(name = "timingSeq", sequenceName = "timing_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timingSeq")
     @Column(name = "id")
     private Long id;
-
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "reserve_stylist")
-    private Stylist stylist;
 
     @ManyToOne
     @JoinColumn(
             name = "services_id",
-            foreignKey = @ForeignKey(name = "fk_reserve_service")
+            foreignKey = @ForeignKey(name = "fk_show_time_services")
     )
     private Services services;
+
+    @Column(name = "remaining_capacity")
+    private int remainingCapacity;
 
     @Column(name = "start_time")
     private LocalDateTime startTime;
 
     @Column(name = "end_time")
     private LocalDateTime endTime;
+
+
+    @Column(name = "status")
+    private boolean status;
 
     @Column(name = "description", length = 50)
     private String description;
