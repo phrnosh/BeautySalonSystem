@@ -42,7 +42,7 @@ public class SalonService implements Serializable {
                 entityManager.merge(timing);
             }
 
-            for (Services services : salon.getSaloonList()) {
+            for (Services services : salon.getServicesList()) {
                 services.setDeleted(true);
                 entityManager.merge(services);
             }
