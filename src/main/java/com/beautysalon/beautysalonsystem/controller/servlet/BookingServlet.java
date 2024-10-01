@@ -27,7 +27,8 @@ public class BookingServlet extends HttpServlet {
                     Booking
                             .builder()
                 //            .customer(req.getParameter("customer"))
-                            .localDateTime(LocalDateTime.parse(req.getParameter("local date")))
+                            //TODO:You don't have localDateTime Field in your Booking Class .
+//                            .localDateTime(LocalDateTime.parse(req.getParameter("local date")))
                             .build();
 
             BeanValidator<Booking> bookingBeanValidator = new BeanValidator<>();
