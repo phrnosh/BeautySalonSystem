@@ -25,7 +25,7 @@ public class CheckPaymentServlet extends HttpServlet {
             CheckPayment checkPayment =
                     CheckPayment
                             .builder()
-                            .price(Float.parseFloat(req.getParameter("price")))
+                            .price(Double.parseDouble(req.getParameter("price")))
                             .paymentDateTime(LocalDateTime.parse(req.getParameter("date time")))
                             .description(req.getParameter("description"))
                            .check(Long.valueOf(req.getParameter("check number")))

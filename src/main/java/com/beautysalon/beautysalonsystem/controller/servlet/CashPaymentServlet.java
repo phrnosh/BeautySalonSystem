@@ -24,7 +24,7 @@ import java.time.LocalDateTime;
         CashPayment cashPayment =
         CashPayment
         .builder()
-        .price(Float.parseFloat(req.getParameter("price")))
+        .price(Double.parseDouble(req.getParameter("price")))
         .paymentDateTime(LocalDateTime.parse(req.getParameter("date time")))
         .description(req.getParameter("description"))
         .build();

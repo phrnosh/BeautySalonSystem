@@ -26,7 +26,7 @@ public class  CardPaymentServlet extends HttpServlet {
                 CardPayment cardPayment =
                         CardPayment
                                 .builder()
-                                .price(Float.parseFloat(req.getParameter("price")))
+                                .price(Double.parseDouble(req.getParameter("price")))
                                 .paymentDateTime(LocalDateTime.parse(req.getParameter("date time")))
                                 .description(req.getParameter("description"))
                                 .bankName(req.getParameter("bank name"))
