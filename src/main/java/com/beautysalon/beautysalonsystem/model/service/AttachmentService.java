@@ -11,7 +11,8 @@ import java.io.Serializable;
 @ApplicationScoped
 public class AttachmentService implements Serializable {
 
-    @PersistenceContext(unitName = "cinema")
+
+    @PersistenceContext(unitName = "beautysalon")
     private EntityManager entityManager;
 
 
