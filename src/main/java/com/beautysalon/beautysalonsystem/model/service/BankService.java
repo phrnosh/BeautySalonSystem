@@ -12,7 +12,7 @@ import java.util.List;
 
 @ApplicationScoped
 public class BankService implements Serializable {
-    @PersistenceContext(unitName = "cinema")
+    @PersistenceContext(unitName = "beautysalon")
     private EntityManager entityManager;
 
     @Transactional
