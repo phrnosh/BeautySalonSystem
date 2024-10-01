@@ -6,6 +6,7 @@ import com.beautysalon.beautysalonsystem.model.entity.Bank;
 import com.beautysalon.beautysalonsystem.model.entity.User;
 import com.beautysalon.beautysalonsystem.model.service.BankService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,7 +14,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.inject.Inject;
 import java.io.IOException;
 import java.io.PrintWriter;
 
