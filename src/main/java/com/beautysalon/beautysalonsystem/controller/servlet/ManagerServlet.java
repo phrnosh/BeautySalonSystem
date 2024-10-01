@@ -71,6 +71,11 @@ public class ManagerServlet extends HttpServlet {
                             .name(StringEscapeUtils.escapeHtml4(req.getParameter("name")))
                             .family(req.getParameter("family"))
                             .phoneNumber(req.getParameter("phone number"))
+                            .email(req.getParameter("email"))
+                            .phoneNumber(req.getParameter("phone"))
+                            .nationalCode(req.getParameter("national_id"))
+                            .status(UserState.valueOf(req.getParameter("status")))
+                            //TODO: catch all parameters from jsp form .
                             .build();
 
             BeanValidator<Manager> ManagerValidator = new BeanValidator<>();

@@ -132,6 +132,7 @@ public class ManagerApi {
         }
     }
 
+//    http://127.0.0.1:80/rest/manager/manager-for-salon
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/manager-for-salon")
