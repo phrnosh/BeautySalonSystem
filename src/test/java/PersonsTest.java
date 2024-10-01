@@ -7,7 +7,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-import javax.xml.registry.infomodel.User;
+//TODO: Wrong Import !
+//import javax.xml.registry.infomodel.User;
 import java.util.List;
 
 import static com.beautysalon.beautysalonsystem.model.entity.Customer.builder;
