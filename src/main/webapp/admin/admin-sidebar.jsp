@@ -23,67 +23,67 @@
             </c:choose>
         </div>
 
-        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="admins.do">
-            <div class="item-icon w-25"><i class="fa fa-user-circle"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Admins</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="admins.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-user-circle"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Admins</div>--%>
+<%--        </a>--%>
 
-        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="moderator.do">
-            <div class="item-icon w-25"><i class="fa fa-id-badge"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Moderators</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="moderator.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-id-badge"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Moderators</div>--%>
+<%--        </a>--%>
 
-        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="moderator.do">
-            <div class="item-icon w-25"><i class="fa fa-user-circle"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Moderators</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="moderator.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-user-circle"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Moderators</div>--%>
+<%--        </a>--%>
 
         <% } %>
 
-        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="users.do">
-            <div class="item-icon w-25"><i class="fa fa-user-check"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Account</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="users.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-user-check"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Account</div>--%>
+<%--        </a>--%>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="managers.do">
-            <div class="item-icon w-25"><i class="fa fa-vcard"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Managers</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="managers.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-vcard"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Managers</div>--%>
+<%--        </a>--%>
 
         <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="customer.do">
             <div class="item-icon w-25"><i class="fa fa-person"></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Customers</div>
         </a>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="cinema.do">
-            <div class="item-icon w-25"><i class="fa fa-camera-movie"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Cinemas</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="cinema.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-camera-movie"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Cinemas</div>--%>
+<%--        </a>--%>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="show.do">
-            <div class="item-icon w-25"><i class="fa fa-theater-masks"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Shows</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="show.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-theater-masks"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Shows</div>--%>
+<%--        </a>--%>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="ticket.do">
-            <div class="item-icon w-25"><i class="fa fa-ticket"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Tickets</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="ticket.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-ticket"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Tickets</div>--%>
+<%--        </a>--%>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="payment.do">
-            <div class="item-icon w-25"><i class="fa fa-money-bill-transfer"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Payments</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="payment.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-money-bill-transfer"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Payments</div>--%>
+<%--        </a>--%>
 
         <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="bank.do">
             <div class="item-icon w-25"><i class="fa fa-bank"></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Banks</div>
         </a>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="support.do">
-            <div class="item-icon w-25"><i class="fa fa-user-headset"></i></div>
-            <div class="w-50 d-sm-none d-lg-flex">Support</div>
-        </a>
+<%--        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="support.do">--%>
+<%--            <div class="item-icon w-25"><i class="fa fa-user-headset"></i></div>--%>
+<%--            <div class="w-50 d-sm-none d-lg-flex">Support</div>--%>
+<%--        </a>--%>
 
         <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="logout.do">
             <div class="item-icon w-25"><i class="fa fa-sign-out"></i></div>

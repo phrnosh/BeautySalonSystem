@@ -65,6 +65,7 @@ public class ManagerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
+            System.out.println("inside try block");
             Manager manager =
                     Manager
                             .builder()
@@ -72,10 +73,10 @@ public class ManagerServlet extends HttpServlet {
                             .name(StringEscapeUtils.escapeHtml4(req.getParameter("name")))
                             .family(req.getParameter("family"))
                             .phoneNumber(req.getParameter("phone number"))
-                            .email(req.getParameter("email"))
-                            .phoneNumber(req.getParameter("phone"))
-                            .nationalCode(req.getParameter("national_id"))
-                            .status(UserState.valueOf(req.getParameter("status")))
+//                            .email(req.getParameter("email"))
+//                            .phoneNumber(req.getParameter("phone"))
+//                            .nationalCode(req.getParameter("national_id"))
+//                            .status(UserState.valueOf(req.getParameter("status")))
                             //TODO: catch all parameters from jsp form .
                             .build();
 
@@ -83,7 +84,7 @@ public class ManagerServlet extends HttpServlet {
             if(ManagerValidator.validate(manager).isEmpty()) {
                 managerService.save(manager);
                 resp.sendRedirect("/manager.do");
-                log.info("manager saved successfully : " + manager.toString());
+                log.info("manager saved successfully : {}", manager.toString());
             }else {
                 throw new Exception("Invalid Manager Data !!!");
             }
