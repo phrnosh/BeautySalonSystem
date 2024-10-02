@@ -69,7 +69,7 @@ public class AdminServlet extends HttpServlet {
                 Admin editingAdmin = adminService.findById(Long.parseLong(req.getParameter("cancel")));
                 editingAdmin.setEditing(false);
                 adminService.edit(editingAdmin);
-                resp.sendRedirect("/admin.do");
+//                resp.sendRedirect("/admin.do");
                 return;
             }
 
@@ -79,22 +79,22 @@ public class AdminServlet extends HttpServlet {
                     editingAdmin.setEditing(true);
                     adminService.edit(editingAdmin);
                     req.getSession().setAttribute("editingAdmin", editingAdmin);
-                    req.getRequestDispatcher("/admin/admin-edit.jsp").forward(req, resp);
+//                    req.getRequestDispatcher("/admin/admin-edit.jsp").forward(req, resp);
                 } else {
                     String errorMessage = "Record is editing by another user !!!";
                     req.getSession().setAttribute("errorMessage", errorMessage);
                     log.error(errorMessage);
-                    resp.sendRedirect("/admin.do");
+//                    resp.sendRedirect("/admin.do");
                 }
             } else {
                 req.getSession().setAttribute("allAdmins", adminService.findAll());
-                req.getRequestDispatcher("/admin/admin-panel").forward(req, resp);
+//                req.getRequestDispatcher("/admin/admin-panel").forward(req, resp);
             }
         } catch (Exception e) {
             String errorMessage = e.getMessage();
             req.getSession().setAttribute("errorMessage", errorMessage);
             log.error(ExceptionWrapper.getMessage(e).toString());
-            resp.sendRedirect("/admin.do");
+//            resp.sendRedirect("/admin.do");
         }
 
     }
@@ -145,21 +145,21 @@ public class AdminServlet extends HttpServlet {
 
 
             } else {
+                System.out.println("in else block - AdminServlet");
 
-
-                Role role = (Role) roleService.FindByRole("admin");
+//                Role role = (Role) roleService.FindByRole("admin");
 
                 User user =
                         User
                                 .builder()
                                 .username(req.getParameter("username"))
                                 .password(req.getParameter("password"))
-                                .role(role)
+//                                .role(role)
                                 .locked(false)
                                 .deleted(false)
                                 .build();
 
-
+                System.out.println("User  :" + user.toString());
                 Admin admin =
                         Admin
                                 .builder()
@@ -167,9 +167,10 @@ public class AdminServlet extends HttpServlet {
                                 .family(req.getParameter("family"))
                                 .phoneNumber(req.getParameter("phoneNumber"))
                                 .email(req.getParameter("email"))
-                                .user(user)
+//                                .user(user)
                                 .deleted(false)
                                 .build();
+                System.out.println("Admin  :" + admin.toString());
 
                 Part filePart = req.getPart("image");
 
@@ -194,26 +195,33 @@ public class AdminServlet extends HttpServlet {
                             .fileSize(filePart.getSize())
                             .build();
 
-                    admin.addAttachment(attachment);
+                    //TODO: problem in attachment services .
+//                    admin.addAttachment(attachment);
                 }
 
                 BeanValidator<Admin> adminValidator = new BeanValidator<>();
+                System.out.println("After Bean Validation Object Init");
                 if (adminValidator.validate(admin).isEmpty()) {
+
                     adminService.save(admin);
+                    //TODO: Saving User .
+
                     log.info("Admin saved successfully : " + admin.getFamily());
-                    resp.sendRedirect("/admin.do");
+//                    resp.sendRedirect("/admin.do");
                 } else {
                     String errorMessage = "Invalid Admin Data !!!";
                     req.getSession().setAttribute("errorMessage", errorMessage);
                     log.error(errorMessage);
-                    resp.sendRedirect("/admin.do");
+
+//                    resp.sendRedirect("/admin.do");
                 }
             }
         } catch (Exception e) {
+            System.out.println("inside catch block");
             String errorMessage = e.getMessage();
             req.getSession().setAttribute("errorMessage", errorMessage);
             log.error(ExceptionWrapper.getMessage(e).toString());
-            resp.sendRedirect("/admins.do");
+            resp.sendRedirect("/admin.do");
         }
 
     }

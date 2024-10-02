@@ -44,7 +44,7 @@
                 </div>
 
                 <div style="margin-left: 5%">
-                    <form action="admin.do" method="post" enctype="multipart/form-data">
+                    <form action="/admin.do" method="post" enctype="multipart/form-data">
 
                         <div class="d-flex mb-4">
 
