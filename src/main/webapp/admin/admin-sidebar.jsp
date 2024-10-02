@@ -23,10 +23,10 @@
             </c:choose>
         </div>
 
-<%--        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="admins.do">--%>
-<%--            <div class="item-icon w-25"><i class="fa fa-user-circle"></i></div>--%>
-<%--            <div class="w-50 d-sm-none d-lg-flex">Admins</div>--%>
-<%--        </a>--%>
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="admin.do">
+            <div class="item-icon w-25"><i class="fa fa-user-circle"></i></div>
+            <div class="w-50 d-sm-none d-lg-flex">Admins</div>
+        </a>
 
 <%--        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="moderator.do">--%>
 <%--            <div class="item-icon w-25"><i class="fa fa-id-badge"></i></div>--%>
@@ -45,10 +45,10 @@
 <%--            <div class="w-50 d-sm-none d-lg-flex">Account</div>--%>
 <%--        </a>--%>
 
-<%--        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="managers.do">--%>
-<%--            <div class="item-icon w-25"><i class="fa fa-vcard"></i></div>--%>
-<%--            <div class="w-50 d-sm-none d-lg-flex">Managers</div>--%>
-<%--        </a>--%>
+        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="manager.do">
+            <div class="item-icon w-25"><i class="fa fa-vcard"></i></div>
+            <div class="w-50 d-sm-none d-lg-flex">Managers</div>
+        </a>
 
         <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="customer.do">
             <div class="item-icon w-25"><i class="fa fa-person"></i></div>
