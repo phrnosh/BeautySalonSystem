@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Farnoosh
-  Date: 8/13/2024
-  Time: 8:35 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -27,22 +20,18 @@
                 <p>با وارد کردن اطلاعات زیر وارد پنل خود شوید</p>
             </div><br><br>
 
-            <div class="input-register">
-
+            <div class="input-register text-center mx-auto">
                 <form action="j_security_check" method="post">
-                    <input type="text" style="display: block; width: 80%;" placeholder="نام کاربری را وارد کنید" name="j_username">
-                    <input type="password" style="display: block; width: 80%;" placeholder="رمز عبور را وارد کنید" name="j_password">
-                    <input type="submit" class="btn btn-outline-dark" style=" display: block; width: 80%;" value="ورود">
+                    <input class="mb-2" type="text" style="display: block; width: 80%; margin: 0 auto;" placeholder="نام کاربری را وارد کنید" name="j_username">
+                    <input class="mb-4" type="password" style="display: block; width: 80%; margin: 0 auto;" placeholder="رمز عبور را وارد کنید" name="j_password">
+                    <input type="submit" class="btn btn-outline-dark" style="display: block; width: 80%; margin: 0 auto;" value="Login">
                 </form>
-
             </div>
 
-            <div class="footer-register">
-
-                <a href="" class="btn-reg">ساخت اکانت </a>
-
-                <a href="" class="btn-reg">فراموشی رمز عبور</a>
-
+            <div class="footer-register text-center mx-auto">
+                <a href="salonHome.do" class="btn-reg">Back</a>
+                <a href="user.do" class="btn-reg">فراموشی رمزعبور</a>
+                <a href="customer.do" class="btn-reg">ساخت اکانت</a>
             </div>
 
         </div>

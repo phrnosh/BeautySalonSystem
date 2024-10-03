@@ -46,7 +46,7 @@
                                          xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="8" cy="8" r="8" />
                                     </svg>
-                                    مشاهده ی سفارشات</a>
+                                    مشاهده ی رزروها</a>
                                 <a class="dropmenu" href="#">
                                     <svg style="color: #6fc341; margin-left: 2px;" width="0.4em" height="0.4em"
                                          viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor"
@@ -54,13 +54,6 @@
                                         <circle cx="8" cy="8" r="8" />
                                     </svg>
                                     فراموشی رمز عبور</a>
-                                <a class="dropmenu" href="#">
-                                    <svg style="color: #6fc341; margin-left: 2px;" width="0.4em" height="0.4em"
-                                         viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="8" cy="8" r="8" />
-                                    </svg>
-                                    کیف پول من</a>
                                 <a class="dropmenu" href="#">
                                     <svg style="color: #6fc341; margin-left: 2px;" width="0.4em" height="0.4em"
                                          viewBox="0 0 16 16" class="bi bi-circle-fill" fill="currentColor"

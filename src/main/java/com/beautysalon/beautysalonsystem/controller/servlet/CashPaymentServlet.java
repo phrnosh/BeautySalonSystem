@@ -4,13 +4,12 @@ import com.beautysalon.beautysalonsystem.controller.validation.BeanValidator;
 import com.beautysalon.beautysalonsystem.model.entity.CashPayment;
 import com.beautysalon.beautysalonsystem.model.service.CashPaymentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import javax.inject.Inject;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
@@ -25,9 +24,9 @@ import java.time.LocalDateTime;
         CashPayment cashPayment =
         CashPayment
         .builder()
-        .price(Double.parseDouble(req.getParameter("price")))
-        .paymentDateTime(LocalDateTime.parse(req.getParameter("date time")))
-        .description(req.getParameter("description"))
+//        .price(Float.parseFloat(req.getParameter("price")))
+//        .paymentDateTime(LocalDateTime.parse(req.getParameter("date time")))
+//        .description(req.getParameter("description"))
         .build();
 
         BeanValidator<CashPayment> cashPaymentBeanValidator = new BeanValidator<>();
