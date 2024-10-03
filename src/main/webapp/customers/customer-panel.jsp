@@ -8,6 +8,19 @@
 </head>
 <body style="background-color:rgba(200, 161, 132, 0.64);">
 
+<%
+    String errorMessage = (String) session.getAttribute("errorMessage");
+    if (errorMessage != null) {
+%>
+<div class="alert alert-danger">
+    <%= errorMessage %>
+</div>
+<%
+        session.removeAttribute("errorMessage");
+    }
+%>
+
+
 <jsp:include page="/./short-user-info.jsp"/>
 <jsp:include page="/./navbar.jsp"/>
 <br>
@@ -19,6 +32,29 @@
             <div class="container top-header">
                 <div class="search-box d-lg-flex">
                     <div class="input-group md-form form-sm form-1 pl-0">
+                        <table id="resultTable" border="1" class="table-light w-100">
+                            <thead>
+                            <tr>
+                                <th hidden="hidden">ID</th>
+                                <th>Name</th>
+                                <th>Family</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>Image</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            <tr>
+                                <td hidden="hidden">${sessionScope.customer.id}</td>
+                                <td>${sessionScope.customer.name}</td>
+                                <td>${sessionScope.customer.family}</td>
+                                <td>${sessionScope.customer.phoneNumber}</td>
+                                <td>${sessionScope.customer.email}</td>
+
+                                <td>
+
                         <input class="form-control mr-sm-2" type="search" placeholder="Search Salon..." aria-label="Search">
                         <div class="input-group-prepend" style="padding-bottom: 2px;" >
                     <span style="background-color: black; border-radius: 8px;" class="input-group-text purple lighten-3"
@@ -35,6 +71,13 @@
                 <h1 class="d-lg-block" style="text-align: center; font-weight:bolder; font-size:6em;">Beauty Salon</h1>
                 <%--             <p style="text-align: justify;"></p>--%>
                 <%--            <img src="/assets/images/mainpic.jpg" class="caption-back d-none d-lg-flex" alt="">--%>
+                <button onclick="editCustomer(${sessionScope.customer.id})" class="btn btn-primary w-25 mt-4 mb-5">Edit</button>
+
+                <c:choose>
+                    <c:when test="${sessionScope.selectedTiming == null}">
+                        <a hidden="hidden" class="btn btn-danger w-25 mt-5" href="services.do">Continue booking</a>
+                    </c:when>
+                </c:choose>
             </div>
         </div>
     </div>
@@ -43,6 +86,11 @@
 <jsp:include page="/./footer.jsp"/>
 
 <script>
+    function editCustomer(id) {
+        window.location.replace("/customer.do?edit=" + id);
+    }
+
+
     // Function to call the API and display the result in a table
     function findSalonByName() {
         var name = document.getElementById("salonName").value;

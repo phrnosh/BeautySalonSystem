@@ -165,7 +165,7 @@
             <div style="margin-right: 3%">
                 <c:choose>
                     <c:when test="${sessionScope.selectedSalon.imageUrl != ''}">
-                        <img src="${sessionScope.selectedSalon.imageUrl}" alt="Cinema Image" height="150px" width="150px">
+                        <img src="${sessionScope.selectedSalon.imageUrl}" alt="Salon Image" height="150px" width="150px">
                     </c:when>
                     <c:otherwise>
                         No Image
@@ -224,7 +224,7 @@
 <script>
 
     function selectTiming(id){
-        window.location.replace("/seatSelect.do?selectShowTimeId=" + id);
+        window.location.replace("/services.do?selectTimingId=" + id);
     }
 
 </script>

@@ -72,16 +72,6 @@
 
                 <div class="d-inline p-5 w-25 h-100 d-flex flex-column justify-content-between" style="margin-left: 10%">
 
-<%--                    <div class="d-flex w-100 mb-5 bg-body-secondary justify-content-center">--%>
-<%--                        <c:choose>--%>
-<%--                            <c:when test="${not empty sessionScope.editingCustomer.attachments}">--%>
-<%--                                <img src="${sessionScope.editingCustomer.attachments.get(0).fileName}" alt="Customer Image" height="200px" width="200px">--%>
-<%--                            </c:when>--%>
-<%--                            <c:otherwise>--%>
-<%--                                No Image--%>
-<%--                            </c:otherwise>--%>
-<%--                        </c:choose>--%>
-<%--                    </div>--%>
 
                     <div class="d-flex justify-content-center mb-5">
                         <form action="customer.do" method="post" enctype="multipart/form-data">

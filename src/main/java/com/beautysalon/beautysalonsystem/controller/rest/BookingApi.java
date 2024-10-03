@@ -118,7 +118,7 @@ public class BookingApi {
             List<BookingVO> bookingVOList = new ArrayList<>();
             for (Booking booking : bookingList) {
                 BookingVO bookingVO = new BookingVO(booking);
-//                bookingVO.setSeatLabel(seatService.findById(ticket.getSeatId()).getLabel());
+//                bookingVO.setSeatLabel(seatService.findById(booking.getSeatId()).getLabel());
                 bookingVOList.add(bookingVO);
             }
 

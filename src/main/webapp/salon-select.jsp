@@ -154,7 +154,7 @@
                             <c:choose>
                                 <c:when test="${salon.imageUrl != ''}">
                                     <img src="${salon.imageUrl}" class="card-img-top d-block mx-auto"
-                                         alt="Cinema Image" style="width: 200px; height: 200px">
+                                         alt="Salon Image" style="width: 200px; height: 200px">
                                 </c:when>
                                 <c:otherwise>
                                     <div class="card-img-top d-block mx-auto text-center py-5"

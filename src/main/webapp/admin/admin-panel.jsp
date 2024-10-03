@@ -1,10 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Admin Panel</title>
 
-    <jsp:include page="../css-include.jsp"/>
+<%--    <jsp:include page="../css-include.jsp"/>--%>
 
 </head>
 <body>
@@ -24,13 +25,13 @@
 
 
 <div class="container-fluid d-flex flex-row vh-100 p-0">
-
-    <jsp:include page="/admin/admin-sidebar.jsp"/>
+<%--TODO: check all includes--%>
+<%--    <jsp:include page="/admin/admin-sidebar.jsp"/>--%>
 
 
     <div class="content d-flex flex-column flex-grow-1">
 
-        <jsp:include page="/navbar.jsp"/>
+<%--        <jsp:include page="/navbar.jsp"/>--%>
 
 
         <div class="content d-flex flex-column align-items-center flex-grow-1">
@@ -43,7 +44,7 @@
                 </div>
 
                 <div style="margin-left: 5%">
-                    <form action="admin.do" method="post" enctype="multipart/form-data">
+                    <form action="/admin.do" method="post" enctype="multipart/form-data">
 
                         <div class="d-flex mb-4">
 
@@ -153,7 +154,7 @@
         </div>
 
 
-        <jsp:include page="/footer.jsp"/>
+<%--        <jsp:include page="/footer.jsp"/>--%>
 
 
     </div>

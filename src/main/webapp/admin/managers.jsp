@@ -266,7 +266,7 @@
                             "<td>" + manager.family + "</td>" +
                             "<td>" + "" + "</td>" +
                             "<td>" + "" + "</td>" +
-                            "<td>" + manager.cinemaName + "</td>" +
+                            "<td>" + manager.salonName + "</td>" +
                             "<td>" + manager.nationalCode + "</td>" +
                             "<td>" + manager.phoneNumber + "</td>" +
                             "<td>" + manager.email + "</td>" +

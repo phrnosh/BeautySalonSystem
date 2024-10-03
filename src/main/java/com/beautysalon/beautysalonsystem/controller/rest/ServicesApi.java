@@ -28,9 +28,9 @@ public class ServicesApi {
             Services servicesToRemove = servicesService.findById(id);
 
             if (servicesToRemove.isAvailable()) {
-                log.error("Show is active on a cinema, can not remove show-id : "+ id);
+                log.error("Show is active on a salon, can not remove show-id : "+ id);
                 return Response.status(Response.Status.NOT_ACCEPTABLE)
-                        .entity("Show is active on a cinema !!!")
+                        .entity("Show is active on a salon !!!")
                         .build();
             } else {
                 servicesService.remove(id);

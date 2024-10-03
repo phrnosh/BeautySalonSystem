@@ -25,7 +25,7 @@
 
                 <form action="customer.do" method="post">
                     <input type="text" style="display: block; width: 80%;" placeholder="نام" name="name">
-                    <input type="password" style="display: block; width: 80%;" placeholder="نام خانوادگی" name="family">
+                    <input type="text" style="display: block; width: 80%;" placeholder="نام خانوادگی" name="family">
                     <input type="text" style="display: block; width: 80%;" placeholder="ایمیل" name="email">
                     <input type="tel" style="display: block; width: 80%;" placeholder="تلفن همراه" name="phone">
                     <input type="text" style="display: block; width: 80%;" placeholder="کدملی" name="national_id">

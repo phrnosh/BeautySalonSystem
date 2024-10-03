@@ -123,18 +123,17 @@ public class TimingServlet extends HttpServlet {
 
             Services services = salonService.findServicesBySalonId(salon.getId());
 
-            LocalDate showTimeDate = LocalDate.parse(req.getParameter("date"));
+            LocalDate timingDate = LocalDate.parse(req.getParameter("date"));
             LocalTime startHour = LocalTime.parse(req.getParameter("startTime"));
             LocalTime endHour = LocalTime.parse(req.getParameter("endTime"));
-            LocalDateTime startTime = showTimeDate.atTime(startHour);
-            LocalDateTime endTime = showTimeDate.atTime(endHour);
+            LocalDateTime startTime = timingDate.atTime(startHour);
+            LocalDateTime endTime = timingDate.atTime(endHour);
 
 //todo
             Timing timing =
                     Timing
                             .builder()
                             .services(services)
-//                            .remainingCapacity(services.get())
                             .startTime(startTime)
                             .endTime(endTime)
                             .status(Boolean.parseBoolean(req.getParameter("status")))
@@ -143,8 +142,8 @@ public class TimingServlet extends HttpServlet {
                             .deleted(false)
                             .build();
 
-            List<Timing> interferenceShowTimes = timingService.findTimingByServicesIdAndTime(services.getId(), startTime, endTime);
-            if (interferenceShowTimes == null || interferenceShowTimes.isEmpty()) {
+            List<Timing> interferenceTiming = timingService.findTimingByServicesIdAndTime(services.getId(), startTime, endTime);
+            if (interferenceTiming == null || interferenceTiming.isEmpty()) {
                 timingService.save(timing);
                 salon.addTiming(timing);
                 salonService.edit(salon);
@@ -200,6 +199,5 @@ public class TimingServlet extends HttpServlet {
         }
 
     }
-
 
 }
