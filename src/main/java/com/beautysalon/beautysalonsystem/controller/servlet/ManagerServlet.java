@@ -4,7 +4,6 @@ import com.beautysalon.beautysalonsystem.controller.exception.ExceptionWrapper;
 import com.beautysalon.beautysalonsystem.controller.validation.BeanValidator;
 import com.beautysalon.beautysalonsystem.model.entity.*;
 import com.beautysalon.beautysalonsystem.model.entity.enums.FileType;
-import com.beautysalon.beautysalonsystem.model.entity.enums.UserState;
 import com.beautysalon.beautysalonsystem.model.service.AttachmentService;
 import com.beautysalon.beautysalonsystem.model.service.ManagerService;
 import com.beautysalon.beautysalonsystem.model.service.RoleService;
@@ -18,7 +17,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -172,10 +170,12 @@ public class ManagerServlet extends HttpServlet {
                                 .deleted(false)
                                 .build();
 
-
+                //todo    System.out.println("inside try block");
                 Manager manager =
                         Manager
                                 .builder()
+                                // StringEscapeUtils ????
+//                                .name(StringEscapeUtils.escapeHtml4(req.getParameter("name")))
                                 .name(req.getParameter("name").toUpperCase())
                                 .family(req.getParameter("family").toUpperCase())
                                 .phoneNumber(req.getParameter("phoneNumber"))
@@ -233,6 +233,7 @@ public class ManagerServlet extends HttpServlet {
         }
 
     }
+
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
