@@ -4,13 +4,13 @@ import com.beautysalon.beautysalonsystem.controller.validation.BeanValidator;
 import com.beautysalon.beautysalonsystem.model.entity.CardPayment;
 import com.beautysalon.beautysalonsystem.model.service.CardPaymentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import javax.inject.Inject;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
@@ -26,11 +26,11 @@ public class  CardPaymentServlet extends HttpServlet {
                 CardPayment cardPayment =
                         CardPayment
                                 .builder()
-                                .price(Double.parseDouble(req.getParameter("price")))
-                                .paymentDateTime(LocalDateTime.parse(req.getParameter("date time")))
-                                .description(req.getParameter("description"))
-                                .bankName(req.getParameter("bank name"))
-                                .cardNumber(Integer.parseInt(req.getParameter("bank name")))
+//                                .price(Float.parseFloat(req.getParameter("price")))
+//                                .paymentDateTime(LocalDateTime.parse(req.getParameter("date time")))
+//                                .description(req.getParameter("description"))
+//                                .bankName(req.getParameter("bank name"))
+//                                .cardNumber(Integer.parseInt(req.getParameter("bank name")))
                                 .build();
 
                 BeanValidator<CardPayment> cardPaymentBeanValidator = new BeanValidator<>();

@@ -1,5 +1,6 @@
 package com.beautysalon.beautysalonsystem.model.entity;
 
+import com.beautysalon.beautysalonsystem.model.entity.enums.ServicesType;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -37,6 +38,10 @@ public class Services extends Base{
     @Column(name = "stylist_name", length = 30)
     //@Pattern(regexp = "^[a-zA-Z\\d\\S\\._]{3,30}$" ,message = "Invalid username")
     private String stylistName;
+
+    @Column(name = "services_type")
+    @Enumerated(EnumType.ORDINAL)
+    private ServicesType servicesType;
 
     @Column(name = "is_active")
     private boolean status;

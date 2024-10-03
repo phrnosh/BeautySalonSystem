@@ -32,8 +32,8 @@ public abstract class Profile extends Base {
 //    @Pattern(regexp = "^(09|\\+989)\\d{9}$" ,message = "Invalid PhoneNumber")
     private String phoneNumber;
 
-    @Enumerated(EnumType.ORDINAL)
-    private UserState status;
+//    @Enumerated(EnumType.ORDINAL)
+//    private UserState status;
 
 //    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 //    @JoinTable(name="profile_address_tbl")

@@ -1,6 +1,7 @@
 package com.beautysalon.beautysalonsystem.model.service;
 
 import com.beautysalon.beautysalonsystem.model.entity.Services;
+import com.beautysalon.beautysalonsystem.model.entity.enums.ServicesType;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -93,5 +94,37 @@ public class ServicesService implements Serializable {
                 .setParameter("name",serviceName)
                 .getResultList();
 
+    }
+
+    @Transactional
+    public Services findByName(String name) throws Exception {
+        List<Services> servicesList =
+                entityManager
+                        .createQuery("select s from servicesEntity s where s.name =:name and s.deleted=false", Services.class)
+                        .setParameter("name", name.toUpperCase())
+                        .getResultList();
+        if (!servicesList.isEmpty()) {
+            return servicesList.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Transactional
+    public List<Services> findAvailableServices() throws Exception {
+        return entityManager
+                .createQuery("select s from servicesEntity s where s.available=true and s.status=true and s.deleted=false ", Services.class)
+                .getResultList();
+    }
+
+    @Transactional
+    public List<Services> findAvailableServicesByType(String servicesType) throws Exception {
+
+        ServicesType enumServicesType = ServicesType.valueOf(servicesType.toUpperCase());
+
+        return entityManager
+                .createQuery("select s from servicesEntity s where s.available=true and s.status=true and s.servicesType=:servicesType and s.deleted=false ", Services.class)
+                .setParameter("servicesType", enumServicesType)
+                .getResultList();
     }
 }

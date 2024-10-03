@@ -213,7 +213,7 @@ public class AdminServlet extends HttpServlet {
             String errorMessage = e.getMessage();
             req.getSession().setAttribute("errorMessage", errorMessage);
             log.error(ExceptionWrapper.getMessage(e).toString());
-            resp.sendRedirect("/admins.do");
+            resp.sendRedirect("/admin.do");
         }
 
     }

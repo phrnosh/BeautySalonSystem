@@ -61,7 +61,7 @@ public class UserServlet extends HttpServlet {
 
             if (user.getRole().getRole().equals("customer")) {
 
-                redirectPath = "/customer/customer-user.jsp";
+                redirectPath = "/customers/customer-user.jsp";
 
             } else if (user.getRole().getRole().equals("manager")) {
 
@@ -70,7 +70,7 @@ public class UserServlet extends HttpServlet {
             } else if (user.getRole().getRole().equals("admin")) {
 
                 req.getSession().setAttribute("allUsers", userService.findAll());
-                redirectPath = "/admins/users.jsp";
+                redirectPath = "/admin/users.jsp";
 
             }
 
@@ -79,7 +79,7 @@ public class UserServlet extends HttpServlet {
                 User editingUser = (User) userService.findByUsername(req.getParameter("cancel"));
                 editingUser.setEditing(false);
                 userService.edit(editingUser);
-                resp.sendRedirect("/postLogin.do");
+                resp.sendRedirect("/login.do");
                 return;
             }
 
@@ -94,7 +94,7 @@ public class UserServlet extends HttpServlet {
                     String errorMessage = "Record is editing by another user !!!";
                     req.getSession().setAttribute("errorMessage", errorMessage);
                     log.error(errorMessage);
-                    resp.sendRedirect("/users.do");
+                    resp.sendRedirect("/user.do");
                 }
             } else {
                 req.getRequestDispatcher(redirectPath).forward(req, resp);
@@ -103,7 +103,7 @@ public class UserServlet extends HttpServlet {
             String errorMessage = e.getMessage();
             req.getSession().setAttribute("errorMessage", errorMessage);
             log.error(ExceptionWrapper.getMessage(e).toString());
-            resp.sendRedirect("/users.do");
+            resp.sendRedirect("/user.do");
         }
 
     }

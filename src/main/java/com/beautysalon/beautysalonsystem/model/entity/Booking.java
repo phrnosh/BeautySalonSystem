@@ -73,12 +73,5 @@ public class Booking extends Base{
 //    @JoinColumn(name= "services_id")
 //    private List<Services> servicesList;
 
-//    public void addItem(Timing timing){
-//        if(timingList == null){
-//            timingList = new ArrayList<>();
-//        }
-//        timingList.add(timing);
-//    }
-
 
 }

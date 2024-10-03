@@ -34,7 +34,7 @@ public class Attachment {
     private Long fileSize;
 
     @Column(name="attach_date_time")
-    private LocalDateTime localDateTime;
+    private LocalDateTime attachTime;
 
     @Column(name="description", length = 100)
     private String description;

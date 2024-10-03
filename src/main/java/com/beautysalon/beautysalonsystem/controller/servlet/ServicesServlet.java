@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-@WebServlet("/Services.do")
+@WebServlet("/services.do")
 public class ServicesServlet extends HttpServlet {
     @Inject
     private ServicesService servicesService;

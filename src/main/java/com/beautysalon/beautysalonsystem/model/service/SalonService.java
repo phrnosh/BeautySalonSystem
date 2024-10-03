@@ -104,6 +104,20 @@ public class SalonService implements Serializable {
     }
 
     @Transactional
+    public Services findServicesBySalonId(Long salonId) {
+        List<Services> servicesList =
+                entityManager
+                        .createQuery("select s from salonEntity sa join sa.servicesList s where sa.id = :salonId ", Services.class)
+                        .setParameter("salonId", salonId)
+                        .getResultList();
+        if (!servicesList.isEmpty()) {
+            return servicesList.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Transactional
     public List<Services> findSalonActiveServices(Long salonId) {
         return entityManager
                 .createQuery("select s from salonEntity sa join sa.servicesList s where sa.id = :salonId and s.status = true", Services.class)

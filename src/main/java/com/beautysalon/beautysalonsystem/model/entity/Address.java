@@ -58,7 +58,7 @@ public class Address extends Base{
     private String homeUnit;
 
     //TODO:All Column Names snake_case or camelCase .
-    @Column(name = "postalCode",length = 10, unique = true,nullable = false)
+    @Column(name = "postal_code",length = 10, unique = true,nullable = false)
 //    @Pattern(regexp = "^[0-9]{10}$",message = "Invalid Postal Code")
     private String postalCode;
 

@@ -29,7 +29,7 @@ public class Timing extends Base{
     @ManyToOne
     @JoinColumn(
             name = "services_id",
-            foreignKey = @ForeignKey(name = "fk_show_time_services")
+            foreignKey = @ForeignKey(name = "fk_timing_services")
     )
     private Services services;
 

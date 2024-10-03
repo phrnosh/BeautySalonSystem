@@ -4,6 +4,129 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
 
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/postLogin.do</url-pattern> <!-- Protect specific resources -->
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>manager</role-name>
+            <role-name>customer</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected JSP</web-resource-name>
+            <url-pattern>/footer.jsp</url-pattern>
+            <url-pattern>/navbar.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Salon and Services Servlets Access</web-resource-name>
+            <url-pattern>/managers/*</url-pattern>
+            <url-pattern>/manager.do</url-pattern>
+            <url-pattern>/salon.do</url-pattern> <!-- Protect salon.do servlet -->
+            <url-pattern>/services.do</url-pattern> <!-- Protect services.do servlet -->
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>ADMIN</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+            <url-pattern>/admins.do</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Customer</web-resource-name>
+            <url-pattern>/customers/*</url-pattern>
+            <url-pattern>/customer.do</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>customer</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/login-error.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+
+    <error-page>
+        <location>/error-403.jsp</location>
+        <error-code>403</error-code>
+    </error-page>
+
+<!--    <welcome-file-list>-->
+<!--        <welcome-file>index.do</welcome-file>-->
+<!--    </welcome-file-list>-->
+
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.beautysalon.beautysalonsystem.controller.servlet.HomeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/salonHome.do</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- Servlet for post-login redirection -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.beautysalon.beautysalonsystem.controller.servlet.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login.do</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
 <!--    <security-constraint>-->
 <!--        <web-resource-collection>-->
 <!--            <web-resource-name>ADMIN</web-resource-name>-->
