@@ -21,12 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-@WebServlet("/stylist.do")
-@MultipartConfig(
-        fileSizeThreshold = 1024 * 1024 , // 1 MB
-        maxFileSize = 1024 * 1024 * 10,      // 10 MB
-        maxRequestSize = 1024 * 1024 * 100   // 100 MB
-)
+@WebServlet(urlPatterns = "/stylist.do")
 public class StylistServlet extends HttpServlet {
 
     Map<String, String> csrfTokens = new HashMap<>();
