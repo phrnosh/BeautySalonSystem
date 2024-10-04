@@ -170,12 +170,11 @@ public class ManagerServlet extends HttpServlet {
                                 .deleted(false)
                                 .build();
 
-                //todo    System.out.println("inside try block");
+                //todo
+                System.out.println("inside try block");
                 Manager manager =
                         Manager
                                 .builder()
-                                // StringEscapeUtils ????
-//                                .name(StringEscapeUtils.escapeHtml4(req.getParameter("name")))
                                 .name(req.getParameter("name").toUpperCase())
                                 .family(req.getParameter("family").toUpperCase())
                                 .phoneNumber(req.getParameter("phoneNumber"))

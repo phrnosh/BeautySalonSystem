@@ -34,7 +34,7 @@
     <jsp:include page="/navbar.jsp"/>
 
     <div class="mt-5 mb-3">
-        <div class="item-icon "><i class="fa fa-masks-theater" style="font-size: xxx-large;"></i></div>
+        <div class="item-icon "><i class="fa" style="font-size: xxx-large;"></i></div>
         <h1 class="p-4 text-center">Select Services</h1>
 
         <a class="btn-reg w-25 text-decoration-none text-black m-3" href="salonHome.do">All</a>
