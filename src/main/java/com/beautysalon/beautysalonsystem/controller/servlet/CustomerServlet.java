@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.inject.Inject;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +25,7 @@ import java.io.PrintWriter;
 import java.util.*;
 
 @Slf4j
-@WebServlet("/customer.do")
+@WebServlet(urlPatterns = "/customer.do")
 public class CustomerServlet extends HttpServlet {
 
     Map<String, String> csrfTokens = new HashMap<>();
@@ -42,7 +43,7 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        System.out.println("customer.do doGet");
         try {
 
             Enumeration<String> attributeNames = req.getSession().getAttributeNames();
@@ -120,60 +121,60 @@ public class CustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         try {
-                Role role = (Role) roleService.FindByRole("customer");
+            Role role = (Role) roleService.FindByRole("customer");
 
-                User user =
-                        User
-                                .builder()
-                                .username(req.getParameter("phoneNumber"))
-                                .password(req.getParameter("password"))
-                                .role(role)
-                                .locked(false)
-                                .deleted(false)
-                                .build();
-
-                BeanValidator<User> userValidator = new BeanValidator<>();
-                if (!userValidator.validate(user).isEmpty()) {
-                    String errorMessage = "Invalid User Data!";
-                    req.getSession().setAttribute("errorMessage", errorMessage);
-                    log.error(errorMessage);
-                    resp.sendRedirect("/sign-up.jsp");
-                    return;
-                }
-
-
-                if (userService.findByUsername(req.getParameter("phoneNumber")) != null) {
-                    String errorMessage = "Duplicate username(phoneNumber) !!!";
-                    req.getSession().setAttribute("errorMessage", errorMessage);
-                    log.error(errorMessage);
-                    resp.sendRedirect("sign-up.jsp");
-                    return;
-                }
-
-                Customer customer =
-                        Customer
-                                .builder()
-                                .name(req.getParameter("name").toUpperCase())
-                                .family(req.getParameter("family").toUpperCase())
-                                .phoneNumber(req.getParameter("phoneNumber"))
-                                .email(req.getParameter("email"))
-                                .user(user)
-                                .deleted(false)
-                                .build();
+            User user =
+                    User
+                            .builder()
+                            .username(req.getParameter("phoneNumber"))
+                            .password(req.getParameter("password"))
+                            .role(role)
+                            .locked(false)
+                            .deleted(false)
+                            .build();
+            System.out.println("USER : " + user);
+            BeanValidator<User> userValidator = new BeanValidator<>();
+            if (!userValidator.validate(user).isEmpty()) {
+                String errorMessage = "Invalid User Data!";
+                req.getSession().setAttribute("errorMessage", errorMessage);
+                log.error(errorMessage);
+                resp.sendRedirect("/sign-up.jsp");
+                return;
+            }
 
 
-                BeanValidator<Customer> customerValidator = new BeanValidator<>();
-                if (customerValidator.validate(customer).isEmpty()) {
-                    customerService.save(customer);
-                    req.getSession().setAttribute("user", user);
-                    log.info("Customer saved successfully : " + customer.getPhoneNumber());
-                    resp.sendRedirect("/customer.do");
-                } else {
-                    String errorMessage = "Invalid Customer Data !!!";
-                    req.getSession().setAttribute("errorMessage", errorMessage);
-                    log.error(errorMessage);
-                    resp.sendRedirect("/sign-up.jsp");
-                }
+            if (userService.findByUsername(req.getParameter("phoneNumber")) != null) {
+                String errorMessage = "Duplicate username(phoneNumber) !!!";
+                req.getSession().setAttribute("errorMessage", errorMessage);
+                log.error(errorMessage);
+                resp.sendRedirect("sign-up.jsp");
+                return;
+            }
+
+            Customer customer =
+                    Customer
+                            .builder()
+                            .name(req.getParameter("name").toUpperCase())
+                            .family(req.getParameter("family").toUpperCase())
+                            .phoneNumber(req.getParameter("phoneNumber"))
+                            .email(req.getParameter("email"))
+                            .user(user)
+                            .deleted(false)
+                            .build();
+
+
+            BeanValidator<Customer> customerValidator = new BeanValidator<>();
+            if (customerValidator.validate(customer).isEmpty()) {
+                customerService.save(customer);
+                req.getSession().setAttribute("user", user);
+                log.info("Customer saved successfully : " + customer.getPhoneNumber());
+                resp.sendRedirect("/customer.do");
+            } else {
+                String errorMessage = "Invalid Customer Data !!!";
+                req.getSession().setAttribute("errorMessage", errorMessage);
+                log.error(errorMessage);
+                resp.sendRedirect("/sign-up.jsp");
+            }
 
         } catch (Exception e) {
             String errorMessage = e.getMessage();

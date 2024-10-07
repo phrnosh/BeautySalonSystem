@@ -24,7 +24,7 @@ public class User extends Base {
     //  @Pattern(regexp = "^[\\w\\S]{3,30}$" ,message = "Invalid Password")
     private String password;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @OneToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "username"),

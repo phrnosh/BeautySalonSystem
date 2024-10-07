@@ -32,7 +32,7 @@
         </div><br><br>
 
         <div class="input-register text-center mx-auto">
-            <form action="customer.do" method="post" enctype="multipart/form-data">
+            <form action="customer.do" method="post">
                 <input class="mb-2" type="text" style="display: block; width: 80%;" placeholder=" Name" name="name">
                 <input class="mb-2" type="text" style="display: block; width: 80%;" placeholder=" Family" name="family">
                 <input class="mb-2" type="text" style="display: block; width: 80%; " placeholder=" Phone Number" name="phoneNumber">

@@ -101,31 +101,8 @@
 <!--        <welcome-file>index.do</welcome-file>-->
 <!--    </welcome-file-list>-->
 
-    <servlet>
-        <servlet-name>HomeServlet</servlet-name>
-        <servlet-class>com.beautysalon.beautysalonsystem.controller.servlet.HomeServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/salonHome.do</url-pattern>
-    </servlet-mapping>
-
 
     <!-- Servlet for post-login redirection -->
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.beautysalon.beautysalonsystem.controller.servlet.LoginServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login.do</url-pattern>
-    </servlet-mapping>
-
-
-
-
 
 <!--    <security-constraint>-->
 <!--        <web-resource-collection>-->
