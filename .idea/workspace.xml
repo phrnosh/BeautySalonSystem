@@ -10,13 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb614c9e-29fa-4700-819c-0d3cb2557d12" name="Changes" comment="JPA">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bookings/booking_print.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/ManagerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/all.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/all.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/CardPaymentServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/CashPaymentServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/CheckPaymentServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/AdminTestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/CardPaymentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/CashPaymentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/CheckPaymentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/ManagerTestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/RoleTestService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/services-select.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/services-select.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PersonsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/managers/manager-register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/managers/manager-register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/salon/salon-services.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/salon/salon-services.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/salon/salon-timing.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/salon/salon-timing.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/salon/salon.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/salon/salon.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/services/services-edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/services/services-edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/services/services.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/services/services.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +45,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
@@ -66,7 +90,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Farnoosh/Downloads/Cinema_Ticket-master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Farnoosh/Downloads/nobardehi&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -233,7 +257,8 @@
       <workItem from="1727596421432" duration="17399000" />
       <workItem from="1727684116191" duration="26172000" />
       <workItem from="1727948032367" duration="27315000" />
-      <workItem from="1728021824995" duration="2427000" />
+      <workItem from="1728021824995" duration="5737000" />
+      <workItem from="1728212021264" duration="8298000" />
     </task>
     <task id="LOCAL-00001" summary="Package">
       <option name="closed" value="true" />
@@ -419,7 +444,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727993962546</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="JPA">
+      <option name="closed" value="true" />
+      <created>1728026616895</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1728026616895</updated>
+    </task>
+    <task id="LOCAL-00025" summary="JPA">
+      <option name="closed" value="true" />
+      <created>1728026697824</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728026697824</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

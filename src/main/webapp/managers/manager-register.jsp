@@ -27,11 +27,13 @@
                     <input type="text" style="display: block; width: 80%;" placeholder="ایمیل" name="email">
                     <input type="tel" style="display: block; width: 80%;" placeholder="تلفن همراه" name="phone">
                     <input type="text" style="display: block; width: 80%;" placeholder="کدملی" name="national_id">
-                    <select name="status" style="display: block; width: 80%;" id="">
-                        <option value="">New</option>
-                        <option value="">Active</option>
-                        <option value="">Blocked</option>
-                        <option value="">Banned</option>
+                    <input type="text" style="display: block; width: 80%;" placeholder="آدرس" name="addrerss">
+
+<%--                    <select name="status" style="display: block; width: 80%;" id="">--%>
+<%--                        <option value="">New</option>--%>
+<%--                        <option value="">Active</option>--%>
+<%--                        <option value="">Blocked</option>--%>
+<%--                        <option value="">Banned</option>--%>
                     </select>
                     <input type="text" style="display: block; width: 80%;" placeholder="نام کاربری" name="username">
                     <input type="password" style="display: block; width: 80%;" placeholder="رمز عبور " name="password">
@@ -65,7 +67,7 @@
             <th>Email</th>
             <th>PhoneNumber</th>
             <th>NationalId</th>
-            <th>Status</th>
+            <th>Address</th>
             <th>Username</th>
             <th>Password</th>
         </tr>
@@ -80,7 +82,7 @@
                 <td>${manager.email}</td>
                 <td>${manager.phone}</td>
                 <td>${manager.national_id}</td>
-                <td>${manager.status}</td>
+                <td>${manager.address}</td>
                 <td>${manager.username}</td>
                 <td>${manager.password}</td>
 
