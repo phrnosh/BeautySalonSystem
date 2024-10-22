@@ -48,6 +48,9 @@ public class LoginServlet extends HttpServlet {
                         case "admin":
                             resp.sendRedirect("/admin.do");
                             break;
+                        case "moderator":
+                            resp.sendRedirect("/moderator.do");
+                            break;
                         case "manager":
                             resp.sendRedirect("/manager.do");
                             break;

@@ -62,7 +62,7 @@ public class TimingServlet extends HttpServlet {
                 salon = salonService.findByName(managerVO.getSalonName());
                 redirectPath = "/managers/manager-timing.jsp";
 
-            } else if (user.getRole().getRole().equals("admin")) {
+            }else if (user.getRole().getRole().equals("admin") || user.getRole().getRole().equals("moderator")) {
 
                 if (req.getParameter("salonId") != null) {
                     salon = salonService.findById(Long.parseLong(req.getParameter("salonId")));

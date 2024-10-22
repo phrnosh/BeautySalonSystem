@@ -70,7 +70,7 @@ public class CustomerServlet extends HttpServlet {
                 req.getSession().setAttribute("customer", customerVO);
                 redirectPath = "/customers/customer-panel.jsp";
 
-            } else if (user.getRole().getRole().equals("admin")) {
+            }else if (user.getRole().getRole().equals("moderator") || user.getRole().getRole().equals("admin")) {
                 List<Customer> customerList = customerService.findAll();
                 List<CustomerVO> customerVOList = new ArrayList<>();
                 for (Customer customer : customerList) {

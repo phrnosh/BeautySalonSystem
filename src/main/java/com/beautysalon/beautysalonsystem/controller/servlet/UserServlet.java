@@ -16,13 +16,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+
 
 @Slf4j
 @WebServlet(urlPatterns = "/user.do")
@@ -67,7 +65,7 @@ public class UserServlet extends HttpServlet {
 
                 redirectPath = "/managers/manager-user.jsp";
 
-            } else if (user.getRole().getRole().equals("admin")) {
+            } else if (user.getRole().getRole().equals("moderator") || user.getRole().getRole().equals("admin")) {
 
                 req.getSession().setAttribute("allUsers", userService.findAll());
                 redirectPath = "/admin/users.jsp";

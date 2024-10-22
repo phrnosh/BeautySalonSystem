@@ -77,7 +77,7 @@ public class ServicesServlet extends HttpServlet {
                 salonServices = manager.getSalon().getServicesList();
                 redirectPath = "/managers/manager-services.jsp";
                 req.getSession().setAttribute("services", managerService.findServicesByManagerId(manager.getId()));
-            } else if (user.getRole().getRole().equals("admin")) {
+            }  else if (user.getRole().getRole().equals("admin") || user.getRole().getRole().equals("moderator")){
                 if (req.getParameter("salonId") != null) {
                     manager = managerService.findManagerBySalonId(Long.parseLong(req.getParameter("salonId")));
                     ManagerVO managerVO1 = new ManagerVO(manager);

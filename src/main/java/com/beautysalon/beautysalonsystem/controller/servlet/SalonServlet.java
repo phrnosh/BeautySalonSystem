@@ -67,7 +67,7 @@ public class SalonServlet extends HttpServlet {
                 SalonVO salonVO = new SalonVO(managerService.findSalonByManagerId(manager.getId()));
                 req.getSession().setAttribute("salon", salonVO);
                 redirectPath = "/managers/manager-salon.jsp";
-            } else if (user.getRole().getRole().equals("admin")) {
+            }  else if (user.getRole().getRole().equals("admin") || user.getRole().getRole().equals("moderator")){
                 List<SalonVO> salonVOList = new ArrayList<>();
                 List<Salon> salonList = salonService.findAll();
                 for (Salon salon : salonList) {

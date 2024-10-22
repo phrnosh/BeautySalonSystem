@@ -17,9 +17,9 @@ import java.time.LocalDateTime;
 
 @Entity(name = "timingEntity")
 @Table(name="timing_tbl")
-@NamedQueries(@NamedQuery(
-        name="validTiming", query = ""
-))
+//@NamedQueries(@NamedQuery(
+//        name="validTiming", query = ""
+//))
 public class Timing extends Base{
 
     @Id

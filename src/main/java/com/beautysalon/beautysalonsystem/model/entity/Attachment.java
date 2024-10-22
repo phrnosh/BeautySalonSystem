@@ -56,6 +56,10 @@ public class Attachment {
     private Customer customer;
 
     @ManyToOne
+    @JoinColumn(name = "moderator_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_moderator"))
+    private Moderator moderator;
+
+    @ManyToOne
     @JoinColumn(name = "salon_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_salon"))
     private Salon salon;
 

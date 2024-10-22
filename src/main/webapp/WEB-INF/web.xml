@@ -14,6 +14,7 @@
         </web-resource-collection>
         <auth-constraint>
             <role-name>admin</role-name>
+            <role-name>moderator</role-name>
             <role-name>manager</role-name>
             <role-name>customer</role-name>
         </auth-constraint>
@@ -49,6 +50,7 @@
         <auth-constraint>
             <role-name>admin</role-name>
             <role-name>manager</role-name>
+            <role-name>moderator</role-name>
         </auth-constraint>
     </security-constraint>
 
@@ -56,7 +58,7 @@
         <web-resource-collection>
             <web-resource-name>ADMIN</web-resource-name>
             <url-pattern>/admin/*</url-pattern>
-            <url-pattern>/admins.do</url-pattern>
+            <url-pattern>/admin.do</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
             <http-method>PUT</http-method>
@@ -67,6 +69,24 @@
             <role-name>admin</role-name>
         </auth-constraint>
     </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Moderator</web-resource-name>
+            <url-pattern>/moderator/*</url-pattern>
+            <url-pattern>/moderator.do</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>moderator</role-name>
+        </auth-constraint>
+    </security-constraint>
+
 
     <security-constraint>
         <web-resource-collection>
@@ -96,6 +116,16 @@
         <location>/error-403.jsp</location>
         <error-code>403</error-code>
     </error-page>
+
+    <welcome-file-list>
+        <welcome-file>salonHome.do</welcome-file>
+    </welcome-file-list>
+
+
+
+
+
+
 
 <!--    <welcome-file-list>-->
 <!--        <welcome-file>index.do</welcome-file>-->
