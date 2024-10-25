@@ -127,7 +127,7 @@ public class HomeServlet extends HttpServlet {
             String errorMessage = e.getMessage();
             req.getSession().setAttribute("errorMessage", errorMessage);
             log.error(ExceptionWrapper.getMessage(e).toString());
-            resp.sendRedirect("/salonHome.do");
+//            resp.sendRedirect("/salonHome.do");
         }
     }
 }
