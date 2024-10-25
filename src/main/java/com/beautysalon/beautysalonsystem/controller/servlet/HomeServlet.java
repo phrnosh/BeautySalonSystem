@@ -120,7 +120,7 @@ public class HomeServlet extends HttpServlet {
 
                 req.getSession().setAttribute("allActiveSalon", allActiveSalon);
 //todo
-                req.getRequestDispatcher("/salon-select.jsp").forward(req, resp);
+                req.getRequestDispatcher("/customers/panel.jsp").forward(req, resp);
 
             }
         } catch (Exception e) {

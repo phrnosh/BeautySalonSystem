@@ -147,7 +147,7 @@ public class CustomerServlet extends HttpServlet {
                 String errorMessage = "Duplicate username(phoneNumber) !!!";
                 req.getSession().setAttribute("errorMessage", errorMessage);
                 log.error(errorMessage);
-                resp.sendRedirect("sign-up.jsp");
+                resp.sendRedirect("/sign-up.jsp");
                 return;
             }
 

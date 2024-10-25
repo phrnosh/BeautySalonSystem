@@ -79,7 +79,7 @@ public class AdminServlet extends HttpServlet {
                     editingAdmin.setEditing(true);
                     adminService.edit(editingAdmin);
                     req.getSession().setAttribute("editingAdmin", editingAdmin);
-//                    req.getRequestDispatcher("/admin/admin-edit.jsp").forward(req, resp);
+                    req.getRequestDispatcher("/admin/admin-edit.jsp").forward(req, resp);
                 } else {
                     String errorMessage = "Record is editing by another user !!!";
                     req.getSession().setAttribute("errorMessage", errorMessage);
@@ -88,7 +88,7 @@ public class AdminServlet extends HttpServlet {
                 }
             } else {
                 req.getSession().setAttribute("allAdmins", adminService.findAll());
-//                req.getRequestDispatcher("/admin/admin-panel").forward(req, resp);
+                req.getRequestDispatcher("/admin/admin-panel").forward(req, resp);
             }
         } catch (Exception e) {
             String errorMessage = e.getMessage();
@@ -96,7 +96,6 @@ public class AdminServlet extends HttpServlet {
             log.error(ExceptionWrapper.getMessage(e).toString());
 //            resp.sendRedirect("/admin.do");
         }
-
     }
 
 
@@ -147,14 +146,14 @@ public class AdminServlet extends HttpServlet {
             } else {
                 System.out.println("in else block - AdminServlet");
 
-//                Role role = (Role) roleService.FindByRole("admin");
+                Role role = (Role) roleService.FindByRole("admin");
 
                 User user =
                         User
                                 .builder()
                                 .username(req.getParameter("username"))
                                 .password(req.getParameter("password"))
-//                                .role(role)
+                                .role(role)
                                 .locked(false)
                                 .deleted(false)
                                 .build();
@@ -167,7 +166,7 @@ public class AdminServlet extends HttpServlet {
                                 .family(req.getParameter("family"))
                                 .phoneNumber(req.getParameter("phoneNumber"))
                                 .email(req.getParameter("email"))
-//                                .user(user)
+                                .user(user)
                                 .deleted(false)
                                 .build();
                 System.out.println("Admin  :" + admin.toString());
@@ -207,7 +206,7 @@ public class AdminServlet extends HttpServlet {
                     //TODO: Saving User .
 
                     log.info("Admin saved successfully : " + admin.getFamily());
-//                    resp.sendRedirect("/admin.do");
+                    resp.sendRedirect("/admin.do");
                 } else {
                     String errorMessage = "Invalid Admin Data !!!";
                     req.getSession().setAttribute("errorMessage", errorMessage);
