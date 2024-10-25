@@ -10,10 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb614c9e-29fa-4700-819c-0d3cb2557d12" name="Changes" comment="JPA">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/UserTestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PersonsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/navbar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +117,8 @@
     <configuration name="panel.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:80/customers/panel.jsp">
       <method v="2" />
     </configuration>
-    <configuration name="TomEE 10.0.271" type="TomeeConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="TomEE 10.0.271" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="TomEE 10.0.271" type="TomeeConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="TomEE 10.0.27" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="11 (2)">
+      <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
         <artifact name="BeautySalonSystem:war exploded">
           <settings>
@@ -245,10 +245,12 @@
       <workItem from="1727948032367" duration="27315000" />
       <workItem from="1728021824995" duration="5737000" />
       <workItem from="1728212021264" duration="8298000" />
-      <workItem from="1729624547960" duration="677000" />
-      <workItem from="1729775497967" duration="1882000" />
-      <workItem from="1729777473729" duration="497000" />
-      <workItem from="1729787964114" duration="912000" />
+      <workItem from="1729333967814" duration="1390000" />
+      <workItem from="1729414775942" duration="2975000" />
+      <workItem from="1729431620246" duration="2650000" />
+      <workItem from="1729442619229" duration="5128000" />
+      <workItem from="1729544531372" duration="2480000" />
+      <workItem from="1729835091543" duration="3154000" />
     </task>
     <task id="LOCAL-00001" summary="Package">
       <option name="closed" value="true" />
@@ -450,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728026697824</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="JPA">
+      <option name="closed" value="true" />
+      <created>1728297299849</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728297299849</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -53,7 +53,7 @@ public class HomeServlet extends HttpServlet {
                 Salon salon = salonService.findById(salonId);
                 SalonVO salonVO = new SalonVO(salon);
                 req.getSession().setAttribute("selectedSalon", salonVO);
-                Long showId = Long.parseLong(req.getSession().getAttribute("showId").toString());
+                Long showId = Long.parseLong(req.getSession().getAttribute("servicesId").toString());
                 LocalDate selectedDate = LocalDate.parse(req.getSession().getAttribute("selectedDate").toString());
                 List<Timing> timings = timingService.findByServicesIdAndDateAndSalonId(showId, selectedDate, salonId);
                 List<TimingVO> timingVOList = new ArrayList<>();
@@ -81,39 +81,46 @@ public class HomeServlet extends HttpServlet {
                 req.getRequestDispatcher("/salon-select.jsp").forward(req, resp);
 
             } else if (req.getParameter("selectServices") != null) {
-                Long showId = Long.parseLong(req.getParameter("selectServices"));
-                req.getSession().setAttribute("servicesId", showId);
-                req.getSession().setAttribute("selectedServices", servicesService.findById(showId));
-                List<LocalDate> dateList = timingService.findDistinctDatesByServicesId(showId);
+                Long servicesId = Long.parseLong(req.getParameter("selectServices"));
+                req.getSession().setAttribute("servicesId", servicesId);
+                req.getSession().setAttribute("selectedServices", servicesService.findById(servicesId));
+                List<LocalDate> dateList = timingService.findDistinctDatesByServicesId(servicesId);
 
-                req.getSession().setAttribute("showDates", dateList);
+                req.getSession().setAttribute("servicesDates", dateList);
                 req.getRequestDispatcher("/services-date-select.jsp").forward(req, resp);
 
             } else {
 
-                List<Services> allActiveServices = new ArrayList<>();
+                List<Salon> allActiveSalon = new ArrayList<>();
 
-                if(req.getParameter("findHairstyle") != null) {
-                    allActiveServices = servicesService.findAvailableServicesByType("HAIRSTYLE");
-                } else if(req.getParameter("findMakeup") != null) {
-                    allActiveServices = servicesService.findAvailableServicesByType("MAKEUP");
-                } else if (req.getParameter("findSanitary") != null) {
-                    allActiveServices = servicesService.findAvailableServicesByType("SANITARY");
-                } else if (req.getParameter("findNails") != null) {
-                    allActiveServices = servicesService.findAvailableServicesByType("NAILS");
-                } else {
-                    allActiveServices = servicesService.findAvailableServices();
-                }
+//                if(req.getParameter("findHairstyle") != null) {
+//                    allActiveServices = servicesService.findAvailableServicesByType("HAIRSTYLE");
+//                } else if(req.getParameter("findMakeup") != null) {
+//                    allActiveServices = servicesService.findAvailableServicesByType("MAKEUP");
+//                } else if (req.getParameter("findSanitary") != null) {
+//                    allActiveServices = servicesService.findAvailableServicesByType("SANITARY");
+//                } else if (req.getParameter("findNails") != null) {
+//                    allActiveServices = servicesService.findAvailableServicesByType("NAILS");
+//                } else {
+//                    allActiveServices = servicesService.findAvailableServices();
+//                }
+//
+//                for (Services services : allActiveServices){
+//                    if (services.getAttachments() != null && !services.getAttachments().isEmpty()){
+//                        Collections.shuffle(services.getAttachments());
+//                    }
+//                }
 
-                for (Services services : allActiveServices){
-                    if (services.getAttachments() != null && !services.getAttachments().isEmpty()){
-                        Collections.shuffle(services.getAttachments());
+
+                for (Salon salon : allActiveSalon){
+                    if (salon.getAttachments() != null && !salon.getAttachments().isEmpty()){
+                        Collections.shuffle(salon.getAttachments());
                     }
                 }
 
-                req.getSession().setAttribute("allActiveServices", allActiveServices);
-
-                req.getRequestDispatcher("/services-select.jsp").forward(req, resp);
+                req.getSession().setAttribute("allActiveSalon", allActiveSalon);
+//todo
+                req.getRequestDispatcher("/salon-select.jsp").forward(req, resp);
 
             }
         } catch (Exception e) {
