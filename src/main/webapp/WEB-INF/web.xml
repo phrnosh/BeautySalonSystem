@@ -73,7 +73,7 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Moderator</web-resource-name>
-            <url-pattern>/moderator/*</url-pattern>
+            <url-pattern>/moderators/*</url-pattern>
             <url-pattern>/moderator.do</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>

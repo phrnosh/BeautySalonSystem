@@ -54,7 +54,10 @@
                                 <td>${sessionScope.customer.email}</td>
 
                                 <td>
+                            <tr>
 
+                            </tbody>
+                        </table>
                         <input class="form-control mr-sm-2" type="search" placeholder="Search Salon..." aria-label="Search">
                         <div class="input-group-prepend" style="padding-bottom: 2px;" >
                     <span style="background-color: black; border-radius: 8px;" class="input-group-text purple lighten-3"
@@ -77,6 +80,10 @@
                     <c:when test="${sessionScope.selectedTiming == null}">
                         <a hidden="hidden" class="btn btn-danger w-25 mt-5" href="services.do">Continue booking</a>
                     </c:when>
+
+                    <c:otherwise>
+                        <a class="btn btn-danger w-25 mt-5" href="services.do">Continue booking</a>
+                    </c:otherwise>
                 </c:choose>
             </div>
         </div>

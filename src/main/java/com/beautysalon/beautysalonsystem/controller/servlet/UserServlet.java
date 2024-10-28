@@ -117,7 +117,7 @@ public class UserServlet extends HttpServlet {
             User user =
                     User
                             .builder()
-                            .username(req.getParameter("phoneNumber"))
+                            .username(req.getParameter("username"))
                             .password(req.getParameter("password"))
                             .role(role)
                             .locked(false)
@@ -133,7 +133,7 @@ public class UserServlet extends HttpServlet {
                 return;
             }
 
-            if (userService.findByUsername(req.getParameter("phoneNumber")) != null){
+            if (userService.findByUsername(req.getParameter("username")) != null){
                 String errorMessage = "Duplicate username(phoneNumber) !!!";
                 req.getSession().setAttribute("errorMessage", errorMessage);
                 log.error(errorMessage);

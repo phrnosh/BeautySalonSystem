@@ -70,7 +70,7 @@ public class HomeServlet extends HttpServlet {
 
                 LocalDate selectedDate = LocalDate.parse(req.getParameter("selectDate"));
                 req.getSession().setAttribute("selectedDate", selectedDate);
-                List<Salon> salonList = timingService.findDistinctSalonByServicesIdAndDate(Long.parseLong(req.getSession().getAttribute("showId").toString()),selectedDate);
+                List<Salon> salonList = timingService.findDistinctSalonByServicesIdAndDate(Long.parseLong(req.getSession().getAttribute("servicesId").toString()),selectedDate);
                 List<SalonVO> salonVOList = new ArrayList<>();
                 for (Salon salon : salonList) {
                     SalonVO salonVO = new SalonVO(salon);

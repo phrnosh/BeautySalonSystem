@@ -125,4 +125,14 @@ public class SalonService implements Serializable {
                 .getResultList();
 
     }
+
+    @Transactional
+    public List<Salon> findByText(String text) throws Exception {
+        return entityManager
+                .createQuery("select sa from salonEntity sa where " +
+                        "(sa.name like :text or sa.address like :text ) " +
+                        "and sa.status=true and sa.deleted=false", Salon.class)
+                .setParameter("text", text.toUpperCase() + "%")
+                .getResultList();
+    }
 }
