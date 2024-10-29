@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @SuperBuilder
+@ToString
 
 @Entity(name = "timingEntity")
 @Table(name="timing_tbl")

@@ -45,7 +45,7 @@
 
         <div class="footer-register text-center mx-auto">
             <a href="" class="btn-reg">فراموشی رمز عبور</a>
-            <a href="login.do" class="btn-reg">Back to Login</a>
+            <a href="postLogin.do" class="btn-reg">Back to Login</a>
         </div>
     </div>
 </div>

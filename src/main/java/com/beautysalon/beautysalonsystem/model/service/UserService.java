@@ -53,11 +53,17 @@ public class UserService implements Serializable {
     }
 
     @Transactional
-    public List<User> findByUsername(String username) throws Exception {
-        return entityManager
-                .createQuery("select u from userEntity u where u.username=:username", User.class)
-                .setParameter("username", username )
-                .getResultList();
+    public User findByUsername(String username) throws Exception {
+        List<User> userList =
+                entityManager
+                        .createQuery("select u from userEntity u where u.username=:username", User.class)
+                        .setParameter("username", username)
+                        .getResultList();
+        if (!userList.isEmpty()) {
+            return userList.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Transactional

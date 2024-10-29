@@ -77,7 +77,7 @@ public class UserServlet extends HttpServlet {
                 User editingUser = (User) userService.findByUsername(req.getParameter("cancel"));
                 editingUser.setEditing(false);
                 userService.edit(editingUser);
-                resp.sendRedirect("/login.do");
+                resp.sendRedirect("/postLogin.do");
                 return;
             }
 

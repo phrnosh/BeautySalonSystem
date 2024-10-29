@@ -43,7 +43,7 @@
 
             <div class="footer-register">
 
-                <a href="login.do" class="btn-reg">ورود به سایت</a>
+                <a href="postLogin.do" class="btn-reg">ورود به سایت</a>
                 <a href="" class="btn-reg">فراموشی رمز عبور</a>
 
             </div>

@@ -88,7 +88,7 @@ public class AdminServlet extends HttpServlet {
                 }
             } else {
                 req.getSession().setAttribute("allAdmins", adminService.findAll());
-                req.getRequestDispatcher("/admin/admin-panel").forward(req, resp);
+                req.getRequestDispatcher("/admin/admin-panel.jsp").forward(req, resp);
             }
         } catch (Exception e) {
             String errorMessage = e.getMessage();

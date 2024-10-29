@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 @Slf4j
-@WebServlet(urlPatterns = "/login.do")
+@WebServlet(urlPatterns = "/postLogin.do")
 public class LoginServlet extends HttpServlet {
 
     @Inject
@@ -27,12 +27,12 @@ public class LoginServlet extends HttpServlet {
         try {
 
             Enumeration<String> attributeNames = req.getSession().getAttributeNames();
-            System.out.println("login.do");
+            System.out.println("postLogin.do");
             while (attributeNames.hasMoreElements()) {
                 String attributeName = attributeNames.nextElement();
                 System.out.println("Attribute Name: " + attributeName);
             }
-            System.out.println("login.do\n\n\n\n");
+            System.out.println("postLogin.do\n\n\n\n");
 
 
             if (req.getRemoteUser() != null) {

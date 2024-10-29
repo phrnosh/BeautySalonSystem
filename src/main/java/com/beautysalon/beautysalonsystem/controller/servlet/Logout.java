@@ -23,7 +23,7 @@ public class Logout extends HomeServlet{
             log.error("No user was found in the session during logout.");
         }
         req.getSession().invalidate();
-        resp.sendRedirect("/login.do");
+        resp.sendRedirect("/postLogin.do");
     }
 
 }

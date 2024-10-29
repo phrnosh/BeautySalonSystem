@@ -53,11 +53,17 @@ public class CustomerService implements Serializable {
     }
 
     @Transactional
-    public List<Customer> findByUsername(String username) throws Exception {
-        return entityManager
-                .createQuery("select c from customerEntity c where c.user.username=:username", Customer.class)
-                .setParameter("username", username )
-                .getResultList();
+    public Customer findByUsername(String username) throws Exception {
+        List<Customer> customerList =
+                entityManager
+                        .createQuery("select c from customerEntity c where c.user.username =:username and c.deleted=false ", Customer.class)
+                        .setParameter("username", username)
+                        .getResultList();
+        if (!customerList.isEmpty()) {
+            return customerList.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Transactional

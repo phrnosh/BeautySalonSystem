@@ -90,7 +90,7 @@
                 // Display success feedback to the user
                 alert("User updated successfully!");
 
-                window.location.href = '/login.do';
+                window.location.href = '/postLogin.do';
 
             } else {
                 // Handle errors
@@ -98,12 +98,12 @@
                 console.error("Error:", errorData);
                 alert("Error updating user: " + errorData.message);
 
-                window.location.href = '/login.do';
+                window.location.href = '/postLogin.do';
             }
         } catch (error) {
             console.error("Request failed:", error);
             alert("An error occurred while updating the user.");
-            window.location.href = '/login.do';
+            window.location.href = '/postLogin.do';
         }
     }
 

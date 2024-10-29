@@ -67,7 +67,7 @@
     <!-- Display the username if logged in -->
     <div class="item d-flex justify-content-center align-items-center m-auto ">
 
-        <a class="item d-flex justify-content-center align-items-center m-auto " href="login.do">
+        <a class="item d-flex justify-content-center align-items-center m-auto " href="postLogin.do">
             <div class="item-icon w-25"><i class="fa fa-id-badge"></i></div>
             <div class="w-50 d-sm-none d-lg-flex m-auto">Panel</div>
         </a>
@@ -81,7 +81,7 @@
 
     <% } else { %>
     <!-- Display the login link if not logged in -->
-    <a class="item d-flex justify-content-center align-items-center m-auto " href="login.do">
+    <a class="item d-flex justify-content-center align-items-center m-auto " href="postLogin.do">
         <div class="item-icon w-25"><i class="fa fa-sign-in"></i></div>
         <div class="w-50 d-sm-none d-lg-flex m-auto">Log_in</div>
     </a>

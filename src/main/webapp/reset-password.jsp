@@ -25,7 +25,7 @@
         </div>
 
         <div class="footer-register text-center mx-auto">
-            <a href="login.do" class="btn-reg">Back</a>
+            <a href="postLogin.do" class="btn-reg">Back</a>
         </div>
     </div>
 </div>
@@ -50,7 +50,7 @@
             })
             .then(newPassword => {
                 alert("Your new password is: " + newPassword);
-                window.location = "/login.do";  // Redirect if needed
+                window.location = "/postLogin.do";  // Redirect if needed
             })
             .catch(error => {
                 alert("Error: " + error.message);
