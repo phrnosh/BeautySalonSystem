@@ -3,33 +3,33 @@ a{
 }
 
 .nav{
-    background-color: lightcyan;
-    height: 8%;
+    background-color: #8aa191;
+    height: 9%;
 }
 
 .side-bar{
-    background-color: lightsteelblue;
+    background-color: #1d3117;
 }
 .content{
-    background-color: lightgray;
+    background-color: rgba(202, 194, 188, 0.4);;
 }
 
-.footer{
-    background-color: darkslateblue;
-    height: 8%;
-}
+/*.footer{*/
+/*    background-color: darkslateblue;*/
+/*    height: 8%;*/
+/*}*/
 
 .items a{
-    color:gray;
+    color: #dcdcdc;
     height: 8%;
 }
 
 .items a:hover{
-    background-color: lightblue;
+    background-color: #8aa191;
     color:black;
     font-weight: bold;
     .item-icon{
-        color:purple;
+        color:#da9f87;
     }
 }
 

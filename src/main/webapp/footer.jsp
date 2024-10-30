@@ -7,7 +7,7 @@
                 <div class="col-12 col-lg-4"><br>
                     <h6>درباره سایت</h6>
                     <hr class="header-caption-footer">
-                    <p class="caption-footer">شما میتوانید به راحتی و بدون صرف زمان رزرو خود را انجا دهید</p>
+                    <p class="caption-footer">شما میتوانید به راحتی و بدون صرف زمان رزرو خود را انجام دهید</p>
                 </div>
                 <div class="col-12 col-lg-1"></div>
                 <div class="col-12 col-lg-2"><br>

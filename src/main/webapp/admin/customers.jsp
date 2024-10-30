@@ -7,7 +7,7 @@
     <jsp:include page="../css-include.jsp"/>
 
 </head>
-<body>
+<body style="background-color:rgba(202, 194, 188, 0.4);">
 
 <%
     String errorMessage = (String) session.getAttribute("errorMessage");
@@ -106,13 +106,7 @@
                 </table>
 
             </div>
-
-
         </div>
-
-
-        <jsp:include page="/footer.jsp"/>
-
 
     </div>
 
@@ -278,6 +272,7 @@
 
 </script>
 
+<jsp:include page="/footer.jsp"/>
 
 <jsp:include page="../js-include.jsp"/>
 

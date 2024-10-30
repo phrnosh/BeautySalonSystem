@@ -25,7 +25,7 @@ public class Base implements Serializable {
     @JsonbTransient
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "attach_id")
-    private List<Attachment> attachmentList;
+    private List<Attachment> attachments;
 
     @JsonbTransient
     private boolean editing = false;
@@ -34,10 +34,10 @@ public class Base implements Serializable {
     private boolean deleted = false;
 
     public void addAttachment(Attachment attachment) {
-        if (this.attachmentList == null) {
-            this.attachmentList = new ArrayList<>();
+        if (this.attachments == null) {
+            this.attachments = new ArrayList<>();
         }
-        attachmentList.add(attachment);
+        attachments.add(attachment);
     }
 
     @Override

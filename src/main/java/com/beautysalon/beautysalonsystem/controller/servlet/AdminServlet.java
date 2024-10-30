@@ -107,10 +107,10 @@ public class AdminServlet extends HttpServlet {
             if (req.getPart("newImage") != null) {
                 Admin editingAdmin = (Admin) req.getSession().getAttribute("editingAdmin");
 
-                for (Attachment attachment : editingAdmin.getAttachmentList()) {
+                for (Attachment attachment : editingAdmin.getAttachments()) {
                     attachmentService.remove(attachment.getId());
                 }
-                editingAdmin.getAttachmentList().clear();
+                editingAdmin.getAttachments().clear();
 
 
                 Part filePart = req.getPart("newImage");

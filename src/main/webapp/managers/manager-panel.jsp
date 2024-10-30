@@ -21,7 +21,7 @@
             <th>Available</th>
             <th>Status</th>
             <th>Description</th>
-<%--            <th>Operation</th>--%>
+            <th>Operation</th>
         </tr>
         </thead>
 
@@ -56,7 +56,7 @@
             <th>End Time</th>
             <th>Status</th>
             <th>Description</th>
-<%--            <th>Operation</th>--%>
+            <th>Operation</th>
         </tr>
         </thead>
 

@@ -31,7 +31,7 @@
             <div class="footer-register text-center mx-auto">
                 <a href="salonHome.do" class="btn-reg">Back</a>
                 <a href="user.do" class="btn-reg">فراموشی رمزعبور</a>
-                <a href="customer.do" class="btn-reg">ساخت اکانت</a>
+                <a href="sign-up.jsp" class="btn-reg">ساخت اکانت</a>
             </div>
 
         </div>

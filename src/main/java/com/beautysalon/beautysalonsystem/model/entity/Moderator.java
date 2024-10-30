@@ -36,12 +36,6 @@ public class Moderator extends Profile{
     @Pattern(regexp = "^[\\w\\s]{2,100}$", message = "invalid Address")
     private String address;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(
-            name = "username",
-            foreignKey = @ForeignKey(name = "fk_moderator_user")
-    )
-    private User user;
 
     @OneToMany(mappedBy = "moderator", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Attachment> attachments;
