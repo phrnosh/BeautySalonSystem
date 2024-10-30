@@ -149,7 +149,7 @@ public class ModeratorServlet extends HttpServlet {
             } else {
 
 
-                Role role = (Role) roleService.FindByRole("moderator");
+                Role role = roleService.FindByRole("moderator");
 
                 User user =
                         User

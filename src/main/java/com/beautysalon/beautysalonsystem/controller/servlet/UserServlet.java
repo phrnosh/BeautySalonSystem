@@ -112,12 +112,12 @@ public class UserServlet extends HttpServlet {
 
         try {
 
-            Role role = (Role) roleService.FindByRole("customer");
+            Role role = roleService.FindByRole("customer");
 
             User user =
                     User
                             .builder()
-                            .username(req.getParameter("username"))
+                            .username(req.getParameter("phoneNumber"))
                             .password(req.getParameter("password"))
                             .role(role)
                             .locked(false)
@@ -133,7 +133,7 @@ public class UserServlet extends HttpServlet {
                 return;
             }
 
-            if (userService.findByUsername(req.getParameter("username")) != null){
+            if (userService.findByUsername(req.getParameter("phoneNumber")) != null){
                 String errorMessage = "Duplicate username(phoneNumber) !!!";
                 req.getSession().setAttribute("errorMessage", errorMessage);
                 log.error(errorMessage);

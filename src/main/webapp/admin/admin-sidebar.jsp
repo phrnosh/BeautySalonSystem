@@ -45,12 +45,12 @@
         </a>
 
         <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="salon.do">
-            <div class="item-icon w-25"><i class="fa fa-camera-movie"></i></div>
+            <div class="item-icon w-25"><i class="fa "></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Salons</div>
         </a>
 
         <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="services.do">
-            <div class="item-icon w-25"><i class="fa fa-theater-masks"></i></div>
+            <div class="item-icon w-25"><i class="fa "></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Services</div>
         </a>
 

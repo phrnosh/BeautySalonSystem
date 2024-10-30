@@ -158,7 +158,7 @@ public class ManagerServlet extends HttpServlet {
             } else {
 
 
-                Role role = (Role) roleService.FindByRole("manager");
+                Role role = roleService.FindByRole("manager");
 
                 User user =
                         User

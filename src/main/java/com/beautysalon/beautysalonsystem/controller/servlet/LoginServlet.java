@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 
             if (req.getRemoteUser() != null) {
                 String username = req.getRemoteUser();
-                User user = (User) userService.findByUsername(username);
+                User user = userService.findByUsername(username);
 
                 if (!user.isLocked()){
 

@@ -146,7 +146,7 @@ public class AdminServlet extends HttpServlet {
             } else {
                 System.out.println("in else block - AdminServlet");
 
-                Role role = (Role) roleService.FindByRole("admin");
+                Role role = roleService.FindByRole("admin");
 
                 User user =
                         User
@@ -195,7 +195,7 @@ public class AdminServlet extends HttpServlet {
                             .build();
 
                     //TODO: problem in attachment services .
-//                    admin.addAttachment(attachment);
+                    admin.addAttachment(attachment);
                 }
 
                 BeanValidator<Admin> adminValidator = new BeanValidator<>();

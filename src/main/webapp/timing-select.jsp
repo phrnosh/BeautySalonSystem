@@ -138,7 +138,7 @@
         <div class="h-100 align-items-center justify-content-between p-3 d-flex flex-row w-75 text-white" style="background-color: #5f5564; margin-left: 10%">
             <div style="margin-left: 2%">
                 <div class="d-flex flex-row mb-1">
-                    <i class="fa fa-camera-movie" style="font-size: xx-large; margin-right: 8px;"></i>
+                    <i class="fa" style="font-size: xx-large; margin-right: 8px;"></i>
                     <h2 class="mb-2">Salon</h2>
                 </div>
 

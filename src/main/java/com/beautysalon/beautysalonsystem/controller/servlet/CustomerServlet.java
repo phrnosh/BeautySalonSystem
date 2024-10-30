@@ -121,7 +121,7 @@ public class CustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         try {
-            Role role = (Role) roleService.FindByRole("customer");
+            Role role = roleService.FindByRole("customer");
 
             User user =
                     User

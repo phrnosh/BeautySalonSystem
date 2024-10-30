@@ -23,7 +23,12 @@ public class RoleService implements Serializable {
 
     @Transactional
     public Role edit(Role role) throws Exception {
-        return role;
+        role = entityManager.find(Role.class, role.getRole());
+        if (role != null) {
+            entityManager.merge(role);
+            return role;
+        }
+        throw new Exception();
     }
 
     @Transactional
@@ -49,10 +54,16 @@ public class RoleService implements Serializable {
     }
 
     @Transactional
-    public List<Role> FindByRole(String role) throws Exception {
-        return entityManager
-                .createQuery("select r from roleEntity r where r.role = :role", Role.class)
-                .setParameter("role", role)
-                .getResultList();
+    public Role FindByRole(String name) throws Exception {
+        List<Role> roleList =
+                entityManager
+                        .createQuery("select r from roleEntity r where r.role =:name and r.deleted=false ", Role.class)
+                        .setParameter("name", name)
+                        .getResultList();
+        if (!roleList.isEmpty()) {
+            return roleList.get(0);
+        } else {
+            return null;
+        }
     }
 }
