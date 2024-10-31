@@ -7,7 +7,7 @@
     <jsp:include page="../css-include.jsp"/>
 
 </head>
-<body style="background-color:rgba(202, 194, 188, 0.4);">
+<body style="background-color:rgba(202, 194, 188);">
 
 <%
     String errorMessage = (String) session.getAttribute("errorMessage");

@@ -30,31 +30,31 @@
         <% } %>
 
         <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="user.do">
-            <div class="item-icon w-25"><i class="fa fa-user-check"></i></div>
+            <div class="item-icon w-25" style="text-align: center;"><i class="fa fa-user-check"></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Account</div>
         </a>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="manager.do">
-            <div class="item-icon w-25"><i class="fa fa-vcard"></i></div>
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="manager.do">
+            <div class="item-icon w-25" style="text-align: center;"><i class="fa fa-vcard"></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Managers</div>
         </a>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="customer.do">
-            <div class="item-icon w-25"><i class="fa fa-person"></i></div>
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="customer.do">
+            <div class="item-icon w-25" style="text-align: center;"><i class="fa fa-person"></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Customers</div>
         </a>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="salon.do">
-            <div class="item-icon w-25"><i class="fa "></i></div>
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="salon.do">
+            <div class="item-icon w-25" style="text-align: center;"><i class="fa "></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Salons</div>
         </a>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="services.do">
-            <div class="item-icon w-25"><i class="fa "></i></div>
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="services.do">
+            <div class="item-icon w-25" style="text-align: center;"><i class="fa fa-brush"></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Services</div>
         </a>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="booking.do">
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="booking.do">
             <div class="item-icon w-25"><i class="fa "></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Booking</div>
         </a>

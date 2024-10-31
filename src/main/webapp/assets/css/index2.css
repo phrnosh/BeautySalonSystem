@@ -14,11 +14,6 @@ a{
     background-color: rgba(202, 194, 188, 0.4) !important;
 }
 
-/*.footer{*/
-/*    background-color: darkslateblue;*/
-/*    height: 8%;*/
-/*}*/
-
 .items a{
     color: #dcdcdc;
     height: 8%;
@@ -32,12 +27,3 @@ a{
         color:#da9f87;
     }
 }
-
-#person-frame{
-    padding-left: 300px;
-}
-
-#product-frame{
-    padding-left: 300px;
-}
-

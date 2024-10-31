@@ -13,17 +13,17 @@
 
 
         <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="customer.do">
-            <div class="item-icon w-25"><i class="fa fa-user-circle"></i></div>
+            <div class="item-icon w-25" style="text-align: center;"><i class="fa fa-user-circle"></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Profile</div>
         </a>
 
         <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="user.do">
-            <div class="item-icon w-25"><i class="fa fa-user-check"></i></div>
+            <div class="item-icon w-25" style="text-align: center;"><i class="fa fa-user-check"></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Account</div>
         </a>
 
-        <a class="item d-flex justify-content-center align-items-center mb-auto ps-lg-4" href="booking.do">
-            <div class="item-icon w-25"><i class="fa "></i></div>
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="booking.do">
+            <div class="item-icon w-25" style="text-align: center;"><i class="fa "></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Your Bookings</div>
         </a>
 

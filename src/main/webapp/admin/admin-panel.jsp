@@ -4,11 +4,10 @@
 <html>
 <head>
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="../assets/css/index.css">
     <jsp:include page="../css-include.jsp"/>
 
 </head>
-<body style="background-color:rgba(202, 194, 188, 0.4);">
+<body style="background-color:rgba(202, 194, 188);">
 
 <%
     String errorMessage = (String) session.getAttribute("errorMessage");
@@ -39,8 +38,9 @@
             <div class="d-flex p-4 w-100">
 
                 <div class="p-5">
-                    <i class="fa fa-user mb-3" style="font-size: xxx-large"></i>
-                    <h1>Admin</h1>
+<%--                    <i class="fa fa-user mb-3" style="font-size: xxx-large"></i>--%>
+<%--                    <h1>Admin</h1>--%>
+                    <a> <img class="fa col-12 col-md-9 col-lg-3" style="max-width: 100%; border-radius: 15%; margin:3%; font-size: xxx-large;" src="../assets/images/admin-btn1.jpg" > </a>
                 </div>
 
                 <div style="margin-left: 5%">
