@@ -46,31 +46,27 @@
                 <div style="margin-left: 5%">
                     <form action="admin.do" method="post" enctype="multipart/form-data">
 
-                        <div class="d-flex mb-4">
-
-
-
+                        <div class="input-register d-flex mb-2">
                             <input class="m-1" type="text" name="name" placeholder="Name">
 
                             <input class="m-1" type="text" name="family" placeholder="Family">
 
                         </div>
 
-                        <div class="d-flex mb-4">
+                        <div class="input-register d-flex mb-2">
 
                             <input class="m-1" type="text" name="username" placeholder="Username">
 
                             <input class="m-1" type="text" name="password" placeholder="Password">
 
+                            <input class="m-1" type="text" name="phoneNumber" placeholder="Phone Number">
 
                         </div>
 
                         <div class="d-flex mb-4">
-
-                            <input class="m-1" type="text" name="phoneNumber" placeholder="Phone Number">
-
+                        <div class="input-register">
                             <input class="m-1" type="text" name="email" placeholder="Email">
-
+                         </div>
                             <input type="file" name="image" class="m-1">
 
 

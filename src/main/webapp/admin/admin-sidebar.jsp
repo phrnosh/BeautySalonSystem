@@ -27,6 +27,30 @@
             <div class="w-50 d-sm-none d-lg-flex">Admins</div>
         </a>
 
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="moderator.do">
+            <div class="item-icon w-25"><i class="fa fa-id-badge"></i></div>
+            <div class="w-50 d-sm-none d-lg-flex">Moderators</div>
+        </a>
+        <%
+            } else if (loggedUser.getRole().getRole().equals("moderator")) {
+        %>
+
+        <div class="d-flex w-100 mb-5 justify-content-center">
+            <c:choose>
+                <c:when test="${not empty sessionScope.loggedModerator.attachments}">
+                    <img class="rounded-circle bg-white" src="${sessionScope.loggedModerator.attachments.get(0).fileName}" alt="Moderator Image" height="80px" width="80px">
+                </c:when>
+                <c:otherwise>
+                    No Image
+                </c:otherwise>
+            </c:choose>
+        </div>
+
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="moderator.do">
+            <div class="item-icon w-25"><i class="fa fa-user-circle"></i></div>
+            <div class="w-50 d-sm-none d-lg-flex">Moderators</div>
+        </a>
+
         <% } %>
 
         <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="user.do">

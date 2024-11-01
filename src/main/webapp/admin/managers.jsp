@@ -37,16 +37,15 @@
             <div class="d-flex p-4 w-100">
 
                 <div class="p-5">
-                    <i class="fa fa-vcard mb-3" style="font-size: xxx-large"></i>
-                    <h1>Manager</h1>
+<%--                    <i class="fa fa-vcard mb-3" style="font-size: xxx-large"></i>--%>
+<%--                    <h1>Manager</h1>--%>
+                        <a> <img class="fa col-12 col-md-9 col-lg-3" style="max-width: 100%; border-radius: 15%; margin:3%; font-size: xxx-large;" src="../assets/images/manager-btn1.jpg" > </a>
                 </div>
 
                 <div style="margin-left: 5%">
                     <form action="manager.do" method="post" enctype="multipart/form-data">
 
-                        <div class="d-flex mb-4">
-
-
+                        <div class="input-register d-flex mb-2">
 
                             <input class="m-1" type="text" name="name" placeholder="Name">
 
@@ -54,7 +53,7 @@
 
                         </div>
 
-                        <div class="d-flex mb-4">
+                        <div class="input-register d-flex mb-2">
 
                             <input class="m-1" type="text" name="username" placeholder="Username">
 
@@ -64,7 +63,7 @@
 
                         </div>
 
-                        <div class="d-flex mb-4">
+                        <div class="input-register d-flex mb-2">
 
                             <input class="m-1 text-danger-emphasis bg-secondary-subtle" type="text" name="nationalCode" placeholder="National Code - Search"  oninput="findManagerByNationalCode(this.value)">
 
@@ -72,11 +71,13 @@
 
                             <input class="m-1" type="text" name="address" placeholder="Address">
 
-                            <input type="file" name="image" class="m-1">
-
-
                         </div>
 
+                        <div class="d-flex mb-4">
+
+                            <input type="file" name="image" class="m-1">
+
+                        </div>
 
                         <div class="d-flex mb-4">
                             <input class="btn btn-dark m-1 w-25" type="submit" value="Save">
@@ -125,7 +126,7 @@
                             <td>${manager.family}</td>
                             <td>${manager.user.username}</td>
                             <td>${manager.user.password}</td>
-                            <td>${manager.salonId}</td>
+                            <td>${manager.salonName}</td>
                             <td>${manager.nationalCode}</td>
                             <td>${manager.phoneNumber}</td>
                             <td>${manager.email}</td>
@@ -219,7 +220,7 @@
                         "<td>" + response.family + "</td>" +
                         "<td>" + "" + "</td>" +
                         "<td>" + "" + "</td>" +
-                        "<td>" + response.salonId + "</td>" +
+                        "<td>" + response.salonName + "</td>" +
                         "<td>" + response.nationalCode + "</td>" +
                         "<td>" + response.phoneNumber + "</td>" +
                         "<td>" + response.email + "</td>" +
@@ -284,7 +285,7 @@
                         "<td>" + response.family + "</td>" +
                         "<td>" + "" + "</td>" +
                         "<td>" + "" + "</td>" +
-                        "<td>" + response.salonId + "</td>" +
+                        "<td>" + response.salonName + "</td>" +
                         "<td>" + response.nationalCode + "</td>" +
                         "<td>" + response.phoneNumber + "</td>" +
                         "<td>" + response.email + "</td>" +

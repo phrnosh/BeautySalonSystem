@@ -11,10 +11,9 @@
 <%--<jsp:include page="navbar.jsp"/>--%>
 
 <br><br><br>
-<div class="container">
-    <div class="row">
+<div class="container d-flex justify-content-center">
         <div class="register-item col-12 col-md-6 col-lg-6 ">
-            <div class="header-register">
+            <div class="header-register text-center" >
                 <h4>ورود</h4>
                 <br><br><hr style="border-top: 3px solid rgba(0, 0, 0, 0.1); margin-top: -18px;">
                 <p>با وارد کردن اطلاعات زیر وارد پنل خود شوید</p>
@@ -33,9 +32,7 @@
                 <a href="user.do" class="btn-reg">فراموشی رمزعبور</a>
                 <a href="sign-up.jsp" class="btn-reg">ساخت اکانت</a>
             </div>
-
         </div>
-    </div>
 </div>
 
 <br><br><br><br>

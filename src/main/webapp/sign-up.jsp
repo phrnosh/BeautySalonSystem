@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/css/UI.css">
 
 </head>
-<body>
+<body style="background-color:#f3f3f3">
 
 <%
     String errorMessage = (String) session.getAttribute("errorMessage");
@@ -20,26 +20,26 @@
         session.removeAttribute("errorMessage");
     }
 %>
-
-
-<br><br><br>
+<br>
+<br>
+<br>
 <div class="container d-flex justify-content-center">
-    <div class="register-item col-12 col-md-6 col-lg-6 bg-secondary">
+    <div class="register-item col-12 col-md-6 col-lg-6 " style="height: auto;">
         <div class="header-register text-center">
-            <h4>Login</h4>
+            <h4>ساخت پنل</h4>
             <br><br><hr style="border-top: 3px solid rgba(0, 0, 0, 0.1); margin-top: -18px;">
-            <p>با وارد کردن اطلاعات زیر وارد پنل خود شوید</p>
+            <p>پنل شخصی خود را بسازید</p>
         </div><br><br>
 
         <div class="input-register text-center mx-auto">
             <form action="customer.do" method="post">
-                <input class="mb-2" type="text" style="display: block; width: 80%;" placeholder=" Name" name="name">
-                <input class="mb-2" type="text" style="display: block; width: 80%;" placeholder=" Family" name="family">
-                <input class="mb-2" type="text" style="display: block; width: 80%; " placeholder=" Phone Number" name="phoneNumber">
-                <input class="mb-2" type="text" style="display: block; width: 80%;" placeholder="username" name="username">
-                <input class="mb-2" type="password" style="display: block; width: 80%;" placeholder=" password" name="password">
-                <input class="mb-4" type="text" style="display: block; width: 80%; " placeholder=" email" name="email">
-                <input type="submit" class="btn btn-outline-dark" style="display: block; width: 80%;" value="save">
+                <input class="mb-2" type="text" style="display: block; width: 80%; margin: 0 auto;" placeholder=" Name" name="name">
+                <input class="mb-2" type="text" style="display: block; width: 80%; margin: 0 auto;" placeholder=" Family" name="family">
+                <input class="mb-2" type="text" style="display: block; width: 80%; margin: 0 auto;" placeholder=" Phone Number" name="phoneNumber">
+                <input class="mb-2" type="text" style="display: block; width: 80%; margin: 0 auto;" placeholder="username" name="username">
+                <input class="mb-2" type="password" style="display: block; width: 80%; margin: 0 auto;" placeholder=" password" name="password">
+                <input class="mb-4" type="text" style="display: block; width: 80%; margin: 0 auto;" placeholder=" email" name="email">
+                <input type="submit" class="btn btn-outline-dark" style="display: block; width: 80%; margin: 0 auto;" value="save">
             </form>
         </div>
 

@@ -106,7 +106,7 @@ public class SalonServlet extends HttpServlet {
             String errorMessage = e.getMessage();
             req.getSession().setAttribute("errorMessage", errorMessage);
             log.error(ExceptionWrapper.getMessage(e).toString());
-            resp.sendRedirect("/salon.do");
+//            resp.sendRedirect("/salon.do");
         }
     }
 
@@ -214,7 +214,7 @@ public class SalonServlet extends HttpServlet {
             String errorMessage = e.getMessage();
             req.getSession().setAttribute("errorMessage", errorMessage);
             log.error(ExceptionWrapper.getMessage(e).toString());
-            resp.sendRedirect("/salon.do");
+//            resp.sendRedirect("/salon.do");
 
         }
     }
