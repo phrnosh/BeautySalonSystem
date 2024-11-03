@@ -43,7 +43,7 @@
             <div class="d-flex p-4 w-100">
 
                 <div class="p-5">
-                    <i class="fa fa-theater-masks mb-3" style="font-size: xxx-large"></i>
+                    <i class="fa mb-3" style="font-size: xxx-large"></i>
                     <h1>Services</h1>
                 </div>
 
@@ -65,7 +65,7 @@
                             <div class="d-flex mb-4">
 
                                 <input class="m-1" type="text" name="stylistName" placeholder="stylistName">
-                                <input type="text" name="stylistName" class="m-1">
+<%--                                <input type="text" name="stylistName" class="m-1">--%>
 
                             </div>
 
@@ -79,7 +79,7 @@
 
                         <div class="d-flex mb-4">
 
-                            <input class="m-1" type="date" name="dateOfModified" placeholder="dateOfModified">
+<%--                            <input class="m-1" type="date" name="dateOfModified" placeholder="dateOfModified">--%>
 
                             <input type="file" name="image" class="m-1">
 
@@ -109,11 +109,13 @@
                         <th hidden="hidden">ID</th>
                         <th>Name</th>
                         <th>StylistName</th>
-                        <th>dateOfModified</th>
+<%--                        <th>dateOfModified</th>--%>
                         <th>Services Type</th>
                         <th>Available</th>
                         <th>Status</th>
                         <th>Description</th>
+                        <th>Operation</th>
+
                     </tr>
                     </thead>
 
@@ -125,7 +127,7 @@
                             <td hidden="hidden">${services.id}</td>
                             <td>${services.name}</td>
                             <td>${services.stylistName}</td>
-                            <td>${services.dateOfModified}</td>
+<%--                            <td>${services.dateOfModified}</td>--%>
                             <td>${services.servicesType}</td>
                             <td>${services.available}</td>
                             <td>${services.status}</td>
@@ -161,7 +163,7 @@
                         <th hidden="hidden">ID</th>
                         <th>Name</th>
                         <th>StylistName</th>
-                        <th>dateOfModified</th>
+<%--                        <th>dateOfModified</th>--%>
                         <th>Services Type</th>
                         <th>Available</th>
                         <th>Status</th>
@@ -177,7 +179,7 @@
                             <td hidden="hidden">${services.id}</td>
                             <td>${services.name}</td>
                             <td>${services.stylistName}</td>
-                            <td>${services.dateOfModified}</td>
+<%--                            <td>${services.dateOfModified}</td>--%>
                             <td>${services.servicesType}</td>
                             <td>${services.available}</td>
                             <td>${services.status}</td>
@@ -247,7 +249,7 @@
                             "<td hidden='hidden'>" + services.id + "</td>" +
                             "<td>" + services.name + "</td>" +
                             "<td>" + services.stylistName + "</td>" +
-                            "<td>" + services.dateOfModified + "</td>" +
+                            // "<td>" + services.dateOfModified + "</td>" +
                             "<td>" + services.servicesType + "</td>" +
                             "<td>" + services.available + "</td>" +
                             "<td>" + services.status + "</td>" +
@@ -264,7 +266,7 @@
                         "<td hidden='hidden'>" + response.id + "</td>" +
                         "<td>" + response.name + "</td>" +
                         "<td>" + services.stylistName + "</td>" +
-                        "<td>" + services.dateOfModified + "</td>" +
+                        // "<td>" + services.dateOfModified + "</td>" +
                         "<td>" + services.servicesType + "</td>" +
                         "<td>" + services.available + "</td>" +
                         "<td>" + services.status + "</td>" +

@@ -16,7 +16,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>StylistName</th>
-            <th>dateOfModified</th>
+<%--            <th>dateOfModified</th>--%>
             <th>Services Type</th>
             <th>Available</th>
             <th>Status</th>
@@ -32,7 +32,7 @@
                 <td>${services.id}</td>
                 <td>${services.name}</td>
                 <td>${services.stylistName}</td>
-                <td>${services.dateOfModified}</td>
+<%--                <td>${services.dateOfModified}</td>--%>
                 <td>${services.servicesType}</td>
                 <td>${services.available}</td>
                 <td>${services.status}</td>

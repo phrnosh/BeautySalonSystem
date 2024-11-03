@@ -41,7 +41,7 @@
             <div class="d-flex p-4 w-100">
 
                 <div class="p-5">
-                    <i class="fa fa-film mb-3" style="font-size: xxx-large"></i>
+                    <i class="fa mb-3" style="font-size: xxx-large"></i>
                     <h1>Services</h1>
                 </div>
 
@@ -50,7 +50,7 @@
 
                         <div class="d-flex mb-4">
 
-                            <input class="m-1" type="number" name="servicesName" placeholder="Services Name">
+                            <input class="m-1" type="text" name="servicesName" placeholder="Services Name">
 
                         </div>
 
@@ -85,10 +85,11 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>StylistName</th>
-                        <th>dateOfModified</th>
+<%--                        <th>dateOfModified</th>--%>
                         <th>Services Type</th>
                         <th>Status</th>
                         <th>Description</th>
+                        <th>Operation</th>
 
                     </tr>
                     </thead>
@@ -101,7 +102,7 @@
                             <td>${services.id}</td>
                             <td>${services.name}</td>
                             <td>${services.stylistName}</td>
-                            <td>${services.dateOfModified}</td>
+<%--                            <td>${services.dateOfModified}</td>--%>
                             <td>${services.servicesType}</td>
                             <td>${services.status}</td>
                             <td>${services.description}</td>

@@ -218,7 +218,7 @@ public class ServicesServlet extends HttpServlet {
                                 .available(false)
                                 .servicesType(ServicesType.valueOf(req.getParameter("servicesType")))
                                 .status(Boolean.parseBoolean((req.getParameter("status"))))
-                                .dateOfModified(LocalDateTime.parse(req.getParameter("releasedDate")))
+//                                .dateOfModified(LocalDateTime.parse(req.getParameter("releasedDate")))
                                 .description(req.getParameter("description"))
                                 .build();
 
@@ -305,7 +305,7 @@ public class ServicesServlet extends HttpServlet {
             servicesService.edit(editingServices);
 
             editingServices.setStylistName(servicesAb.getStylistName().toUpperCase());
-            editingServices.setDateOfModified(servicesAb.getDateOfModified());
+//            editingServices.setDateOfModified(servicesAb.getDateOfModified());
             editingServices.setStatus(servicesAb.isStatus());
             editingServices.setServicesType(servicesAb.getServicesType());
             editingServices.setDescription(servicesAb.getDescription());

@@ -51,8 +51,8 @@ public class Services extends Base{
     @Column(name = "available")
     private boolean available = false;
 
-    @Column(name = "date_of_modified")
-    private LocalDateTime dateOfModified;
+//    @Column(name = "date_of_modified")
+//    private LocalDateTime dateOfModified;
 
     @JsonbTransient
     @OneToMany(mappedBy = "services", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, orphanRemoval = true)
@@ -72,10 +72,10 @@ public class Services extends Base{
 //            inverseJoinColumns = @JoinColumn(name = "family"))
 //    private Stylist stylist;
 
-    @PrePersist
-    public void beforeDateModified(){
-        dateOfModified = LocalDateTime.now();
-    }
+//    @PrePersist
+//    public void beforeDateModified(){
+//        dateOfModified = LocalDateTime.now();
+//    }
 
 
 }
