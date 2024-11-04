@@ -27,6 +27,11 @@
             <div class="w-50 d-sm-none d-lg-flex">Your Salon</div>
         </a>
 
+        <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="stylist.do">
+            <div class="item-icon w-25" style="text-align: center;"><i class="fa "></i></div>
+            <div class="w-50 d-sm-none d-lg-flex">Hair Stylists</div>
+        </a>
+
         <a class="item d-flex justify-content-center align-items-center ps-lg-4" href="logout.do">
             <div class="item-icon w-25"><i class="fa fa-sign-out"></i></div>
             <div class="w-50 d-sm-none d-lg-flex">Exit</div>

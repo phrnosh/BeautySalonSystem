@@ -38,43 +38,8 @@
 
         <div class="content flex-column justify-content-center  align-items-center flex-grow-1">
 
-            <div class="d-flex p-4 w-100">
-
-                <div class="p-5">
-                    <i class="fa mb-3" style="font-size: xxx-large"></i>
-                    <h1>Services</h1>
-                </div>
-
-                <div style="margin-left: 5%">
-                    <form action="services.do" method="post" enctype="multipart/form-data">
-
-                        <div class="d-flex mb-4">
-
-                            <input class="m-1" type="text" name="servicesName" placeholder="Services Name">
-
-                        </div>
-
-                        <div class="d-flex mb-4">
-
-                            <select name="status" class="m-1">
-                                <option value="true">active</option>
-                                <option value="false">not active</option>
-                            </select>
-
-                            <input type="file" name="image" class="m-1">
-
-                        </div>
-
-                        <div class="d-flex mb-4">
-                            <input class="m-1 w-75" type="text" name="description" placeholder="Description">
-                            <input class="btn btn-dark m-1 w-25" type="submit" value="Save">
-                        </div>
-                    </form>
-                </div>
-            </div>
-
             <div>
-                <h4 class="mb-0">${sessionScope.manager.salonName} Salon Services</h4>
+                <h4 class="mb-0">${sessionScope.manager.salonName} Salon</h4>
             </div>
 
             <div class="d-flex justify-content-center p-4 w-100">
@@ -84,11 +49,10 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>StylistName</th>
-<%--                        <th>dateOfModified</th>--%>
-                        <th>Services Type</th>
                         <th>Status</th>
+                        <th>Address</th>
                         <th>Description</th>
+                        <th>Image</th>
                         <th>Operation</th>
 
                     </tr>
@@ -96,21 +60,20 @@
 
                     <tbody>
 
-                    <c:forEach var="services" items="${sessionScope.salonServices}">
+
 
                         <tr>
-                            <td>${services.id}</td>
-                            <td>${services.name}</td>
-                            <td>${services.stylistName}</td>
-<%--                            <td>${services.dateOfModified}</td>--%>
-                            <td>${services.servicesType}</td>
-                            <td>${services.status}</td>
-                            <td>${services.description}</td>
+                            <td>${sessionScope.salon.id}</td>
+                            <td>${sessionScope.salon.name}</td>
+                            <td>${sessionScope.salon.status}</td>
+                            <td>${sessionScope.salon.address}</td>
+                            <td>${sessionScope.salon.description}</td>
 
                             <td>
                                 <c:choose>
-                                    <c:when test="${not empty services.attachments}">
-                                        <img src="${services.attachments.get(0).fileName}" alt="services Image" height="80px" width="80px">
+                                    <c:when test="${sessionScope.salon.imageUrl != ''}">
+                                        <img src="${sessionScope.salon.imageUrl}" alt="Salon Image" height="80px"
+                                             width="80px">
                                     </c:when>
                                     <c:otherwise>
                                         No Image
@@ -119,11 +82,15 @@
                             </td>
 
                             <td>
-                                <button onclick="editServices(${services.id})" class="btn btn-primary w-auto mt-4">Edit</button>
-                                <button onclick="removeServices(${services.id})" class="btn btn-danger w-auto mt-4">Remove</button>
+                                <button onclick="setServices(${sessionScope.salon.id})" class="btn btn-secondary w-auto mt-4">Services
+                                </button>
+
+                                <button onclick="setTiming(${sessionScope.salon.id})" class="btn btn-secondary w-auto mt-4">
+                                    Timing
+                                </button>
+                                <button onclick="editSalon(${sessionScope.salon.id})" class="btn btn-primary w-auto mt-4">Edit</button>
                             </td>
                         </tr>
-                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -133,33 +100,17 @@
 </div>
 
 <script>
-    function editServices(id) {
-        window.location.replace("/services.do?edit=" + id);
+    function editSalon(id) {
+        window.location.replace("/salon.do?edit=" + id);
     }
 
-    function removeServices(id) {
-        fetch("/rest/services/" + id, {
-            method: "DELETE"
-        })
-            .then(response => {
-                if (response.ok) {
-                    // Redirect if deletion was successful
-                    window.location = "/services.do";
-                } else {
-                    // If the response is not successful, read the error message
-                    return response.text().then(errorMessage => {
-                        // Alert the error message returned from the API
-                        alert(errorMessage);
-                    });
-                }
-            })
-            .catch(error => {
-                // Handle any other errors that may occur
-                console.error('Error:', error);
-                alert("An error occurred: " + error.message);
-            });
+    function setServices(id) {
+        window.location.replace("/services.do?salonId=" + id);
     }
 
+    function setTiming(id) {
+        window.location.replace("/timing.do?salonId=" + id);
+    }
 
 </script>
 

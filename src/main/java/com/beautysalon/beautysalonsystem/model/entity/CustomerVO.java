@@ -33,6 +33,7 @@ public class CustomerVO {
 
     private List<Long> bookingIds = new ArrayList<>();
 
+    private String imageUrl;
 
     public CustomerVO(Customer customer) {
         this.id = customer.getId();
@@ -42,6 +43,11 @@ public class CustomerVO {
         this.password = customer.getUser().getPassword();
         this.phoneNumber = customer.getPhoneNumber();
         this.email = customer.getEmail();
+        if (customer.getAttachments().isEmpty()) {
+            this.imageUrl = "";
+        } else {
+            this.imageUrl = customer.getAttachments().get(0).getFilename();
+        }
 
         for (Booking booking : customer.getBookingList()){
             this.bookingIds.add(booking.getId());

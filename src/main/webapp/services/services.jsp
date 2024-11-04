@@ -102,7 +102,6 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>StylistName</th>
-                        <th>Released Date</th>
                         <th>Type</th>
                         <th>Available</th>
                         <th>Status</th>
@@ -119,7 +118,6 @@
                             <td>${services.id}</td>
                             <td>${services.name}</td>
                             <td>${services.stylistName}</td>
-                            <td>${services.releasedDate}</td>
                             <td>${services.servicesType}</td>
                             <td>${services.available}</td>
                             <td>${services.status}</td>

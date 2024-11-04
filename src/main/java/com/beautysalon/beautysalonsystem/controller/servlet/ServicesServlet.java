@@ -8,6 +8,7 @@ import com.beautysalon.beautysalonsystem.model.entity.enums.ServicesType;
 import com.beautysalon.beautysalonsystem.model.service.ManagerService;
 import com.beautysalon.beautysalonsystem.model.service.SalonService;
 import com.beautysalon.beautysalonsystem.model.service.ServicesService;
+import com.beautysalon.beautysalonsystem.model.service.StylistService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
@@ -46,6 +47,9 @@ public class ServicesServlet extends HttpServlet {
     @Inject
     private ServicesService servicesService;
 
+    @Inject
+    private StylistService stylistService;
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -76,7 +80,9 @@ public class ServicesServlet extends HttpServlet {
                 manager = managerService.findById(managervo.getId());
                 salonServices = manager.getSalon().getServicesList();
                 redirectPath = "/managers/manager-services.jsp";
-                req.getSession().setAttribute("services", managerService.findServicesByManagerId(manager.getId()));
+                List<Services> services = managerService.findServicesByManagerId(manager.getId());
+                req.getSession().setAttribute("services", services);
+                req.getSession().setAttribute("stylists", manager.getSalon().getStylists());
             }  else if (user.getRole().getRole().equals("admin") || user.getRole().getRole().equals("moderator")){
                 if (req.getParameter("salonId") != null) {
                     manager = managerService.findManagerBySalonId(Long.parseLong(req.getParameter("salonId")));
@@ -84,7 +90,9 @@ public class ServicesServlet extends HttpServlet {
                     req.getSession().setAttribute("manager", managerVO1);
                     redirectPath = "/salon/salon-services.jsp";
                     salonServices = manager.getSalon().getServicesList();
-                    req.getSession().setAttribute("services", managerService.findServicesByManagerId(manager.getId()));
+                    List<Services> services = managerService.findServicesByManagerId(manager.getId());
+                    req.getSession().setAttribute("services", services);
+                    req.getSession().setAttribute("stylists", manager.getSalon().getStylists());
                 } else {
                     if (req.getSession().getAttribute("manager") != null) {
                         managervo = (ManagerVO) req.getSession().getAttribute("manager");
@@ -209,11 +217,15 @@ public class ServicesServlet extends HttpServlet {
 
             } else {
 
+                Stylist stylist = stylistService.findById(Long.parseLong(req.getParameter("stylistId")));
+
+                
+
                 Services services =
                         Services
                                 .builder()
-                                .name(req.getParameter("name").toUpperCase())
-                                .stylistName(req.getParameter("stylistName").toUpperCase())
+                                .name(req.getParameter("name"))
+                                .stylistName(stylist.getName() + stylist.getFamily())
                                 .deleted(false)
                                 .available(false)
                                 .servicesType(ServicesType.valueOf(req.getParameter("servicesType")))
@@ -259,7 +271,8 @@ public class ServicesServlet extends HttpServlet {
                 BeanValidator<Services> servicesValidator = new BeanValidator<>();
                 if (servicesValidator.validate(services).isEmpty()) {
                     servicesService.save(services);
-
+                    stylist.addServices(services);
+                    stylistService.edit(stylist);
                     if (req.getSession().getAttribute("manager") != null) {
                         ManagerVO managerVO = (ManagerVO) req.getSession().getAttribute("manager");
                         Manager manager = managerService.findById(managerVO.getId());

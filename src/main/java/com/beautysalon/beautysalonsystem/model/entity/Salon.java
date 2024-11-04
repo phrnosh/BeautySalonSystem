@@ -54,6 +54,17 @@ public class Salon extends Base{
     private List<Services> servicesList;
 
     @JsonbTransient
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "salon_stylist_tbl",
+            joinColumns = @JoinColumn(name = "salon_id"),
+            inverseJoinColumns = @JoinColumn(name = "stylist_id"),
+            foreignKey = @ForeignKey(name = "fk_salon_stylist"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_salon_stylist")
+    )
+    private List<Stylist> stylists;
+
+    @JsonbTransient
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "salon_timing_tbl",
@@ -88,5 +99,12 @@ public class Salon extends Base{
             timingList = new ArrayList<>();
         }
         timingList.add(timing);
+    }
+
+    public void addStylist(Stylist stylist){
+        if (stylists == null){
+            stylists = new ArrayList<>();
+        }
+        stylists.add(stylist);
     }
 }

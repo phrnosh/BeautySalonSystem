@@ -127,4 +127,12 @@ public class ServicesService implements Serializable {
                 .setParameter("servicesType", enumServicesType)
                 .getResultList();
     }
+
+    @Transactional
+    public List<Services> findBySalonId(Long salonId) throws Exception {
+        return entityManager
+                .createQuery("SELECT s.servicesList FROM salonEntity s WHERE s.id = :salonId ", Services.class)
+                .setParameter("salonId", salonId)
+                .getResultList();
+    }
 }

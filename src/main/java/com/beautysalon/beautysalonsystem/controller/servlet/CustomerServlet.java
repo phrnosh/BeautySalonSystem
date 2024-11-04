@@ -65,7 +65,7 @@ public class CustomerServlet extends HttpServlet {
 
             if (user.getRole().getRole().equals("customer")) {
 
-                Customer customer = (Customer) customerService.findByUsername(user.getUsername());
+                Customer customer = customerService.findByUsername(user.getUsername());
                 CustomerVO customerVO = new CustomerVO(customer);
                 req.getSession().setAttribute("customer", customerVO);
                 redirectPath = "/customers/customer-panel.jsp";

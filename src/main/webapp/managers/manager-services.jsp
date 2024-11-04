@@ -64,8 +64,15 @@
 
                             <div class="d-flex mb-4">
 
-                                <input class="m-1" type="text" name="stylistName" placeholder="stylistName">
-<%--                                <input type="text" name="stylistName" class="m-1">--%>
+                                <select name="stylistId" class="m-1">
+                                    <c:forEach var="stylist" items="${sessionScope.stylists}">
+
+                                        <option value="${stylist.id}">${stylist.name} ${stylist.family}</option>
+
+                                    </c:forEach>
+                                </select>
+
+<%--                                <input class="m-1" type="text" name="stylistName" placeholder="stylistName">--%>
 
                             </div>
 
@@ -134,8 +141,8 @@
                             <td>${fn:substring(services.description, 0, 10)}...</td>
                             <td>
                                 <div class="d-flex">
-                                    <button onclick="removeServicesFromList(${services.id})" class="btn btn-danger w-100">Remove</button>
-                                </div>
+                                    <button onclick="editServices(${services.id})" class="btn btn-primary w-auto mt-4">Edit</button>
+                                    <button onclick="removeServices(${services.id})" class="btn btn-danger w-auto mt-4">Remove</button>                                </div>
 
                             </td>
 
@@ -150,58 +157,7 @@
 
             </div>
 
-            <div>
-                <h4 class="mb-0 mt-3">All Services</h4>
-            </div>
 
-
-            <div class="d-flex justify-content-center p-4 w-100">
-
-                <table id="allResultTable" border="1" class="table-light w-100">
-                    <thead>
-                    <tr>
-                        <th hidden="hidden">ID</th>
-                        <th>Name</th>
-                        <th>StylistName</th>
-<%--                        <th>dateOfModified</th>--%>
-                        <th>Services Type</th>
-                        <th>Available</th>
-                        <th>Status</th>
-                        <th>Description</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                    <c:forEach var="services" items="${sessionScope.allServicess}">
-
-                        <tr>
-                            <td hidden="hidden">${services.id}</td>
-                            <td>${services.name}</td>
-                            <td>${services.stylistName}</td>
-<%--                            <td>${services.dateOfModified}</td>--%>
-                            <td>${services.servicesType}</td>
-                            <td>${services.available}</td>
-                            <td>${services.status}</td>
-                            <td>${fn:substring(services.description, 0, 10)}...</td>
-                            <td>
-                                <div class="d-flex">
-                                    <button onclick="addServices(${services.id})" class="btn btn-dark w-100">Add</button>
-                                </div>
-
-                            </td>
-
-                        </tr>
-
-
-                    </c:forEach>
-
-
-                    </tbody>
-
-                </table>
-
-            </div>
 
 
         </div>
@@ -219,72 +175,31 @@
 
 <script>
 
-    function addServices(id) {
-        window.location.replace("/services.do?add=" + id);
+    function editServices(id) {
+        window.location.replace("/services.do?edit=" + id);
     }
 
-    function removeServicesFromList(id){
-        window.location.replace("/services.do?removeFromList=" + id);
-    }
-
-
-    // Function to call the API and display the result in a table
-    function findServicesByName(name) {
-
-        // AJAX call to fetch data from the API
-        $.ajax({
-            url: "/rest/services/findByName/" + name,
-            method: "GET",
-            dataType: "json", // Expect JSON response
-            success: function(response) {
-                // Clear previous results
-                $("#allResultTable tbody").empty();
-
-                // Check if response is an array
-                if (Array.isArray(response) && response.length > 0) {
-                    // Loop through the array and create table rows
-                    response.forEach(function(services) {
-                        var button = "<button class='btn btn-dark' onclick='addServices(" + services.id + ")'>Add</button>";
-                        var row = "<tr>" +
-                            "<td hidden='hidden'>" + services.id + "</td>" +
-                            "<td>" + services.name + "</td>" +
-                            "<td>" + services.stylistName + "</td>" +
-                            // "<td>" + services.dateOfModified + "</td>" +
-                            "<td>" + services.servicesType + "</td>" +
-                            "<td>" + services.available + "</td>" +
-                            "<td>" + services.status + "</td>" +
-                            "<td>" + services.description.substring(0,10) + "</td>" +
-                            "<td>" + button + "</td>" +
-                            "</tr>";
-
-                        $("#allResultTable tbody").append(row);
-                    });
-                } else if (typeof response === 'object' && response !== null) {
-                    // Handle a single object response
-                    var button = "<button class='btn btn-dark w-100' onclick='addServices(" + response.id + ")'>Add</button>";
-                    var row = "<tr>" +
-                        "<td hidden='hidden'>" + response.id + "</td>" +
-                        "<td>" + response.name + "</td>" +
-                        "<td>" + services.stylistName + "</td>" +
-                        // "<td>" + services.dateOfModified + "</td>" +
-                        "<td>" + services.servicesType + "</td>" +
-                        "<td>" + services.available + "</td>" +
-                        "<td>" + services.status + "</td>" +
-                        "<td>" + response.description.substring(0,10) + "</td>" +
-                        "<td>" + button + "</td>" +
-                        "</tr>";
-                    $("#allResultTable tbody").append(row);
+    function removeServices(id) {
+        fetch("/rest/services/" + id, {
+            method: "DELETE"
+        })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect if deletion was successful
+                    window.location = "/services.do";
                 } else {
-                    // If no data, services "No records found" message
-                    var noDataRow = "<tr><td colspan='3'>No records found</td></tr>";
-                    $("#allResultTable tbody").append(noDataRow);
+                    // If the response is not successful, read the error message
+                    return response.text().then(errorMessage => {
+                        // Alert the error message returned from the API
+                        alert(errorMessage);
+                    });
                 }
-            },
-
-            error: function(xhr, status, error) {
-                // alert("Error fetching data: " + error);
-            }
-        });
+            })
+            .catch(error => {
+                // Handle any other errors that may occur
+                console.error('Error:', error);
+                alert("An error occurred: " + error.message);
+            });
     }
 
 </script>

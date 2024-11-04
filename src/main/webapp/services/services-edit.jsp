@@ -76,13 +76,6 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="releasedDate">Released Date</label>
-                                    <input type="date" class="form-control" id="releasedDate" name="releasedDate" value="${sessionScope.editingServices.releasedDate}">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
                                     <label for="description">Description</label>
                                     <input type="text" class="form-control" id="description" name="description" value="${sessionScope.editingServices.description}">
                                 </div>

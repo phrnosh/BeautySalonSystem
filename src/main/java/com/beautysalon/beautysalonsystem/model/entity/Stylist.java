@@ -1,12 +1,14 @@
 package com.beautysalon.beautysalonsystem.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -16,7 +18,7 @@ import java.util.List;
 @ToString
 
 @Entity(name = "stylistEntity")
-@Table(name="stylist_tbl")
+@Table(name = "stylist_tbl")
 
 public class Stylist extends Profile {
 
@@ -29,14 +31,22 @@ public class Stylist extends Profile {
     @Column(name = "career", length = 30)
     private String career;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Address address;
+    @Column(name = "address", length = 100)
+    @Pattern(regexp = "^[\\w\\s]{2,100}$", message = "invalid Address")
+    private String address;
 
     @Column(name = "national_code", length = 10)
 //    @Pattern(regexp = "^//d{10}$")
     private String nationalCode;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "Services_Stylist_tbl")
     private List<Services> services;
+
+    public void addServices(Services service) {
+        if (services == null) {
+            services = new ArrayList<>();
+        }
+        services.add(service);
+    }
 }

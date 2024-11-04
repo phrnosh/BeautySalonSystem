@@ -1,5 +1,6 @@
 package com.beautysalon.beautysalonsystem.model.service;
 
+import com.beautysalon.beautysalonsystem.model.entity.Services;
 import com.beautysalon.beautysalonsystem.model.entity.Stylist;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -127,6 +128,14 @@ public class StylistService implements Serializable {
                 .setParameter("platesNumber", text + "%")
                 .setParameter("floorNumber", text + "%")
                 .setParameter("homeUnit", text + "%")
+                .getResultList();
+    }
+
+    @Transactional
+    public List<Stylist> findByServiceList (List<Services> servicesList) throws  Exception{
+        return entityManager
+                .createQuery("SELECT DISTINCT s FROM stylistEntity s JOIN s.services srv WHERE srv IN :services" , Stylist.class)
+                .setParameter("services", servicesList)
                 .getResultList();
     }
 }
