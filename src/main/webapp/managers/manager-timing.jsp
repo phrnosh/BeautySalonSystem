@@ -132,7 +132,7 @@
 
                     <tbody>
 
-                    <c:forEach var="timing" items="${sessionScope.salonTimings}">
+                    <c:forEach var="timing" items="${sessionScope.salonTiming}">
 
                         <tr>
                             <td>${timing.id}</td>

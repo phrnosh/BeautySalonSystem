@@ -43,8 +43,8 @@
 
         <div class=" w-50 align-content-center" style="margin-left: 5%">
 
-            <input class="input-group m-2" type="text" name="servicesText" placeholder="Search Service"
-                   oninput="findServicesByText(this.value)">
+            <input class="input-group m-2" type="text" name="salonText" placeholder="Search Salon"
+                   oninput="findSalonByText(this.value)">
             <%--            <button class="btn btn-primary" onclick="findShowByText(this.value)">Find</button>--%>
 
         </div>
@@ -57,21 +57,21 @@
 
         <div class="container">
             <div class="row">
-                <c:forEach var="services" items="${sessionScope.allFoundServices}">
-                    <div class="services-card mb-5 p-2"> <!-- Each show occupies 1/5th of the row -->
+                <c:forEach var="salon" items="${sessionScope.allFoundSalons}">
+                    <div class="salon-card mb-5 p-2"> <!-- Each show occupies 1/5th of the row -->
                         <div class="card h-100"> <!-- Card layout for each show -->
                             <c:choose>
-                                <c:when test="${not empty services.attachments}">
-                                    <img src="${services.attachments.get(0).fileName}" class="card-img-top d-block mx-auto" alt="Services image" style="width: 190px; height: 280px">
+                                <c:when test="${not empty salon.attachments}">
+                                    <img src="${salon.attachments.get(0).fileName}" class="card-img-top d-block mx-auto" alt="Salon image" style="width: 190px; height: 280px">
                                 </c:when>
                                 <c:otherwise>
                                     <div class="card-img-top d-block mx-auto text-center py-5" style="background-color: #f0f0f0; width: 190px; height: 280px;">No Image</div>
                                 </c:otherwise>
                             </c:choose>
                             <div class="card-body">
-                                <h5 class="card-title text-center">${services.name}</h5>
+                                <h5 class="card-title text-center">${salon.name}</h5>
                                 <div class="text-center">
-                                    <button class="btn btn-primary" onclick="selectServices(${services.id})">Select</button>
+                                    <button class="btn btn-primary" onclick="selectSalon(${salon.id})">Select</button>
                                 </div>
                             </div>
                         </div>
@@ -86,15 +86,15 @@
 </div>
 
 <script>
-    function selectServices(id){
-        window.location.replace("/salonHome.do?selectServices=" + id);
+    function selectSalon(id){
+        window.location.replace("/salonHome.do?selectSalon=" + id);
     }
 
     let timeout = null;
-    function findServicesByText(showText) {
+    function findSalonByText(salonText) {
         clearTimeout(timeout);
         timeout = setTimeout(function () {
-            window.location.replace("/search.do?servicesText=" + encodeURIComponent(showText));
+            window.location.replace("/search.do?salonText=" + encodeURIComponent(salonText));
         }, 500);  // 300ms debounce delay
     }
 

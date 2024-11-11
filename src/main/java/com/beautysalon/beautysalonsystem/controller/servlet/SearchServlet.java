@@ -58,7 +58,7 @@ public class SearchServlet extends HttpServlet {
             }
             log.info("Search Salons by Text: "+ salonText);
             req.getSession().setAttribute("allFoundSalons", allFoundSalons);
-            req.getRequestDispatcher("/customers/panel.jsp").forward(req, resp);
+            req.getRequestDispatcher("/search.jsp").forward(req, resp);
         } catch (Exception e) {
             String errorMessage = e.getMessage();
             req.getSession().setAttribute("errorMessage", errorMessage);

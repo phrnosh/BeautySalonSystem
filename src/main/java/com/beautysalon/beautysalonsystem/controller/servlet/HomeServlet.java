@@ -53,9 +53,9 @@ public class HomeServlet extends HttpServlet {
                 Salon salon = salonService.findById(salonId);
                 SalonVO salonVO = new SalonVO(salon);
                 req.getSession().setAttribute("selectedSalon", salonVO);
-                Long showId = Long.parseLong(req.getSession().getAttribute("servicesId").toString());
+                Long servicesId = Long.parseLong(req.getSession().getAttribute("servicesId").toString());
                 LocalDate selectedDate = LocalDate.parse(req.getSession().getAttribute("selectedDate").toString());
-                List<Timing> timings = timingService.findByServicesIdAndDateAndSalonId(showId, selectedDate, salonId);
+                List<Timing> timings = timingService.findByServicesIdAndDateAndSalonId(servicesId, selectedDate, salonId);
                 List<TimingVO> timingVOList = new ArrayList<>();
                 for (Timing timing : timings) {
                     TimingVO timingVO = new TimingVO(timing);

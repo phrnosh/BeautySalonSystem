@@ -68,45 +68,45 @@
 
 
 
-<div class="content d-flex flex-column flex-grow-1 h-100">
+<%--<div class="content d-flex flex-column flex-grow-1 h-100">--%>
 
-        <div class=" w-50 align-content-center" style="margin-left: 5%">
+<%--        <div class=" w-50 align-content-center" style="margin-left: 5%">--%>
 
-            <input class="input-group m-2" type="text" name="servicesText" placeholder="Search Service"
-                   oninput="findSalonByText(this.value)">
-            <button class="btn btn-primary" onclick="findSalonByText(this.value)">Find</button>
-        </div>
-    </div>
+<%--            <input class="input-group m-2" type="text" name="servicesText" placeholder="Search Service"--%>
+<%--                   oninput="findSalonByText(this.value)">--%>
+<%--            <button class="btn btn-primary" onclick="findSalonByText(this.value)">Find</button>--%>
+<%--        </div>--%>
+<%--    </div>--%>
 
-<div class="mb-auto justify-content-center d-flex">
+<%--<div class="mb-auto justify-content-center d-flex">--%>
 
 
-    <div class="container">
-        <div class="row">
-            <c:forEach var="salon" items="${sessionScope.allFoundSalons}">
-                <div class="services-card mb-5 p-2"> <!-- Each show occupies 1/5th of the row -->
-                    <div class="card h-100"> <!-- Card layout for each show -->
-                        <c:choose>
-                            <c:when test="${not empty salon.attachments}">
-                                <img src="${salon.attachments.get(0).fileName}" class="card-img-top d-block mx-auto" alt="salon image" style="width: 190px; height: 280px">
-                            </c:when>
-                            <c:otherwise>
-                                <div class="card-img-top d-block mx-auto text-center py-5" style="background-color: #f0f0f0; width: 190px; height: 280px;">No Image</div>
-                            </c:otherwise>
-                        </c:choose>
-                        <div class="card-body">
-                            <h5 class="card-title text-center">${salon.name}</h5>
-                            <div class="text-center">
-                                <button class="btn btn-primary" onclick="selectSalon(${salon.id})">Select</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
-    </div>
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <c:forEach var="salon" items="${sessionScope.allFoundSalons}">--%>
+<%--                <div class="services-card mb-5 p-2"> <!-- Each show occupies 1/5th of the row -->--%>
+<%--                    <div class="card h-100"> <!-- Card layout for each show -->--%>
+<%--                        <c:choose>--%>
+<%--                            <c:when test="${not empty salon.attachments}">--%>
+<%--                                <img src="${salon.attachments.get(0).fileName}" class="card-img-top d-block mx-auto" alt="salon image" style="width: 190px; height: 280px">--%>
+<%--                            </c:when>--%>
+<%--                            <c:otherwise>--%>
+<%--                                <div class="card-img-top d-block mx-auto text-center py-5" style="background-color: #f0f0f0; width: 190px; height: 280px;">No Image</div>--%>
+<%--                            </c:otherwise>--%>
+<%--                        </c:choose>--%>
+<%--                        <div class="card-body">--%>
+<%--                            <h5 class="card-title text-center">${salon.name}</h5>--%>
+<%--                            <div class="text-center">--%>
+<%--                                <button class="btn btn-primary" onclick="selectSalon(${salon.id})">Select</button>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </c:forEach>--%>
+<%--        </div>--%>
+<%--    </div>--%>
 
-</div>
+<%--</div>--%>
 
 
 
