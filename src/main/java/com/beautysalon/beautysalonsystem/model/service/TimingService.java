@@ -147,4 +147,15 @@ public class TimingService implements Serializable {
                 .setParameter("endTime", endTime)
                 .getResultList();
     }
+
+    @Transactional
+    public List<Timing> findBySalonIdAndServicesIdAndDate( Long salonId, Long servicesId, LocalDate date) throws Exception {
+        return entityManager
+                .createQuery("select t from timingEntity t where t.salon.id =:salonId and t.deleted = false and t.services.id =:servicesId and t.startTime between :startTime and :endTime ", Timing.class)
+                .setParameter("salonId", salonId)
+                .setParameter("servicesId", servicesId)
+                .setParameter("startTime", date.atTime(1, 0, 0))
+                .setParameter("endTime", date.atTime(23, 59, 59))
+                .getResultList();
+    }
 }

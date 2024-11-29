@@ -53,7 +53,7 @@
 
         <div class="container">
             <div class="row">
-                <c:forEach var="services" items="${sessionScope.allActiveServices}">
+                <c:forEach var="services" items="${sessionScope.services}">
                     <div class="show-card mb-5 p-2"> <!-- Each show occupies 1/5th of the row -->
                         <div class="card h-100"> <!-- Card layout for each show -->
                             <c:choose>

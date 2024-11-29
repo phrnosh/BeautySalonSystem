@@ -47,40 +47,23 @@ public class HomeServlet extends HttpServlet {
             System.out.println("salonHome.do\n\n\n\n");
 
 
-            if (req.getParameter("selectSalon") != null) {
+            if (req.getParameter("selectDate") != null) {
 
-                Long salonId = Long.parseLong(req.getParameter("selectSalon"));
-                Salon salon = salonService.findById(salonId);
-                SalonVO salonVO = new SalonVO(salon);
-                req.getSession().setAttribute("selectedSalon", salonVO);
-                Long servicesId = Long.parseLong(req.getSession().getAttribute("servicesId").toString());
-                LocalDate selectedDate = LocalDate.parse(req.getSession().getAttribute("selectedDate").toString());
-                List<Timing> timings = timingService.findByServicesIdAndDateAndSalonId(servicesId, selectedDate, salonId);
-                List<TimingVO> timingVOList = new ArrayList<>();
-                for (Timing timing : timings) {
-                    TimingVO timingVO = new TimingVO(timing);
-                    timingVOList.add(timingVO);
-                }
+                 LocalDate selectedDate = LocalDate.parse(req.getParameter("selectDate"));
+                 req.getSession().setAttribute("selectedDate", selectedDate);
+                 List<Salon> salonList = timingService.findDistinctSalonByServicesIdAndDate(Long.parseLong(req.getSession().getAttribute("servicesId").toString()), selectedDate);
+                 List<SalonVO> salonVOList = new ArrayList<>();
+                 for (Salon salon : salonList) {
+                     SalonVO salonVO = new SalonVO(salon);
+                     salonVOList.add(salonVO);
+                 }
+
+                 req.getSession().setAttribute("salon", salonVOList);
+                 req.getRequestDispatcher("/salon-select.jsp").forward(req, resp);
 
 
-                req.getSession().setAttribute("timing", timingVOList);
-                req.getRequestDispatcher("/timing-select.jsp").forward(req, resp);
 
-            } else if (req.getParameter("selectDate") != null) {
-
-                LocalDate selectedDate = LocalDate.parse(req.getParameter("selectDate"));
-                req.getSession().setAttribute("selectedDate", selectedDate);
-                List<Salon> salonList = timingService.findDistinctSalonByServicesIdAndDate(Long.parseLong(req.getSession().getAttribute("servicesId").toString()),selectedDate);
-                List<SalonVO> salonVOList = new ArrayList<>();
-                for (Salon salon : salonList) {
-                    SalonVO salonVO = new SalonVO(salon);
-                    salonVOList.add(salonVO);
-                }
-
-                req.getSession().setAttribute("salon", salonVOList);
-                req.getRequestDispatcher("/salon-select.jsp").forward(req, resp);
-
-            } else if (req.getParameter("selectServices") != null) {
+             } else if (req.getParameter("selectServices") != null) {
                 Long servicesId = Long.parseLong(req.getParameter("selectServices"));
                 req.getSession().setAttribute("servicesId", servicesId);
                 req.getSession().setAttribute("selectedServices", servicesService.findById(servicesId));
@@ -89,9 +72,29 @@ public class HomeServlet extends HttpServlet {
                 req.getSession().setAttribute("servicesDates", dateList);
                 req.getRequestDispatcher("/services-date-select.jsp").forward(req, resp);
 
-            } else {
 
-                List<Salon> allActiveSalon = new ArrayList<>();
+             } else if (req.getParameter("selectSalon") != null) {
+
+            Long salonId = Long.parseLong(req.getParameter("selectSalon"));
+            Salon salon = salonService.findById(salonId);
+            SalonVO salonVO = new SalonVO(salon);
+            req.getSession().setAttribute("selectedSalon", salonVO);
+//            Long servicesId = Long.parseLong(req.getSession().getAttribute("servicesId").toString());
+//            LocalDate selectedDate = LocalDate.parse(req.getSession().getAttribute("selectedDate").toString());
+//            List<Timing> timings = timingService.findBySalonIdAndServicesIdAndDate(salonId, servicesId, selectedDate);
+//            List<TimingVO> timingVOList = new ArrayList<>();
+//            for (Timing timing : timings) {
+//                TimingVO timingVO = new TimingVO(timing);
+//                timingVOList.add(timingVO);
+//          req.getSession().setAttribute("timing", timingVOList);
+
+             req.getSession().setAttribute("services", salon.getServicesList());
+            req.getRequestDispatcher("/services-select.jsp").forward(req, resp);
+
+
+             } else {
+
+            List<Salon> allActiveSalon = new ArrayList<>();
 
 //                if(req.getParameter("findHairstyle") != null) {
 //                    allActiveServices = servicesService.findAvailableServicesByType("HAIRSTYLE");
