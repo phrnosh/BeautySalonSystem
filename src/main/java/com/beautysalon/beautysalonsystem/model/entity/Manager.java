@@ -54,7 +54,5 @@ public class Manager extends Profile {
         attachment.setManager(this);
     }
 
-    @OneToOne
-    private Role role ;
 }
 

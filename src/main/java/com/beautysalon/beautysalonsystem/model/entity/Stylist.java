@@ -1,5 +1,6 @@
 package com.beautysalon.beautysalonsystem.model.entity;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
@@ -43,10 +44,24 @@ public class Stylist extends Profile {
     @JoinTable(name = "Services_Stylist_tbl")
     private List<Services> services;
 
+    @JsonbTransient
+    @OneToMany(mappedBy = "stylist", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<Attachment> attachments;
+
+    public void addAttachment(Attachment attachment) {
+        if (attachments == null) {
+            attachments = new ArrayList<>();
+        }
+        attachments.add(attachment);
+        attachment.setStylist(this);
+    }
+
     public void addServices(Services service) {
         if (services == null) {
             services = new ArrayList<>();
         }
         services.add(service);
     }
+
+
 }

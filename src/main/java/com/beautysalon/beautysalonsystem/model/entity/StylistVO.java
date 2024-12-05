@@ -50,7 +50,7 @@ public class StylistVO {
         if (stylist.getAttachments().isEmpty()) {
             this.imageUrl = "";
         } else {
-            this.imageUrl = stylist.getAttachments().get(0).getFilename();
+            this.imageUrl = stylist.getAttachments().get(0).getFileName();
         }
 
     }

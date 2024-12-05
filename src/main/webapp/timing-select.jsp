@@ -18,6 +18,10 @@
 </head>
 <body>
 
+<input type="hidden" id="user" value="${sessionScope.user}">
+
+
+
 <%
     String errorMessage = (String) session.getAttribute("errorMessage");
     if (errorMessage != null) {
@@ -46,73 +50,73 @@
                 <h2 style="text-align: left">${sessionScope.selectedServices.name}</h2>
             </div>
 
-            <div>
-                <%
-                    Services services = (Services) session.getAttribute("selectedServices");
-                    if (services.getServicesType().equals(ServicesType.HAIRSTYLE)) {
-                %>
+<%--            <div>--%>
+<%--                <%--%>
+<%--                    Services services = (Services) session.getAttribute("selectedServices");--%>
+<%--                    if (services.getServicesType().equals(ServicesType.HAIRSTYLE)) {--%>
+<%--                %>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Haircut : ${sessionScope.selectedServices.haircut}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Haircut : ${sessionScope.selectedServices.haircut}</h5>--%>
+<%--                </div>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Styled : ${sessionScope.selectedServices.styled}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Styled : ${sessionScope.selectedServices.styled}</h5>--%>
+<%--                </div>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Coloured : ${sessionScope.selectedServices.coloured}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Coloured : ${sessionScope.selectedServices.coloured}</h5>--%>
+<%--                </div>--%>
 
-                <%
-                } else if (services.getServicesType().equals(ServicesType.MAKEUP)) {
-                %>
+<%--                <%--%>
+<%--                } else if (services.getServicesType().equals(ServicesType.MAKEUP)) {--%>
+<%--                %>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Makeup : ${sessionScope.selectedServices.makeup}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Makeup : ${sessionScope.selectedServices.makeup}</h5>--%>
+<%--                </div>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Eyebrows Services : ${sessionScope.selectedServices.eyebrowsservices}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Eyebrows Services : ${sessionScope.selectedServices.eyebrowsservices}</h5>--%>
+<%--                </div>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Eyelash Services : ${sessionScope.selectedServices.eyelashservices}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Eyelash Services : ${sessionScope.selectedServices.eyelashservices}</h5>--%>
+<%--                </div>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">lip Services : ${sessionScope.selectedServices.libservices}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">lip Services : ${sessionScope.selectedServices.libservices}</h5>--%>
+<%--                </div>--%>
 
-                <%
-                } else if (services.getServicesType().equals(ServicesType.SANITARY)) {
-                %>
+<%--                <%--%>
+<%--                } else if (services.getServicesType().equals(ServicesType.SANITARY)) {--%>
+<%--                %>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Facial : ${sessionScope.selectedServices.facial}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Facial : ${sessionScope.selectedServices.facial}</h5>--%>
+<%--                </div>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Skin Therapy : ${sessionScope.selectedServices.skintherapy}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Skin Therapy : ${sessionScope.selectedServices.skintherapy}</h5>--%>
+<%--                </div>--%>
 
-                <%
-                } else if (services.getServicesType().equals(ServicesType.NAILS)) {
-                %>
+<%--                <%--%>
+<%--                } else if (services.getServicesType().equals(ServicesType.NAILS)) {--%>
+<%--                %>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Manicure : ${sessionScope.selectedServices.manicure}</h5>
-                </div>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Manicure : ${sessionScope.selectedServices.manicure}</h5>--%>
+<%--                </div>--%>
 
-                <div class="mb-4">
-                    <h5 style="text-align: left">Pedicure : ${sessionScope.selectedServices.pedicure}</h5>
-                </div>
-                <% } %>
+<%--                <div class="mb-4">--%>
+<%--                    <h5 style="text-align: left">Pedicure : ${sessionScope.selectedServices.pedicure}</h5>--%>
+<%--                </div>--%>
+<%--                <% } %>--%>
 
-                <div>
-                    <h5 style="text-align: left">Release Date : ${sessionScope.selectedServices.releasedDate}</h5>
-                </div>
-            </div>
+<%--                <div>--%>
+<%--                    <h5 style="text-align: left">Release Date : ${sessionScope.selectedServices.releasedDate}</h5>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
         </div>
 
@@ -223,9 +227,60 @@
 
 <script>
 
-    function selectTiming(id){
-        window.location.replace("/services.do?selectTimingId=" + id);
+    function selectTiming(id) {
+        // Check if the user session is null
+        const user = document.getElementById('user').value; // Assuming user data is in a hidden field
+
+        if (!user) {
+            // If user is null, redirect to /customer.do
+            window.location.href = '/customer.do';
+            return;
+        }
+
+        // Create a form element
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '/booking.do';
+
+        // Create a hidden input field for the data
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'selectTimingId'; // Parameter name
+        input.value = id; // Parameter value
+
+        // Append the input to the form
+        form.appendChild(input);
+
+        // Append the form to the document and submit it
+        document.body.appendChild(form);
+        form.submit();
     }
+
+
+
+
+
+
+    // function selectTiming(id) {
+    //     // Create a form element
+    //     const form = document.createElement('form');
+    //     form.method = 'POST';
+    //     form.action = '/booking.do';
+    //
+    //     // Create a hidden input field for the data
+    //     const input = document.createElement('input');
+    //     input.type = 'hidden';
+    //     input.name = 'selectTimingId'; // Parameter name
+    //     input.value = id; // Parameter value
+    //
+    //     // Append the input to the form
+    //     form.appendChild(input);
+    //
+    //     // Append the form to the document and submit it
+    //     document.body.appendChild(form);
+    //     form.submit();
+    // }
+
 
 </script>
 

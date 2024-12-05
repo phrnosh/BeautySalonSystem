@@ -53,7 +53,7 @@ public class ManagerVO {
         if (manager.getAttachments().isEmpty()) {
             this.imageUrl = "";
         } else {
-            this.imageUrl = manager.getAttachments().get(0).getFilename();
+            this.imageUrl = manager.getAttachments().get(0).getFileName();
         }
 
     }

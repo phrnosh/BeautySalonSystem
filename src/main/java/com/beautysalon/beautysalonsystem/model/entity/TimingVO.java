@@ -49,7 +49,7 @@ public class TimingVO {
         this.servicesDescription = timing.getServices().getDescription();
 
         if (!timing.getServices().getAttachments().isEmpty()){
-            this.servicesImage = timing.getServices().getAttachments().get(0).getFilename();
+            this.servicesImage = timing.getServices().getAttachments().get(0).getFileName();
         } else {
             this.servicesImage = "";
         }

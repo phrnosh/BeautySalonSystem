@@ -26,7 +26,7 @@ public class Attachment {
     private Long id;
 
     @Column(name="file_name", length = 50)
-    private String filename;
+    private String fileName;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name ="file_type")
@@ -48,6 +48,10 @@ public class Attachment {
     @ManyToOne
     @JoinColumn(name = "admin_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_admin"))
     private Admin admin;
+
+    @ManyToOne
+    @JoinColumn(name = "stylist_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_stylist"))
+    private Stylist stylist;
 
 //    @ManyToOne
 //    @JoinColumn(name = "message_id", nullable = true, foreignKey = @ForeignKey(name = "fk_attachment_message"))

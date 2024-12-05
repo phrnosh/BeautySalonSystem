@@ -131,7 +131,7 @@ public class AdminServlet extends HttpServlet {
 
 
                 Attachment attachment = Attachment.builder()
-                        .filename(relativePath)
+                        .fileName(relativePath)
                         .fileType(FileType.Jpg)
                         .fileSize(filePart.getSize())
                         .build();
@@ -189,7 +189,7 @@ public class AdminServlet extends HttpServlet {
                     filePart.write(filePath);
 
                     Attachment attachment = Attachment.builder()
-                            .filename(relativePath)
+                            .fileName(relativePath)
                             .fileType(FileType.Jpg)
                             .fileSize(filePart.getSize())
                             .build();
@@ -205,9 +205,12 @@ public class AdminServlet extends HttpServlet {
                     adminService.save(admin);
                     //TODO: Saving User .
 
+                    System.out.println("saved : " + admin.getId());
+
                     log.info("Admin saved successfully : " + admin.getFamily());
                     resp.sendRedirect("/admin.do");
                 } else {
+                    System.out.println("validation failed : " );
                     String errorMessage = "Invalid Admin Data !!!";
                     req.getSession().setAttribute("errorMessage", errorMessage);
                     log.error(errorMessage);

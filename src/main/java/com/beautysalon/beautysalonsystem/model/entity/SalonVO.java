@@ -37,7 +37,7 @@ public class SalonVO {
         if (salon.getAttachments().isEmpty()) {
             this.imageUrl = "";
         } else {
-            this.imageUrl = salon.getAttachments().get(0).getFilename();
+            this.imageUrl = salon.getAttachments().get(0).getFileName();
         }
     }
 

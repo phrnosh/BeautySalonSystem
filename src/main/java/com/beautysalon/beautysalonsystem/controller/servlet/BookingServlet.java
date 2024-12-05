@@ -2,9 +2,9 @@ package com.beautysalon.beautysalonsystem.controller.servlet;
 
 
 import com.beautysalon.beautysalonsystem.controller.exception.ExceptionWrapper;
-import com.beautysalon.beautysalonsystem.controller.validation.BeanValidator;
+
 import com.beautysalon.beautysalonsystem.model.entity.*;
-import com.beautysalon.beautysalonsystem.model.entity.enums.ServicesType;
+
 import com.beautysalon.beautysalonsystem.model.service.BankService;
 import com.beautysalon.beautysalonsystem.model.service.BookingService;
 import com.beautysalon.beautysalonsystem.model.service.CustomerService;
@@ -16,16 +16,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.extern.log4j.Log4j;
+
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.DayOfWeek;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.Enumeration;
 import java.util.List;
 
@@ -61,6 +60,7 @@ public class BookingServlet extends HttpServlet {
             String redirectPath = "";
 
             if (user != null && user.getRole().getRole().equals("customer")) {
+
 
                 List<Booking> bookingList = bookingService.findByCustomerPhoneNumber(user.getUsername());
                 List<BookingVO> bookingVOList = new ArrayList<>();
@@ -115,9 +115,10 @@ public class BookingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         try {
-            TimingVO timingVO = (TimingVO) req.getSession().getAttribute("selectedTiming");
-            Timing timing = timingService.findById(timingVO.getId());
+//            TimingVO timingVO = (TimingVO) req.getSession().getAttribute("selectedTiming");
+//            Timing timing = timingService.findById(timingVO.getId());
 
+            Timing timing = timingService.findById(Long.parseLong(req.getParameter("selectTimingId")));
 
             CustomerVO customerVO = (CustomerVO) req.getSession().getAttribute("customer");
             Customer customer = customerService.findById(customerVO.getId());
@@ -135,19 +136,14 @@ public class BookingServlet extends HttpServlet {
                                     .build();
 
 
-                    String applicationPath = req.getServletContext().getRealPath("");
-                    String uploadDirectory = applicationPath + "uploads/qrCodes";
-                    File uploadDir = new File(uploadDirectory);
-                    if (!uploadDir.exists()) {
-                        uploadDir.mkdir();
-                    }
-
 
                     bookingService.save(booking);
                     bookingIds.add(booking.getId());
                     log.info("Booking saved successfully ID : " + booking.getId());
 
                 req.getSession().setAttribute("bookingIds", bookingIds);
+
+            resp.sendRedirect("/booking.do");
 
 
         } catch (Exception e) {

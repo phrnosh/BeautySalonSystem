@@ -3,6 +3,7 @@ package com.beautysalon.beautysalonsystem.controller.servlet;
 import com.beautysalon.beautysalonsystem.controller.exception.ExceptionWrapper;
 import com.beautysalon.beautysalonsystem.controller.validation.BeanValidator;
 import com.beautysalon.beautysalonsystem.model.entity.*;
+import com.beautysalon.beautysalonsystem.model.entity.enums.FileType;
 import com.beautysalon.beautysalonsystem.model.entity.enums.UserState;
 import com.beautysalon.beautysalonsystem.model.service.AttachmentService;
 import com.beautysalon.beautysalonsystem.model.service.CustomerService;
@@ -17,15 +18,22 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringEscapeUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
 @Slf4j
 @WebServlet(urlPatterns = "/customer.do")
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024, // 1 MB
+        maxFileSize = 1024 * 1024 * 10,      // 10 MB
+        maxRequestSize = 1024 * 1024 * 100   // 100 MB
+)
 public class CustomerServlet extends HttpServlet {
 
     Map<String, String> csrfTokens = new HashMap<>();
@@ -39,6 +47,9 @@ public class CustomerServlet extends HttpServlet {
 
     @Inject
     private UserService userService;
+
+    @Inject
+    private AttachmentService attachmentService;
 
 
     @Override
@@ -121,59 +132,102 @@ public class CustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         try {
-            Role role = roleService.FindByRole("customer");
 
-            User user =
-                    User
-                            .builder()
-                            .username(req.getParameter("username"))
-                            .password(req.getParameter("password"))
-                            .role(role)
-                            .locked(false)
-                            .deleted(false)
-                            .build();
-            System.out.println("USER : " + user);
-            BeanValidator<User> userValidator = new BeanValidator<>();
-            if (!userValidator.validate(user).isEmpty()) {
-                String errorMessage = "Invalid User Data!";
-                req.getSession().setAttribute("errorMessage", errorMessage);
-                log.error(errorMessage);
-                resp.sendRedirect("/sign-up.jsp");
-                return;
-            }
+            if (req.getPart("newImage") != null) {
+                Customer editingCustomer = (Customer) req.getSession().getAttribute("editingCustomer");
+
+                for (Attachment attachment : editingCustomer.getAttachments()) {
+                    attachmentService.remove(attachment.getId());
+                }
+                editingCustomer.getAttachments().clear();
 
 
-            if (userService.findByUsername(req.getParameter("username")) != null) {
-                String errorMessage = "Duplicate username(phoneNumber) !!!";
-                req.getSession().setAttribute("errorMessage", errorMessage);
-                log.error(errorMessage);
-                resp.sendRedirect("/sign-up.jsp");
-                return;
-            }
+                Part filePart = req.getPart("newImage");
 
-            Customer customer =
-                    Customer
-                            .builder()
-                            .name(req.getParameter("name").toUpperCase())
-                            .family(req.getParameter("family").toUpperCase())
-                            .phoneNumber(req.getParameter("phoneNumber"))
-                            .email(req.getParameter("email"))
-                            .user(user)
-                            .deleted(false)
-                            .build();
+                String applicationPath = req.getServletContext().getRealPath("");
+
+                String uploadDirectory = applicationPath + "uploads";
+                File uploadDir = new File(uploadDirectory);
+                if (!uploadDir.exists()) {
+                    uploadDir.mkdir();
+                }
+
+                String fileName = filePart.getSubmittedFileName();
+                String filePath = uploadDirectory + File.separator + fileName;
+                String relativePath = "/uploads/" + fileName;
+
+                filePart.write(filePath);
 
 
-            BeanValidator<Customer> customerValidator = new BeanValidator<>();
-            if (customerValidator.validate(customer).isEmpty()) {
-                customerService.save(customer);
-                req.getSession().setAttribute("user", user);
-                log.info("Customer saved successfully : " + customer.getPhoneNumber());
+                Attachment attachment = Attachment.builder()
+                        .fileName(relativePath)
+                        .fileType(FileType.Jpg)
+                        .fileSize(filePart.getSize())
+                        .build();
+
+                editingCustomer.addAttachment(attachment);
+                editingCustomer.setEditing(false);
+                customerService.edit(editingCustomer);
+                log.info("Customer image changed successfully-ID : " + editingCustomer.getId());
                 resp.sendRedirect("/customer.do");
+
+
             } else {
-                String errorMessage = "Invalid Customer Data !!!";
-                req.getSession().setAttribute("errorMessage", errorMessage);
-                log.error(errorMessage);
-                resp.sendRedirect("/sign-up.jsp");
+
+                Role role = roleService.FindByRole("customer");
+
+                User user =
+                        User
+                                .builder()
+                                .username(req.getParameter("phoneNumber"))
+                                .password(req.getParameter("password"))
+                                .role(role)
+                                .locked(false)
+                                .deleted(false)
+                                .build();
+                System.out.println("USER : " + user);
+                BeanValidator<User> userValidator = new BeanValidator<>();
+                if (!userValidator.validate(user).isEmpty()) {
+                    String errorMessage = "Invalid User Data!";
+                    req.getSession().setAttribute("errorMessage", errorMessage);
+                    log.error(errorMessage);
+                    resp.sendRedirect("/sign-up.jsp");
+                    return;
+                }
+
+
+                if (userService.findByUsername(req.getParameter("username")) != null) {
+                    String errorMessage = "Duplicate username(phoneNumber) !!!";
+                    req.getSession().setAttribute("errorMessage", errorMessage);
+                    log.error(errorMessage);
+                    resp.sendRedirect("/sign-up.jsp");
+                    return;
+                }
+
+                Customer customer =
+                        Customer
+                                .builder()
+                                .name(req.getParameter("name").toUpperCase())
+                                .family(req.getParameter("family").toUpperCase())
+                                .phoneNumber(req.getParameter("phoneNumber"))
+                                .email(req.getParameter("email"))
+                                .user(user)
+                                .deleted(false)
+                                .build();
+
+
+                BeanValidator<Customer> customerValidator = new BeanValidator<>();
+                if (customerValidator.validate(customer).isEmpty()) {
+                    customerService.save(customer);
+                    req.getSession().setAttribute("user", user);
+                    log.info("Customer saved successfully : " + customer.getPhoneNumber());
+                    resp.sendRedirect("/customer.do");
+                } else {
+                    String errorMessage = "Invalid Customer Data !!!";
+                    req.getSession().setAttribute("errorMessage", errorMessage);
+                    log.error(errorMessage);
+                    resp.sendRedirect("/sign-up.jsp");
+                }
             }
 
         } catch (Exception e) {

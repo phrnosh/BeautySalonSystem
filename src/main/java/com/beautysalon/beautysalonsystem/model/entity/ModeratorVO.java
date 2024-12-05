@@ -51,7 +51,7 @@ public class ModeratorVO {
         if (moderator.getAttachments().isEmpty()) {
             this.imageUrl = "";
         } else {
-            this.imageUrl = moderator.getAttachments().get(0).getFilename();
+            this.imageUrl = moderator.getAttachments().get(0).getFileName();
         }
 
     }

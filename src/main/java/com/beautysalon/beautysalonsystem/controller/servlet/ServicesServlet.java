@@ -204,7 +204,7 @@ public class ServicesServlet extends HttpServlet {
 
                 Attachment attachment = Attachment.builder()
                         .attachTime(LocalDateTime.now())
-                        .filename(relativePath)
+                        .fileName(relativePath)
                         .fileType(FileType.Jpg)
                         .fileSize(filePart.getSize())
                         .build();
@@ -260,7 +260,7 @@ public class ServicesServlet extends HttpServlet {
                     // Create and add the attachment
                     Attachment attachment = Attachment.builder()
                             .attachTime(LocalDateTime.now())
-                            .filename(relativePath) // Store the relative path for JSP display
+                            .fileName(relativePath) // Store the relative path for JSP display
                             .fileType(FileType.Jpg) // Assuming JPG, modify as needed
                             .fileSize(filePart.getSize())
                             .build();

@@ -46,7 +46,7 @@ public class CustomerVO {
         if (customer.getAttachments().isEmpty()) {
             this.imageUrl = "";
         } else {
-            this.imageUrl = customer.getAttachments().get(0).getFilename();
+            this.imageUrl = customer.getAttachments().get(0).getFileName();
         }
 
         for (Booking booking : customer.getBookingList()){

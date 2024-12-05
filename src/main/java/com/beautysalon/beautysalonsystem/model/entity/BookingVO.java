@@ -28,7 +28,7 @@ public class BookingVO {
 
     private String issueTime;
 
-    private LocalDate showDate;
+    private LocalDate servicesDate;
 
     private LocalTime startHour;
 
@@ -55,7 +55,7 @@ public class BookingVO {
         this.customerFamily = booking.getCustomer().getFamily();
         this.customerPhoneNumber = booking.getCustomer().getPhoneNumber();
         this.issueTime = booking.getIssueTime().toLocalDate().toString() + "      " + booking.getIssueTime().getHour() + ":" + booking.getIssueTime().getMinute();
-        this.showDate = booking.getTiming().getStartTime().toLocalDate();
+        this.servicesDate = booking.getTiming().getStartTime().toLocalDate();
         this.startHour = booking.getTiming().getStartTime().toLocalTime();
         this.endHour = booking.getTiming().getEndTime().toLocalTime();
 //        this.price = booking.getPrice();
@@ -72,13 +72,13 @@ public class BookingVO {
         if (booking.getAttachments().isEmpty()) {
             this.qrCode = "";
         } else {
-            this.qrCode = booking.getAttachments().get(0).getFilename();
+            this.qrCode = booking.getAttachments().get(0).getFileName();
         }
 
         if (booking.getTiming().getServices().getAttachments().isEmpty()){
             this.imageUrl = "";
         } else {
-            this.imageUrl = booking.getTiming().getServices().getAttachments().get(0).getFilename();
+            this.imageUrl = booking.getTiming().getServices().getAttachments().get(0).getFileName();
         }
 
 //        if (booking.getPayment() != null){

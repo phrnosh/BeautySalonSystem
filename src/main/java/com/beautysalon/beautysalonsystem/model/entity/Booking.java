@@ -39,7 +39,7 @@ public class Booking extends Base{
     )
     private Customer customer;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne
     @JoinColumn(
             name = "timing_id",
             foreignKey = @ForeignKey(name = "fk_booking_timing")

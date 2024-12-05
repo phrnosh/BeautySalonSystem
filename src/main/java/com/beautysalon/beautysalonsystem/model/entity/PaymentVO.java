@@ -57,7 +57,7 @@ public class PaymentVO {
         if (payment.getAttachments().isEmpty()) {
             this.imageUrl = "";
         } else {
-            this.imageUrl = payment.getAttachments().get(0).getFilename();
+            this.imageUrl = payment.getAttachments().get(0).getFileName();
         }
 
     }

@@ -134,7 +134,7 @@ public class ModeratorServlet extends HttpServlet {
 
                 Attachment attachment = Attachment.builder()
                         .attachTime(LocalDateTime.now())
-                        .filename(relativePath)
+                        .fileName(relativePath)
                         .fileType(FileType.Jpg)
                         .fileSize(filePart.getSize())
                         .build();
@@ -194,7 +194,7 @@ public class ModeratorServlet extends HttpServlet {
 
                     Attachment attachment = Attachment.builder()
                             .attachTime(LocalDateTime.now())
-                            .filename(relativePath)
+                            .fileName(relativePath)
                             .fileType(FileType.Jpg)
                             .fileSize(filePart.getSize())
                             .build();

@@ -50,16 +50,28 @@ public class HomeServlet extends HttpServlet {
             if (req.getParameter("selectDate") != null) {
 
                  LocalDate selectedDate = LocalDate.parse(req.getParameter("selectDate"));
-                 req.getSession().setAttribute("selectedDate", selectedDate);
-                 List<Salon> salonList = timingService.findDistinctSalonByServicesIdAndDate(Long.parseLong(req.getSession().getAttribute("servicesId").toString()), selectedDate);
-                 List<SalonVO> salonVOList = new ArrayList<>();
-                 for (Salon salon : salonList) {
-                     SalonVO salonVO = new SalonVO(salon);
-                     salonVOList.add(salonVO);
-                 }
 
-                 req.getSession().setAttribute("salon", salonVOList);
-                 req.getRequestDispatcher("/salon-select.jsp").forward(req, resp);
+                 req.getSession().setAttribute("selectedDate", selectedDate);
+//                 List<Salon> salonList = timingService.findDistinctSalonByServicesIdAndDate(Long.parseLong(req.getSession().getAttribute("servicesId").toString()), selectedDate);
+//                 List<SalonVO> salonVOList = new ArrayList<>();
+//                 for (Salon salon : salonList) {
+//                     SalonVO salonVO = new SalonVO(salon);
+//                     salonVOList.add(salonVO);
+//                 }
+                Long servicesId = Long.parseLong(req.getSession().getAttribute("servicesId").toString());
+                Long salonId = Long.parseLong(req.getSession().getAttribute("salonId").toString());
+                List<Timing> timings = timingService.findBySalonIdAndServicesIdAndDate(salonId, servicesId, selectedDate);
+            List<TimingVO> timingVOList = new ArrayList<>();
+            for (Timing timing : timings) {
+                TimingVO timingVO = new TimingVO(timing);
+                timingVOList.add(timingVO);
+            }
+
+                System.out.println(timingVOList);
+          req.getSession().setAttribute("timing", timingVOList);
+
+
+                 req.getRequestDispatcher("/timing-select.jsp").forward(req, resp);
 
 
 
@@ -69,7 +81,8 @@ public class HomeServlet extends HttpServlet {
                 req.getSession().setAttribute("selectedServices", servicesService.findById(servicesId));
                 List<LocalDate> dateList = timingService.findDistinctDatesByServicesId(servicesId);
 
-                req.getSession().setAttribute("servicesDates", dateList);
+                System.out.println(dateList);
+                req.getSession().setAttribute("servicesDate", dateList);
                 req.getRequestDispatcher("/services-date-select.jsp").forward(req, resp);
 
 
@@ -79,6 +92,7 @@ public class HomeServlet extends HttpServlet {
             Salon salon = salonService.findById(salonId);
             SalonVO salonVO = new SalonVO(salon);
             req.getSession().setAttribute("selectedSalon", salonVO);
+            req.getSession().setAttribute("salonId", salonId);
 //            Long servicesId = Long.parseLong(req.getSession().getAttribute("servicesId").toString());
 //            LocalDate selectedDate = LocalDate.parse(req.getSession().getAttribute("selectedDate").toString());
 //            List<Timing> timings = timingService.findBySalonIdAndServicesIdAndDate(salonId, servicesId, selectedDate);

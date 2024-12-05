@@ -78,13 +78,13 @@
 
 
             <c:choose>
-                <c:when test="${sessionScope.selectedTiming == null}">
-                    <a hidden="hidden" class="btn btn-danger w-25 mt-5" href="services.do">Continue
+                <c:when test="${sessionScope.selectedDate == null}">
+                    <a hidden="hidden" class="btn btn-danger w-25 mt-5" href="../timing-select.jsp">Continue
                         booking</a>
                 </c:when>
 
                 <c:otherwise>
-                    <a class="btn btn-danger w-25 mt-5" href="services.do">Continue booking</a>
+                    <a class="btn btn-danger w-25 mt-5" href="../timing-select.jsp">Continue booking</a>
                 </c:otherwise>
             </c:choose>
 

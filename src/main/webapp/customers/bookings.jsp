@@ -65,7 +65,7 @@
 
                     <tbody>
 
-                    <c:forEach var="booking" items="${sessionScope.customerBooking}">
+                    <c:forEach var="booking" items="${sessionScope.customerBookings}">
 
                         <tr>
                             <td hidden="hidden">${booking.id}</td>
