@@ -138,20 +138,20 @@ public class ManagerService implements Serializable {
             return null;
         }
     }
-
-    @Transactional
-    public Booking findBookingByManagerId(Long managerId) throws Exception {
-        List<Booking> bookingList =
-                entityManager
-                        .createQuery("select m.bookingList from managerEntity m where m.id =:managerId and m.deleted=false ", Booking.class)
-                        .setParameter("managerId", managerId)
-                        .getResultList();
-        if (!bookingList.isEmpty()) {
-            return bookingList.get(0);
-        } else {
-            return null;
-        }
-    }
+//
+//    @Transactional
+//    public Booking findBookingByManagerId(Long managerId) throws Exception {
+//        List<Booking> bookingList =
+//                entityManager
+//                        .createQuery("select m.bookingList from managerEntity m where m.id =:managerId and m.deleted=false ", Booking.class)
+//                        .setParameter("managerId", managerId)
+//                        .getResultList();
+//        if (!bookingList.isEmpty()) {
+//            return bookingList.get(0);
+//        } else {
+//            return null;
+//        }
+//    }
 
     @Transactional
     public Manager findManagerBySalonId(Long salonId) throws Exception {

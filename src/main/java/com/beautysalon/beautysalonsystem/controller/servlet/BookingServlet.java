@@ -73,13 +73,13 @@ public class BookingServlet extends HttpServlet {
                 redirectPath = "/admin/find-booking.jsp";
 
             }
-            if (user.getRole().getRole().equals("manager")) {
-                ManagerVO managerVO = (ManagerVO) req.getSession().getAttribute("manager");
-                Manager manager = managerService.findById(managerVO.getId());
-                BookingVO bookingVO = new BookingVO(managerService.findBookingByManagerId(manager.getId()));
-                req.getSession().setAttribute("booking", bookingVO);
-                redirectPath = "/managers/booking-managers.jsp";
-            }
+//            if (user.getRole().getRole().equals("manager")) {
+//                ManagerVO managerVO = (ManagerVO) req.getSession().getAttribute("manager");
+//                Manager manager = managerService.findById(managerVO.getId());
+//                BookingVO bookingVO = new BookingVO(managerService.findBookingByManagerId(manager.getId()));
+//                req.getSession().setAttribute("booking", bookingVO);
+//                redirectPath = "/managers/booking-managers.jsp";
+//            }
 
             if (req.getParameter("cancel") != null) {
                 Booking editingBooking = bookingService.findById(Long.parseLong(req.getParameter("cancel")));
