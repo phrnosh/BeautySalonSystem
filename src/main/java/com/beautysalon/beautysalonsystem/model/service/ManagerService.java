@@ -1,6 +1,7 @@
 package com.beautysalon.beautysalonsystem.model.service;
 
 
+import com.beautysalon.beautysalonsystem.model.entity.Booking;
 import com.beautysalon.beautysalonsystem.model.entity.Manager;
 import com.beautysalon.beautysalonsystem.model.entity.Salon;
 import com.beautysalon.beautysalonsystem.model.entity.Services;
@@ -133,6 +134,20 @@ public class ManagerService implements Serializable {
                         .getResultList();
         if (!salonList.isEmpty()) {
             return salonList.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Transactional
+    public Booking findBookingByManagerId(Long managerId) throws Exception {
+        List<Booking> bookingList =
+                entityManager
+                        .createQuery("select m.bookingList from managerEntity m where m.id =:managerId and m.deleted=false ", Booking.class)
+                        .setParameter("managerId", managerId)
+                        .getResultList();
+        if (!bookingList.isEmpty()) {
+            return bookingList.get(0);
         } else {
             return null;
         }

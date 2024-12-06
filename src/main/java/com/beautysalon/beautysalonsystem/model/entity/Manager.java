@@ -43,6 +43,13 @@ public class Manager extends Profile {
     )
     private Salon salon;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "booking_id",
+            foreignKey = @ForeignKey(name = "fk_manager_booking")
+    )
+    private List<Booking> bookingList;
+
     @OneToMany(mappedBy = "manager", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Attachment> attachments;
 
