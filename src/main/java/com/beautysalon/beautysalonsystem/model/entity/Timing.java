@@ -46,7 +46,7 @@ public class Timing extends Base{
     private LocalDateTime endTime;
 
     @Column(name = "status")
-    private boolean status;
+    private boolean status = true;
 
     @Column(name = "description", length = 50)
     private String description;

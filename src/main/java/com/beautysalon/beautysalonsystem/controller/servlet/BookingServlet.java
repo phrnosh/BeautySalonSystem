@@ -135,10 +135,9 @@ public class BookingServlet extends HttpServlet {
                                     .reserved(true)
                                     .build();
 
-
-
                     bookingService.save(booking);
                     bookingIds.add(booking.getId());
+                    timing.setStatus(false);
                     log.info("Booking saved successfully ID : " + booking.getId());
 
                 req.getSession().setAttribute("bookingIds", bookingIds);

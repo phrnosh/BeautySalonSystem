@@ -127,6 +127,7 @@
                resourceName="UserDatabase"/>
       </Realm>
 
+
       <Realm className="org.apache.catalina.realm.DataSourceRealm"
        dataSourceName="jdbc/JtaDataSource"
        userTable="user_tbl"

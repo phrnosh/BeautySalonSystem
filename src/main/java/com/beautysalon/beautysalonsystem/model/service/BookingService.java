@@ -81,6 +81,14 @@ public class BookingService implements Serializable {
     }
 
     @Transactional
+    public List<Long> findSoldTimingByServicesId(Long timingId) throws Exception {
+        return entityManager
+                .createQuery("select b.timing from bookingEntity b where b.timing.id =:timingId and b.reserved=false and b.deleted=false ", Long.class)
+                .setParameter("timingId", timingId)
+                .getResultList();
+    }
+
+    @Transactional
     public List<Booking> findFailedReserved() throws Exception {
         return entityManager
                 .createQuery("select b from bookingEntity b where b.reserved=true and b.issueTime <: allowedTime and b.deleted=false ", Booking.class)
