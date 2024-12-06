@@ -80,7 +80,7 @@ public class TimingService implements Serializable {
         List<LocalDate> dates = new ArrayList<>();
         List<LocalDateTime> dateTimeList =
                 entityManager
-                        .createQuery("select distinct t.startTime from timingEntity t where t.startTime between :startTime and :endTime and t.services.id =:servicesId and t.deleted = false ", LocalDateTime.class)
+                        .createQuery("select distinct t.startTime from timingEntity t where t.startTime between :startTime and :endTime and t.services.id =:servicesId and t.deleted = false and t.status=true ", LocalDateTime.class)
                         .setParameter("startTime", LocalDateTime.now())
                         .setParameter("endTime", LocalDateTime.now().plusDays(7))
                         .setParameter("servicesId", servicesId)
@@ -151,7 +151,7 @@ public class TimingService implements Serializable {
     @Transactional
     public List<Timing> findBySalonIdAndServicesIdAndDate( Long salonId, Long servicesId, LocalDate date) throws Exception {
         return entityManager
-                .createQuery("select t from timingEntity t where t.salon.id =:salonId and t.deleted = false and t.services.id =:servicesId and t.startTime between :startTime and :endTime ", Timing.class)
+                .createQuery("select t from timingEntity t where t.salon.id =:salonId and t.deleted = false and t.services.id =:servicesId and t.status=true and t.startTime between :startTime and :endTime ", Timing.class)
                 .setParameter("salonId", salonId)
                 .setParameter("servicesId", servicesId)
                 .setParameter("startTime", date.atTime(1, 0, 0))
