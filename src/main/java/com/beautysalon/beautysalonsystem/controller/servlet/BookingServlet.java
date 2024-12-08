@@ -68,8 +68,24 @@ public class BookingServlet extends HttpServlet {
                 req.getSession().setAttribute("customerBookings", bookingVOList);
                 redirectPath = "/customers/bookings.jsp";
 
+            } else if (user.getRole().getRole().equals("manager")) {
+                Manager manager = managerService.findByUsername(user.getUsername());
+                List<Booking> bookingList = bookingService.findBySalonId(manager.getSalon().getId());
+                List<BookingVO> bookingVOList = new ArrayList<>();
+                for (Booking booking : bookingList) {
+                    BookingVO bookingVO = new BookingVO(booking);
+                    bookingVOList.add(bookingVO);
+                }
+                req.getSession().setAttribute("salonBookings", bookingVOList);
+                redirectPath = redirectPath + "/managers/booking-managers.jsp";
             } else {
-
+                List<Booking> bookingList = bookingService.findAll();
+                List<BookingVO> bookingVOList = new ArrayList<>();
+                for (Booking booking : bookingList) {
+                    BookingVO bookingVO = new BookingVO(booking);
+                    bookingVOList.add(bookingVO);
+                }
+                req.getSession().setAttribute("allBookings", bookingVOList);
                 redirectPath = "/admin/find-booking.jsp";
 
             }

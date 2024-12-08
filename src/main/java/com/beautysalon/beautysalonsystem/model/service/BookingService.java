@@ -144,4 +144,12 @@ public class BookingService implements Serializable {
 //                .getResultList();
 //    }
 
+    @Transactional
+    public List<Booking> findBySalonId(Long salonId) throws Exception {
+        return entityManager
+                .createQuery("select b from bookingEntity b where b.timing.salon.id =: salonId", Booking.class)
+                .setParameter("salonId", salonId)
+                .getResultList();
+    }
+
 }

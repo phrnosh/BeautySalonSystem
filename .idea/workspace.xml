@@ -9,41 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb614c9e-29fa-4700-819c-0d3cb2557d12" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="cb614c9e-29fa-4700-819c-0d3cb2557d12" name="Changes" comment="final update.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/AdminServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/BookingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/BookingServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/CustomerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/ManagerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/ModeratorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/ModeratorServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/SalonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/SalonServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/ServicesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/ServicesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/StylistServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/StylistServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/TimingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/controller/servlet/TimingServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Attachment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Attachment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Base.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/BookingVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/BookingVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/CustomerVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/CustomerVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/ManagerVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/ManagerVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/ModeratorVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/ModeratorVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/PaymentVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/PaymentVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/SalonVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/SalonVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Stylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/Stylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/StylistVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/StylistVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/TimingVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/entity/TimingVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beautysalon/beautysalonsystem/model/service/BookingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/find-booking.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/find-booking.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/customers/bookings.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/customers/bookings.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/customers/customer-panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/customers/customer-panel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/services-date-select.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/services-date-select.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/sign-up.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/sign-up.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/timing-select.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/timing-select.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/managers/booking-managers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/managers/booking-managers.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +46,6 @@
       </branch-storage>
     </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -323,7 +293,11 @@
       <workItem from="1733336338114" duration="4800000" />
       <workItem from="1733341155917" duration="4546000" />
       <workItem from="1733345715417" duration="4483000" />
-      <workItem from="1733375848734" duration="2842000" />
+      <workItem from="1733375848734" duration="3336000" />
+      <workItem from="1733464866067" duration="219000" />
+      <workItem from="1733465614129" duration="2296000" />
+      <workItem from="1733479032741" duration="958000" />
+      <workItem from="1733661531179" duration="1738000" />
     </task>
     <task id="LOCAL-00001" summary="Package">
       <option name="closed" value="true" />
@@ -541,7 +515,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730750601357</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="final update.">
+      <option name="closed" value="true" />
+      <created>1733379144314</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1733379144314</updated>
+    </task>
+    <task id="LOCAL-00029" summary="final update.">
+      <option name="closed" value="true" />
+      <created>1733474641560</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1733474641560</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,6 +566,7 @@
     <MESSAGE value="Servlets &amp; etc" />
     <MESSAGE value="JPA" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="final update." />
+    <option name="LAST_COMMIT_MESSAGE" value="final update." />
   </component>
 </project>
