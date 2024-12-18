@@ -37,7 +37,7 @@ public class Stylist extends Profile {
     private String address;
 
     @Column(name = "national_code", length = 10)
-//    @Pattern(regexp = "^//d{10}$")
+    @Pattern(regexp = "^//d{10}$")
     private String nationalCode;
 
     @OneToMany(fetch = FetchType.EAGER)

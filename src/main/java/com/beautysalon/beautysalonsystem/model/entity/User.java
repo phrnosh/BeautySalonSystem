@@ -1,6 +1,7 @@
 package com.beautysalon.beautysalonsystem.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,11 +20,11 @@ import lombok.experimental.SuperBuilder;
 public class User extends Base {
     @Id
     @Column(name = "username", length = 30)
-    //@Pattern(regexp = "^[a-zA-Z\\d\\S\\._]{3,30}$" ,message = "Invalid username")
+    @Pattern(regexp = "^[a-zA-Z\\d\\S\\._]{3,30}$" ,message = "Invalid username")
     private String username;
 
     @Column(name = "password", length = 15, nullable = false)
-    //  @Pattern(regexp = "^[\\w\\S]{3,30}$" ,message = "Invalid Password")
+    @Pattern(regexp = "^[\\w\\S]{3,30}$" ,message = "Invalid Password")
     private String password;
 
     @OneToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)

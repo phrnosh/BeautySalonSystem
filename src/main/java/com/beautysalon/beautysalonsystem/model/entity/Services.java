@@ -3,6 +3,7 @@ package com.beautysalon.beautysalonsystem.model.entity;
 import com.beautysalon.beautysalonsystem.model.entity.enums.ServicesType;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,7 +32,7 @@ public class Services extends Base{
     private Long id;
 
     @Column(name = "name", length = 60)
-//    @Pattern(regexp = "^[a-zA-Z\\s\\d]{3,60}$", message = "Invalid Name")
+    @Pattern(regexp = "^[a-zA-Z\\s\\d]{3,60}$", message = "Invalid Name")
     private String name;
 
     @Column(name = "description",length = 100)

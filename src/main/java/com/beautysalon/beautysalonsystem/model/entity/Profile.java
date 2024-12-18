@@ -19,19 +19,19 @@ import lombok.experimental.SuperBuilder;
 public abstract class Profile extends Base {
 
     @Column(name="name", length = 30, nullable = false)
-    //@Pattern(regexp = "^[a-zA-Z\\s]{3,30}$" ,message = "Invalid Name")
+    @Pattern(regexp = "^[a-zA-Z\\s]{3,30}$" ,message = "Invalid Name")
     private String name;
 
     @Column(name="family", length = 30, nullable = false)
-    //@Pattern(regexp = "^[a-zA-Z\\s]{3,30}$" ,message = "Invalid Family")
+    @Pattern(regexp = "^[a-zA-Z\\s]{3,30}$" ,message = "Invalid Family")
     private String family;
 
     @Column(name="email", length = 50)
-//    @Pattern(regexp = "^\\w{3,35}@(gmail|yahoo|microsoft)\\.com$" ,message = "Invalid Email")
+    @Pattern(regexp = "^\\w{3,35}@(gmail|yahoo|microsoft)\\.com$" ,message = "Invalid Email")
     private String email;
 
     @Column(name="phone_number", length = 15, unique = true)
-//    @Pattern(regexp = "^(09|\\+989)\\d{9}$" ,message = "Invalid PhoneNumber")
+    @Pattern(regexp = "^(09|\\+989)\\d{9}$" ,message = "Invalid PhoneNumber")
     private String phoneNumber;
 
 //    @Enumerated(EnumType.ORDINAL)
