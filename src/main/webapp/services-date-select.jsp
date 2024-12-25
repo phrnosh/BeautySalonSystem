@@ -16,7 +16,7 @@
     </style>
 
 </head>
-<body>
+<body class="content">
 
 
 <%
@@ -32,17 +32,16 @@
 %>
 
 
-<div class="content d-flex flex-column flex-grow-1 h-100">
+<div class="d-flex flex-column flex-grow-1 h-100">
 
     <jsp:include page="/navbar.jsp"/>
 
-    <div class="bg-dark h-50 d-flex flex-row p-5">
+    <div class="bg-black d-flex flex-row p-5">
                 <div>
-                    <img src="${sessionScope.selectedServices.attachments.get(0).fileName}" alt="No Image" height="280px"
-                         width="190px">
+                    <img src="${sessionScope.selectedServices.attachments.get(0).fileName}" alt="No Image" height="280px">
                 </div>
 
-                <div class="text-white  d-flex flex-column justify-content-between" style="margin-left: 5%">
+                <div class="text-white d-flex flex-column justify-content-between" style="margin-left: 5%">
                     <div class="mb-2">
                         <h2 style="text-align: left">${sessionScope.selectedServices.name}</h2>
                     </div>

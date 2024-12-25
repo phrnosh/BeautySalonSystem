@@ -128,6 +128,7 @@ public class HomeServlet extends HttpServlet {
 //                    }
 //                }
 
+                allActiveSalon = salonService.findAllLimit();
 
                 for (Salon salon : allActiveSalon){
                     if (salon.getAttachments() != null && !salon.getAttachments().isEmpty()){
@@ -136,7 +137,6 @@ public class HomeServlet extends HttpServlet {
                 }
 
                 req.getSession().setAttribute("allActiveSalon", allActiveSalon);
-//todo
                 req.getRequestDispatcher("/customers/panel.jsp").forward(req, resp);
 
             }

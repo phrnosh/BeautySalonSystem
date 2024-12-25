@@ -16,7 +16,7 @@
     </style>
 
 </head>
-<body>
+<body class="content">
 
 <input type="hidden" id="user" value="${sessionScope.user}">
 
@@ -35,14 +35,13 @@
 %>
 
 
-<div class="content d-flex flex-column flex-grow-1 h-100">
+<div class="d-flex flex-column flex-grow-1 h-100">
 
     <jsp:include page="/navbar.jsp"/>
 
-    <div class="bg-dark h-50 d-flex flex-row p-5">
+    <div class="bg-black d-flex flex-row p-5">
         <div>
-            <img src="${sessionScope.selectedServices.attachments.get(0).fileName}" alt="No Image" height="280px"
-                 width="190px">
+            <img src="${sessionScope.selectedServices.attachments.get(0).fileName}" alt="No Image" height="280px">
         </div>
 
         <div class="text-white  d-flex flex-column justify-content-between" style="margin-left: 5%">
@@ -139,7 +138,7 @@
             </div>
         </div>
 
-        <div class="h-100 align-items-center justify-content-between p-3 d-flex flex-row w-75 text-white" style="background-color: #5f5564; margin-left: 10%">
+        <div class="h-100 align-items-center justify-content-between p-3 d-flex flex-row w-75 text-white" style="background-color: #2c3927; margin-left: 10%">
             <div style="margin-left: 2%">
                 <div class="d-flex flex-row mb-1">
                     <i class="fa" style="font-size: xx-large; margin-right: 8px;"></i>

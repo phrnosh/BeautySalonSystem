@@ -60,6 +60,12 @@ public class SalonService implements Serializable {
     }
 
     @Transactional
+    public List<Salon> findAllLimit() throws Exception {
+        return entityManager
+                .createQuery("select sa from salonEntity sa where sa.deleted=false order by id desc limit 3", Salon.class)
+                .getResultList();
+    }
+    @Transactional
     public Salon findById(Long id) throws Exception {
         return entityManager.find(Salon.class, id);
     }

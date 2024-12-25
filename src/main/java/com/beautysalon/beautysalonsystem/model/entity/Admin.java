@@ -29,7 +29,7 @@ public class Admin extends Profile {
     private Long id;
 
     @Column(name = "address", length = 100)
-    @Pattern(regexp = "^[\\w\\s]{2,100}$", message = "invalid Address")
+//    @Pattern(regexp = "^[\\w\\s]{2,100}$", message = "invalid Address")
     private String address;
 
     @Column(name = "national_code", length = 10)

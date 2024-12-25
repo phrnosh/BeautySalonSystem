@@ -56,6 +56,10 @@ public class SearchServlet extends HttpServlet {
                 salonText = req.getParameter("salonText");
                 allFoundSalons = salonService.findByText(salonText);
             }
+            else {
+                allFoundSalons = salonService.findAll();
+            }
+
             log.info("Search Salons by Text: "+ salonText);
             req.getSession().setAttribute("allFoundSalons", allFoundSalons);
             req.getRequestDispatcher("/search.jsp").forward(req, resp);
